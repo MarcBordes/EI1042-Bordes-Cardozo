@@ -76,4 +76,5 @@ switch ($a) {
         echo "3";
         break;
 }
+
 ?>
