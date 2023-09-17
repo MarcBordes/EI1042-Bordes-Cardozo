@@ -1,27 +1,26 @@
 <?php
 
-/*esto es un comentario 
-que termina aqui*/
+/* Esto es un comentario
+que termina aquí */
 
-//Esto es otro comentario de sólo una linea
+// Esto es otro comentario de una sola línea
 
+// Constante
+const PI = 3.1416;
 
-//constante
-const PI = 2.1416;
-
-//Variables
+// Variables
 $a = 2;
 $b = 2;
-echo "Hola Mundo\n<p/>";
-echo $c;
 $c = $a + $b;
 $d = $a . $b;
+echo "Hola Mundo\n<p/>";
+echo $c;
 echo $d;
 echo "$c";
 echo '$c';
 echo PI * 3;
 
-//Funciones
+// Funciones
 
 /**
  * Summary of concatenar
@@ -37,28 +36,29 @@ function concatenar($a)
 }
 
 concatenar("  oo ");
-print_r("\n concatenar </p>\n");
+echo "\n concatenar </p>\n";
 
 $lista = array(1, 2, 3, 4, 5);
 
-for ($i = 0; $i < $lista . lengh; $i++)
+for ($i = 0; $i < count($lista); $i++)
     echo $lista[$i];
 
 $lista = array();
 $lista[] = 1;
 print_r($lista);
-print_r("\n Listas r\n </p>");
-//diccionarios
+echo "\n Listas r\n </p>";
+
+// Diccionarios
 
 $grants = array('read' => '1', 'write' => '2');
 echo $grants['read'], "\n";
-print_r($grants); //muestra listas
-var_dump($grants); //muestra tipos complejos
+print_r($grants); // muestra listas
+var_dump($grants); // muestra tipos complejos
 foreach ($grants as $val => $n) {
     echo $val, "-", $n, "\n";
 }
 
-print_r("\n Diccionarios </p>\n");
+echo "\n Diccionarios </p>\n";
 
 if ($a == 'hola')
     echo "1";
@@ -76,6 +76,4 @@ switch ($a) {
         echo "3";
         break;
 }
-
-
 ?>
