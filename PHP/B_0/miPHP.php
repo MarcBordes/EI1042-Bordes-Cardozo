@@ -10,7 +10,9 @@ $citas = [
 echo "<h2>Lista de días</h2>";
 
 foreach ($dias as $dia) {
-    echo $dia . "<br>";
+    echo "<ul>";
+    echo "<li> $dia </li>";
+    echo "</ul>";
 }
 
 echo "<h2>Diccionario de citas</h2>";
@@ -18,9 +20,14 @@ echo "<h2>Diccionario de citas</h2>";
 foreach ($citas as $data => $cita) {
     echo "<p>Fecha: $data</p>";
     echo "<ul>";
-    foreach ($cita as $camp) {
-        echo "<li>$camp</li>";
+    foreach ($cita as $index => $camp) {
+        if ($index == 0) {
+            echo "<li>Nombre: $camp</li>";
+        } else if ($index == 1) {
+            echo "<li>Edad: $camp</li>";
+        }
     }
+
     echo "</ul>";
 }
 
