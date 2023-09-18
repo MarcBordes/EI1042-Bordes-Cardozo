@@ -1,10 +1,10 @@
 <?php
 $name = "contador.txt";
-$directory = "./datos";
+$directory = "/tmp/php/datos";
 $fich = $directory . "/" . $name;
 if (!file_exists($fich)) {
    if (!file_exists($directory)) {
-      mkdir($directory, 0700);
+      mkdir($directory, 0700, true);
    }
    $visitas = 0;
 } else {
@@ -15,5 +15,5 @@ if (!file_exists($fich)) {
 $visitas++; // Incrementamos las visitas
 $fp = fopen($fich, "w"); // Abrimos el archivo en modo escritura
 fputs($fp, $visitas); // Escribimos las visitas sumadas
-echo "Visitas: ",$visitas; // Mostramos las visitas 
+echo "Visitas: ", $visitas; // Mostramos las visitas 
 ?>
