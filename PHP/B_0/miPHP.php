@@ -9,11 +9,12 @@ $citas = [
 
 echo "<h2>Lista de días</h2>";
 
+echo "<ul>";
 foreach ($dias as $dia) {
-    echo "<ul>";
     echo "<li> $dia </li>";
-    echo "</ul>";
 }
+echo "</ul>";
+
 
 echo "<h2>Diccionario de citas</h2>";
 
