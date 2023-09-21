@@ -47,12 +47,12 @@ function print_dicc($dicc) {
 
     echo "<html><head><style>";
     echo "body { text-align: center; }"; // Centro de todo el contenido
-    echo ".container { display: inline-block; margin: 20px; text-align: left; vertical-align: top; }"; // Estilo del contenedor
+    echo ".container { display: inline-block; margin: 20px; text-align: left; vertical-align: top; }"; 
     echo "</style></head><body>";
     echo "<h1>Ventas por producto</h1>";
 
     foreach ($dicc as $producto => $ventas) {
-        echo "<div class='container'>"; // Iniciar contenedor
+        echo "<div class='container'>"; 
         echo "<h2>$producto</h2>";
         echo "<ul>";
         foreach ($ventas as $venta) {
@@ -62,7 +62,7 @@ function print_dicc($dicc) {
             echo "<br>";
         }
         echo "</ul>";
-        echo "</div>"; // Cerrar contenedor
+        echo "</div>"; 
     }
 
 
