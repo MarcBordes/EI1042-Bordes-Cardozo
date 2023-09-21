@@ -45,6 +45,29 @@ function compra_clients ($id_cliente) {
 //Funcion para mostrar el diccionario por HTML
 function print_dicc($dicc) {
 
+    echo "<html><head><style>";
+    echo "body { text-align: center; }"; // Centro de todo el contenido
+    echo ".container { display: inline-block; margin: 20px; text-align: left; vertical-align: top; }"; // Estilo del contenedor
+    echo "</style></head><body>";
+    echo "<h1>Ventas por producto</h1>";
+
+    foreach ($dicc as $producto => $ventas) {
+        echo "<div class='container'>"; // Iniciar contenedor
+        echo "<h2>$producto</h2>";
+        echo "<ul>";
+        foreach ($ventas as $venta) {
+            foreach ($venta as $categoria => $result) {
+                echo "<li><b>Categoría:</b> $categoria - <b>Resultado:</b> $result</li>";
+            }
+            echo "<br>";
+        }
+        echo "</ul>";
+        echo "</div>"; // Cerrar contenedor
+    }
+
+
+    /*
+
     echo "<h1> Ventas por producto </h1><br>";
 
     foreach ($dicc as $producto => $ventas) {
@@ -56,6 +79,7 @@ function print_dicc($dicc) {
             echo "<br>";
         } 
     }
+    */
 } 
 
 
