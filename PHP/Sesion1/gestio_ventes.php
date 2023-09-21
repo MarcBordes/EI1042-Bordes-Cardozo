@@ -42,10 +42,27 @@ function compra_clients ($id_cliente) {
 }
 
 
+//Funcion para mostrar el diccionario por HTML
+function print_dicc($dicc) {
+
+    echo "<h1> Ventas por producto </h1><br>";
+
+    foreach ($dicc as $producto => $ventas) {
+        echo "<li><b> $producto </b></li>";
+        foreach ($ventas as $venta) {
+            foreach ($venta as $categoria => $result ) {
+            echo "$categoria --> $result <br>";
+            }
+            echo "<br>";
+        } 
+    }
+} 
+
+
 $fichero = "sales_2008-2011.csv";
 
 $dicc_ventas = importar_dades0($fichero);
-print_r($dicc_ventas);
-
+//print_r($dicc_ventas);
+print_dicc($dicc_ventas);
 
 ?>
