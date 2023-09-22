@@ -36,24 +36,33 @@ function importar_dades0($archivo_csv)
 }
 
 //EJERCICIO 2
-function compra_clients ($id_cliente) {
-
-
+function compra_clients($id_cliente, $dicc)
+{
+    $productos = array();
+    foreach ($dicc as $producto => $result) {
+        foreach ($result as $venta) {
+            if (in_array($id_cliente, $venta)) {
+                array_push($productos, $producto);
+            }
+        }
+    }
+    return array_unique($productos);
 }
 
 
 //Funcion para mostrar el diccionario por HTML
-function print_dicc($dicc) {
+function print_dicc($dicc)
+{
 
     echo "<html><head><style>";
     echo "body { text-align: center; }"; // Centro de todo el contenido
-    echo ".container { display: inline-block; margin: 20px; text-align: left; vertical-align: top; }"; 
+    echo ".container { display: inline-block; margin: 20px; text-align: left; vertical-align: top; }";
     echo ".product { text-align: center; }"; // Centrar el primer producto en cada columna
     echo "</style></head><body>";
     echo "<h1>Ventas por producto</h1>";
 
     foreach ($dicc as $producto => $ventas) {
-        echo "<div class='container'>"; 
+        echo "<div class='container'>";
         echo "<h2 class='product'>$producto</h2>";
         echo "<ul>";
         foreach ($ventas as $venta) {
@@ -63,7 +72,7 @@ function print_dicc($dicc) {
             echo "<br>";
         }
         echo "</ul>";
-        echo "</div>"; 
+        echo "</div>";
     }
 
 
@@ -81,13 +90,15 @@ function print_dicc($dicc) {
         } 
     }
     */
-} 
+}
 
 
 $fichero = "sales_2008-2011.csv";
+$idcliente = "Cust_8";
 
 $dicc_ventas = importar_dades0($fichero);
 //print_r($dicc_ventas);
 print_dicc($dicc_ventas);
+print_r(compra_clients($idcliente, $dicc_ventas));
 
 ?>
