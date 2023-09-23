@@ -48,6 +48,61 @@ function compra_clients($id_cliente, $dicc)
     }
     return array_unique($productos);
 }
+//EJERCICIO 2 PERO NO SE LE TIENE QUE PASAR NADA, LO HACE TODO AUTOMÁTICO.
+function compra_clientes($dicc)
+{
+    $diccionarioConClientes = array();
+
+    foreach ($dicc as $prod) {
+        foreach ($prod as $diccInterno) {
+            $clave = $diccInterno["Cust_ID"];
+            if (array_key_exists($clave, $diccionarioConClientes)) {
+                // Si la clave existe, agrega el elemento a la lista existente
+                $diccionarioConClientes[$clave][] = $diccInterno;
+            } else {
+                // Si la clave no existe, crea una nueva clave con una lista que contiene el elemento
+                $diccionarioConClientes[$clave] = array($diccInterno);
+            }
+
+        }
+    }
+    return $diccionarioConClientes;
+}
+
+//EJERCICIO 3
+function guardar_dades($dicc){
+
+    $file = 'ventas.json';
+    file_put_contents($file, json_encode($dicc));
+}   
+
+//EJERCICIO 4
+function afegeix_compra ($dicc_ventas,$compra) {
+    //FALTA QUE SE LE PASE LOS DATOS QUE QUEREMOS QUE SE GUARDE.
+    $miDato = array(
+        "producto" => $compra[0],
+        "pais" => $compra[1],
+        "fecha" => $compra[2],
+        "cantidad" => intval($compra[3]), // Convertir a entero
+        "precio" => floatval($compra[4]), // Convertir a flotante
+        "cliente" => $compra[5]
+    );
+    $dicc_ventas[$compra["producto"]] = $miDato;
+    guardar_dades($dicc_ventas);
+}
+
+function borrar_compra($dicc,$compra) {
+    $listaProductos = $dicc[$compra["producto"]];
+    foreach ($listaProductos as $indice => $lista) {+
+        $resultado = array_diff($lista, $compra);
+        
+        if (empty($resultado)) { 
+            //ELIMINO EL DATO DEL INDICE DONDE LO HEMOS ENCONTRADO.
+            unset($listaProductos[$indice]);
+        }
+    }
+}
+
 
 
 //Funcion para mostrar el diccionario por HTML
@@ -67,7 +122,7 @@ function print_dicc($dicc)
         echo "<ul>";
         foreach ($ventas as $venta) {
             foreach ($venta as $categoria => $result) {
-                echo "<li><b>Categoría:</b> $categoria - <b>Resultado:</b> $result</li>";
+                echo "<li><b></b> $categoria - $result</li>";
             }
             echo "<br>";
         }
@@ -75,22 +130,38 @@ function print_dicc($dicc)
         echo "</div>";
     }
 
+    //EJERCICIO 2
 
-    /*
+    /*  echo "<h1> COMPRA POR CLIENTE </h1><br>";
 
-    echo "<h1> Ventas por producto </h1><br>";
+      foreach ($dicc as $producto => $ventas) {
+          echo "<li><b> $producto </b></li>";
+          foreach ($ventas as $venta) {
+              foreach ($venta as $categoria => $result ) {
+              echo "$categoria --> $result <br>";
+              }
+              echo "<br>";
+          } 
+      }
+      */
+}
+//EJERCICIO 2 
+function print_clientes($dicc)
+{
 
-    foreach ($dicc as $producto => $ventas) {
-        echo "<li><b> $producto </b></li>";
+    echo "<h1> COMPRA DE CADA CLIENTE </h1><br>";
+    foreach ($dicc as $cliente => $ventas) {
+        echo "<h2> $cliente </h2>";
         foreach ($ventas as $venta) {
-            foreach ($venta as $categoria => $result ) {
-            echo "$categoria --> $result <br>";
+            foreach ($venta as $categoria => $result) {
+                echo "<li><b></b> $categoria - $result</li>";
             }
             echo "<br>";
-        } 
+        }
     }
-    */
 }
+
+
 
 
 $fichero = "sales_2008-2011.csv";
@@ -99,6 +170,8 @@ $idcliente = "Cust_8";
 $dicc_ventas = importar_dades0($fichero);
 //print_r($dicc_ventas);
 print_dicc($dicc_ventas);
-print_r(compra_clients($idcliente, $dicc_ventas));
+//print_r(compra_clients($idcliente, $dicc_ventas));
+print_clientes(compra_clientes($dicc_ventas));
+guardar_dades(compra_clientes($dicc_ventas));
 
 ?>
