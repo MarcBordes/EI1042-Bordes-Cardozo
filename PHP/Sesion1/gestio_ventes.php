@@ -78,7 +78,7 @@ function guardar_dades($dicc){
 
 //EJERCICIO 4
 function afegeix_compra ($dicc_ventas,$compra) {
-    //FALTA QUE SE LE PASE LOS DATOS QUE QUEREMOS QUE SE GUARDE.
+    //FALTA QUE SE LE PASE LOS DATOS QUE QUEREMOS QUE SE GUARDE. - Creo que los atributos tienen que ser del mismo nombre que en el fichero - Cust_ID , product ...
     $miDato = array(
         "producto" => $compra[0],
         "pais" => $compra[1],
@@ -93,7 +93,7 @@ function afegeix_compra ($dicc_ventas,$compra) {
 
 function borrar_compra($dicc,$compra) {
     $listaProductos = $dicc[$compra["producto"]];
-    foreach ($listaProductos as $indice => $lista) {+
+    foreach ($listaProductos as $indice => $lista) {
         $resultado = array_diff($lista, $compra);
         
         if (empty($resultado)) { 
@@ -168,10 +168,12 @@ $fichero = "sales_2008-2011.csv";
 $idcliente = "Cust_8";
 
 $dicc_ventas = importar_dades0($fichero);
+guardar_dades($dicc_ventas);
 //print_r($dicc_ventas);
-print_dicc($dicc_ventas);
+//print_dicc($dicc_ventas);
 //print_r(compra_clients($idcliente, $dicc_ventas));
-print_clientes(compra_clientes($dicc_ventas));
-guardar_dades(compra_clientes($dicc_ventas));
+//print_clientes(compra_clientes($dicc_ventas));
+print_r(compra_clientes($dicc_ventas));
+//guardar_dades(compra_clientes($dicc_ventas));
 
 ?>
