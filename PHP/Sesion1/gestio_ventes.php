@@ -115,7 +115,8 @@ function borrar_compra($dicc, $compra)
 
 function importar_dades($archivo_csv)
 {
-    
+    carregar_dades("ventas.json");
+
     //En primer lugar se tiene que leer los datos del fichero.
     $file = fopen($archivo_csv, 'r');
     $datos = array();
@@ -127,12 +128,12 @@ function importar_dades($archivo_csv)
         }
 
 
-            
+
         $miDato = array(
             "country" => $row[1],
             "date" => (new DateTime($row[2]))->format('Y-m-d'),
             "quantity" => intval($row[3]),
-            "amount" => floatval($row[4]), 
+            "amount" => floatval($row[4]),
             "card" => $row[5],
             "Cust_ID" => $row[6]
         );
@@ -144,10 +145,37 @@ function importar_dades($archivo_csv)
 
 }
 
-function carregar_dades ($dicc) {
-    $file = 'ventas.json';
-    file_put_contents($file, json_encode($dicc));
+function carregar_dades($rutaArchivoJSON)
+{
+    $resultado = file_get_contents($rutaArchivoJSON);
+
+    $diccionario = array();
+    $datos = json_decode($resultado, true); // Utiliza true para obtener un array asociativo
+
+    if ($datos === null) {
+        // Hubo un error al decodificar el JSON
+        echo "Error al decodificar el archivo JSON.";
+        return null;
+    }
+
+    foreach ($datos as $clave => $valoritos) {
+        foreach ($valoritos as $valor) {
+            $miDato = array(
+                "country" => $valor["country"],
+                "date" => (new DateTime($valor["date"]))->format('Y-m-d'),
+                "quantity" => intval($valor["quantity"]),
+                "amount" => floatval($valor["amount"]),
+                "card" => $valor["card"],
+                "Cust_ID" => $valor["Cust_ID"]
+            );
+
+            $diccionario[$clave][] = $miDato;
+        }
+    }
+
+    return $diccionario;
 }
+
 
 //Funcion para mostrar el diccionario por HTML
 function print_dicc($dicc)
@@ -195,8 +223,8 @@ function print_clientes($dicc)
 $fichero = "sales_2008-2011.csv";
 $idcliente = "Cust_8";
 
-$dicc_ventas = importar_dades($fichero);
-guardar_dades($dicc_ventas);
+//$dicc_ventas = importar_dades($fichero);
+//guardar_dades($dicc_ventas);
 
 $compra = array("prod_5", "España", "2008-12-12", 1, 3, "N", "Cust_8");
 //afegeix_compra($dicc_ventas, $compra);
@@ -210,6 +238,7 @@ $compraBorar = array("prod_3", "China", "2009-04-10", "2", "160", "N", "Cust_2")
 //guardar_dades(compra_clientes($dicc_ventas));
 //var_dump($dicc_ventas);
 
-print_dicc($dicc_ventas);
+//print_dicc($dicc_ventas);
+var_dump(carregar_dades("ventas.json"));
 
 ?>
