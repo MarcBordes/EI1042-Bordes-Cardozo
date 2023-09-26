@@ -174,7 +174,7 @@ function importar_dades($archivo_csv)
 }
 
 /**
- * Summary of carregar_dades
+ * Summary of carregar_dades -> este metodo carga los datos de un JSON a un diccionario
  * @param mixed $rutaArchivoJSON
  * @return array|null
  */
@@ -184,6 +184,7 @@ function carregar_dades($rutaArchivoJSON)
 
     $diccionario = array();
     $datos = json_decode($resultado, true); // Utiliza true para obtener un array asociativo
+    var_dump($datos);
 
     if ($datos === null) {
         // Hubo un error al decodificar el JSON
@@ -191,6 +192,7 @@ function carregar_dades($rutaArchivoJSON)
         return null;
     }
 
+    /*
     //Creo que esto de abajo no hace falta, que con el json_decode es suficiente para meterlo en el diccionario
 
     foreach ($datos as $clave => $valoritos) {
@@ -207,7 +209,7 @@ function carregar_dades($rutaArchivoJSON)
             $diccionario[$clave][] = $miDato;
         }
     }
-
+    */
     return $diccionario;
 }
 
@@ -249,7 +251,7 @@ function print_dicc($dicc)
 $fichero = "sales_2008-2011.csv";
 $idcliente = "Cust_8";
 
-//$dicc_ventas = importar_dades($fichero);
+$dicc_ventas = importar_dades($fichero);
 //guardar_dades($dicc_ventas);
 
 $compra = array("prod_5", "España", "2008-12-12", 1, 3, "N", "Cust_8");
@@ -264,7 +266,7 @@ $compraBorar = array("prod_3", "China", "2009-04-10", "2", "160", "N", "Cust_2")
 //guardar_dades(compra_clientes($dicc_ventas));
 //var_dump($dicc_ventas);
 
-//print_dicc($dicc_ventas);
+print_dicc($dicc_ventas);
 
 //carregar_dades("ventas.json");
 //var_dump(carregar_dades("ventas.json"));
