@@ -15,6 +15,11 @@
 //Aqui vamos a hacer la parte 1 de la lista que se nos ha proporcionado.
 
 
+/**
+ * Summary of importar_dades0
+ * @param mixed $archivo_csv
+ * @return array
+ */
 function importar_dades0($archivo_csv)
 {
     //En primer lugar se tiene que leer los datos del fichero.
@@ -35,20 +40,14 @@ function importar_dades0($archivo_csv)
     return $datos;
 }
 
-//EJERCICIO 2
-function compra_clients($id_cliente, $dicc)
-{
-    $productos = array();
-    foreach ($dicc as $producto => $result) {
-        foreach ($result as $venta) {
-            if (in_array($id_cliente, $venta)) {
-                array_push($productos, $producto);
-            }
-        }
-    }
-    return array_unique($productos);
-}
+
 //EJERCICIO 2 PERO NO SE LE TIENE QUE PASAR NADA, LO HACE TODO AUTOMÁTICO.
+/**
+ * Summary of compra_clientes
+ * @param mixed $dicc
+ * @param mixed $clave
+ * @return array
+ */
 function compra_clientes($dicc, $clave)
 {
     $diccionarioConClientes = array([]);
@@ -64,6 +63,11 @@ function compra_clientes($dicc, $clave)
 }
 
 //EJERCICIO 3
+/**
+ * Summary of guardar_dades
+ * @param mixed $dicc
+ * @return void
+ */
 function guardar_dades($dicc)
 {
 
@@ -72,6 +76,12 @@ function guardar_dades($dicc)
 }
 
 //EJERCICIO 4
+/**
+ * Summary of afegeix_compra
+ * @param mixed $dicc_ventas
+ * @param mixed $compra
+ * @return void
+ */
 function afegeix_compra($dicc_ventas, $compra)
 {
     //FALTA QUE SE LE PASE LOS DATOS QUE QUEREMOS QUE SE GUARDE.
@@ -96,6 +106,12 @@ function afegeix_compra($dicc_ventas, $compra)
 
 }
 
+/**
+ * Summary of borrar_compra
+ * @param mixed $dicc
+ * @param mixed $compra
+ * @return void
+ */
 function borrar_compra($dicc, $compra)
 {
     $listaProductos = $dicc[$compra[0]];
@@ -111,8 +127,11 @@ function borrar_compra($dicc, $compra)
 
 
 
-
-
+/**
+ * Summary of importar_dades
+ * @param mixed $archivo_csv
+ * @return array
+ */
 function importar_dades($archivo_csv)
 {
     carregar_dades("ventas.json");
@@ -126,8 +145,6 @@ function importar_dades($archivo_csv)
         if (!array_key_exists($row[0], $datos)) {
             $datos[$row[0]] = [];
         }
-
-
 
         $miDato = array(
             "country" => $row[1],
@@ -145,6 +162,11 @@ function importar_dades($archivo_csv)
 
 }
 
+/**
+ * Summary of carregar_dades
+ * @param mixed $rutaArchivoJSON
+ * @return array|null
+ */
 function carregar_dades($rutaArchivoJSON)
 {
     $resultado = file_get_contents($rutaArchivoJSON);
@@ -178,6 +200,11 @@ function carregar_dades($rutaArchivoJSON)
 
 
 //Funcion para mostrar el diccionario por HTML
+/**
+ * Summary of print_dicc
+ * @param mixed $dicc
+ * @return void
+ */
 function print_dicc($dicc)
 {
 
@@ -202,21 +229,6 @@ function print_dicc($dicc)
         echo "</div>";
     }
 
-}
-//EJERCICIO 2 
-function print_clientes($dicc)
-{
-
-    echo "<h1> COMPRA DE CADA CLIENTE </h1><br>";
-    foreach ($dicc as $cliente => $ventas) {
-        echo "<h2> $cliente </h2>";
-        foreach ($ventas as $venta) {
-            foreach ($venta as $categoria => $result) {
-                echo "<li><b></b> $categoria - $result</li>";
-            }
-            echo "<br>";
-        }
-    }
 }
 
 
