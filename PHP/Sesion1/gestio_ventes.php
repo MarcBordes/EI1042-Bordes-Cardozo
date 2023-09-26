@@ -45,14 +45,14 @@ function importar_dades0($archivo_csv)
 
 //EJERCICIO 2 PERO NO SE LE TIENE QUE PASAR NADA, LO HACE TODO AUTOMÁTICO.
 /**
- * Summary of compra_clientes -> para este metodo se le pasará el nombre del cliente que queramos saber que
+ * Summary of compra_clients -> para este metodo se le pasará el nombre del cliente que queramos saber que
  * productos ha comprado e iremos recorriendo el diccionario hasta econtrar el nombre del cliente y guardaremos
  * los datos del producto en un diccionario.
  * @param mixed $dicc
  * @param mixed $clave
  * @return array
  */
-function compra_clientes($dicc, $clave)
+function compra_clients($dicc, $clave)
 {
     $diccionarioConClientes = array([]);
     foreach ($dicc as $prod) {
@@ -132,6 +132,7 @@ function borrar_compra($dicc, $compra)
             unset($dicc[$compra[0]][$indice]);
         }
     }
+    guardar_dades($dicc);
 }
 
 
@@ -166,11 +167,9 @@ function importar_dades($archivo_csv)
             "Cust_ID" => $row[6]
         );
 
-
         $datos[$row[0]][] = $miDato;
     }
     return $datos;
-
 }
 
 /**
@@ -184,7 +183,6 @@ function carregar_dades($rutaArchivoJSON)
 
     $diccionario = array();
     $datos = json_decode($resultado, true); // Utiliza true para obtener un array asociativo
-    var_dump($datos);
 
     if ($datos === null) {
         // Hubo un error al decodificar el JSON
@@ -217,7 +215,7 @@ function carregar_dades($rutaArchivoJSON)
 //Funcion para mostrar el diccionario por HTML
 /**
  * Summary of print_dicc -> este metodo se ha implementado para poder visualizar mejor los datos del diccionario. Se ha optado
- * por mostrar los datos en formato HTML, se mostrará por cada producto cada compra.
+ * por mostrar los datos en formato HTML, se mostrará por cada producto cada compra efectuada.
  * @param mixed $dicc
  * @return void
  */
@@ -225,9 +223,9 @@ function print_dicc($dicc)
 {
 
     echo "<html><head><style>";
-    echo "body { text-align: center; }"; // Centro de todo el contenido
+    echo "body { text-align: center; }"; 
     echo ".container { display: inline-block; margin: 20px; text-align: left; vertical-align: top; }";
-    echo ".product { text-align: center; }"; // Centrar el primer producto en cada columna
+    echo ".product { text-align: center; }"; 
     echo "</style></head><body>";
     echo "<h1>Ventas por producto</h1>";
 
@@ -247,28 +245,32 @@ function print_dicc($dicc)
 
 }
 
-
+//variables para probar los metodos 
 $fichero = "sales_2008-2011.csv";
 $idcliente = "Cust_8";
 
+//creamos el diccionario llamando a la funcion importar_dades y pasandole el fichero
 $dicc_ventas = importar_dades($fichero);
-//guardar_dades($dicc_ventas);
 
+//ejemplo de añadir una compra con el metodo afegeix_compra comentado
 $compra = array("prod_5", "España", "2008-12-12", 1, 3, "N", "Cust_8");
 //afegeix_compra($dicc_ventas, $compra);
 
-$compraBorar = array("prod_3", "China", "2009-04-10", "2", "160", "N", "Cust_2");
-//borrar_compra($dicc_ventas,$compraBorar);
-//print_r(compra_clientes($dicc_ventas));
+//ejemplo para borrar una compra con el metodo borrar_compra comentado
+$compraBorrar = array("prod_3", "China", "2009-04-10", "2", "160", "N", "Cust_2");
+//borrar_compra($dicc_ventas,$compraBorrar);
 
-//compra_clientes($dicc_ventas, $idcliente);
+//prova per al metode compra_clients
+//compra_clients($dicc_ventas, $idcliente);
 
-//guardar_dades(compra_clientes($dicc_ventas));
-//var_dump($dicc_ventas);
 
-print_dicc($dicc_ventas);
-
+//prova per a carregar les dades del JSON a un diccionari
 //carregar_dades("ventas.json");
-//var_dump(carregar_dades("ventas.json"));
+
+
+//-------------------------------------------------------------------------------------//
+
+//si se quiere visualizar por el navegador los datos de las compras iniciales descomentar la siguiente linea
+//print_dicc($dicc_ventas);
 
 ?>
