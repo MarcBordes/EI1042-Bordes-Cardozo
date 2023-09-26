@@ -264,9 +264,9 @@ $compraBorar = array("prod_3", "China", "2009-04-10", "2", "160", "N", "Cust_2")
 //guardar_dades(compra_clientes($dicc_ventas));
 //var_dump($dicc_ventas);
 
-print_dicc($dicc_ventas);
+//print_dicc($dicc_ventas);
 
-carregar_dades("ventas.json");
+//carregar_dades("ventas.json");
 //var_dump(carregar_dades("ventas.json"));
 
 ?>
