@@ -16,7 +16,9 @@
 
 
 /**
- * Summary of importar_dades0
+ * Summary of importar_dades0 -> este metodo recive un fichero CSV y devuelve el diccionario con los datos del fichero.
+ * Vamos leyendo linea a linea del fichero y se va almacenando, la primera clave es el producto, cuyo valor es una lista con los
+ * clientes que han comprado ese producto con los detalles de los productos en formato clave - valor.
  * @param mixed $archivo_csv
  * @return array
  */
@@ -43,7 +45,9 @@ function importar_dades0($archivo_csv)
 
 //EJERCICIO 2 PERO NO SE LE TIENE QUE PASAR NADA, LO HACE TODO AUTOMÁTICO.
 /**
- * Summary of compra_clientes
+ * Summary of compra_clientes -> para este metodo se le pasará el nombre del cliente que queramos saber que
+ * productos ha comprado e iremos recorriendo el diccionario hasta econtrar el nombre del cliente y guardaremos
+ * los datos del producto en un diccionario.
  * @param mixed $dicc
  * @param mixed $clave
  * @return array
@@ -64,7 +68,8 @@ function compra_clientes($dicc, $clave)
 
 //EJERCICIO 3
 /**
- * Summary of guardar_dades
+ * Summary of guardar_dades -> este metodo va a recibir el diccionario creado anteriormente y lo vamos a
+ * volcar a un fichero JSON.
  * @param mixed $dicc
  * @return void
  */
@@ -77,14 +82,16 @@ function guardar_dades($dicc)
 
 //EJERCICIO 4
 /**
- * Summary of afegeix_compra
+ * Summary of afegeix_compra -> este metodo va a añadir una compra al diccionario, es por eso que se le pasará la
+ * compra como parametro. Vamos a guardar lo compra con el formato requerido por el diccionario en la variable $miDato, 
+ * se va a comprobar si el producto existe en el diccionario, si no existe se va a crear un nuevo clave - valor en el
+ * diccionario, si existe simplemente se va a añadir en la lista de clientes que han comprado el producto.
  * @param mixed $dicc_ventas
  * @param mixed $compra
  * @return void
  */
 function afegeix_compra($dicc_ventas, $compra)
 {
-    //FALTA QUE SE LE PASE LOS DATOS QUE QUEREMOS QUE SE GUARDE.
 
     $miDato = array(
         "country" => $compra[1],
@@ -107,7 +114,9 @@ function afegeix_compra($dicc_ventas, $compra)
 }
 
 /**
- * Summary of borrar_compra
+ * Summary of borrar_compra -> para este metodo se le pasará la compra que se quiera borrar del diccionario, vamos a buscar
+ * la compra en el diccionario segun el producto que se ha comprado, en el caso de encontrar la compra se borrará el 
+ * del diccionario la compra con el índce donde se encuentra.
  * @param mixed $dicc
  * @param mixed $compra
  * @return void
@@ -128,7 +137,9 @@ function borrar_compra($dicc, $compra)
 
 
 /**
- * Summary of importar_dades
+ * Summary of importar_dades -> este método es identico al ejercicio 1 en cuanto a estructura y funcionalidad. Los datos
+ * que se han modificado son la fecha ( se ha guardado en el diccionario en formato fecha ), la cantidad ( se ha guardado
+ * no con String si no como un valor Entero ) y el importe que se ha guardado como float.
  * @param mixed $archivo_csv
  * @return array
  */
@@ -201,7 +212,8 @@ function carregar_dades($rutaArchivoJSON)
 
 //Funcion para mostrar el diccionario por HTML
 /**
- * Summary of print_dicc
+ * Summary of print_dicc -> este metodo se ha implementado para poder visualizar mejor los datos del diccionario. Se ha optado
+ * por mostrar los datos en formato HTML, se mostrará por cada producto cada compra.
  * @param mixed $dicc
  * @return void
  */
