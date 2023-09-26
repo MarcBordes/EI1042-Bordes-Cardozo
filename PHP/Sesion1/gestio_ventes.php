@@ -191,6 +191,8 @@ function carregar_dades($rutaArchivoJSON)
         return null;
     }
 
+    //Creo que esto de abajo no hace falta, que con el json_decode es suficiente para meterlo en el diccionario
+
     foreach ($datos as $clave => $valoritos) {
         foreach ($valoritos as $valor) {
             $miDato = array(
@@ -262,7 +264,9 @@ $compraBorar = array("prod_3", "China", "2009-04-10", "2", "160", "N", "Cust_2")
 //guardar_dades(compra_clientes($dicc_ventas));
 //var_dump($dicc_ventas);
 
-//print_dicc($dicc_ventas);
-var_dump(carregar_dades("ventas.json"));
+print_dicc($dicc_ventas);
+
+carregar_dades("ventas.json");
+//var_dump(carregar_dades("ventas.json"));
 
 ?>
