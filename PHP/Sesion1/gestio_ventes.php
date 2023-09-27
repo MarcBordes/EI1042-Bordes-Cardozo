@@ -6,17 +6,14 @@
  * *
  * * Descripción extensa: Programa par la  gestión de ventas de una tienda, que utilizará un fichero csv para obtner los datos.
  * *
- * * @author  Marc Bordes Gomez <al405682@uji.es> Elias Martín Cardozo Cardozo<al405647@uji.es>
+ * * @author  Marc Bordes Gomez <al405682@uji.es> Elias Martín Cardozo Cardozo <al405647@uji.es>
  * * @copyright 2023 Marc Bordes - Elias Martín Cardozo
  * * @license http://www.fsf.org/licensing/licenses/gpl.txt GPL 2 or later
  * * @version 1
  * */
 
-//Aqui vamos a hacer la parte 1 de la lista que se nos ha proporcionado.
-
-
 /**
- * Summary of importar_dades0 -> este metodo recive un fichero CSV y devuelve el diccionario con los datos del fichero.
+ * Summary of importar_dades0 -> este método recive un fichero CSV y devuelve el diccionario con los datos del fichero.
  * Vamos leyendo linea a linea del fichero y se va almacenando, la primera clave es el producto, cuyo valor es una lista con los
  * clientes que han comprado ese producto con los detalles de los productos en formato clave - valor.
  * @param mixed $archivo_csv
