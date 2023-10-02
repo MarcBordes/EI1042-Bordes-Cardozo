@@ -1,8 +1,10 @@
 :root {
-    --color-1: #96858f; /* Asi es como se ponen los colores para que sean globales, nosotros vamos a usar el hexa */
-    --color-2: #6d7993; /* Asi es como se ponen los colores para que sean globales, nosotros vamos a usar el hexa */
-    --color-3: #9099a2; /* Asi es como se ponen los colores para que sean globales, nosotros vamos a usar el hexa */
-    --color-3: #d5d5d5; /* Asi es como se ponen los colores para que sean globales, nosotros vamos a usar el hexa */
+    --color-1: #494E6B; /* Asi es como se ponen los colores para que sean globales, nosotros vamos a usar el hexa */
+    --color-2: #98878F; /* Asi es como se ponen los colores para que sean globales, nosotros vamos a usar el hexa */
+    --color-3: #985E6D; /* Asi es como se ponen los colores para que sean globales, nosotros vamos a usar el hexa */
+    --color-4: #d5d5d5; /* Asi es como se ponen los colores para que sean globales, nosotros vamos a usar el hexa */
+    --color-5: #192231; /* Asi es como se ponen los colores para que sean globales, nosotros vamos a usar el hexa */
+
 
     /* var()*/
   }
