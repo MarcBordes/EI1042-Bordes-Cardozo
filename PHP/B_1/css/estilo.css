@@ -12,11 +12,20 @@
 
 
 body {
+    display: flex;
+    flex-direction: column;
     font-family: arial;
     background-image: url('../img/fondo.png');
     margin: 0 auto;
     background-color: #000;
+    min-height: 100vh; /* Asegura que el cuerpo tenga al menos el 100% de la altura de la ventana */
+
     /* Centrado */
+}
+
+main {
+    flex-grow: 1;
+    color: white;
 }
 
 header {
@@ -26,11 +35,11 @@ header {
     display: flex;
     align-items: center;
     justify-content: center;
+    
 }
 
 nav, footer {
     clear: both;
-    margin-bottom: 10px;
     padding: 4px;
     text-align: center;
     background-color: var(--color-3);

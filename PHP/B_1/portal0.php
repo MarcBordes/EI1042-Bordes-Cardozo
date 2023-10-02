@@ -30,6 +30,6 @@
     require_once(dirname(__FILE__)."/partials/header.php");
     require_once(dirname(__FILE__)."/partials/menu.php");
     require_once(dirname(__FILE__).$central);
-    echo "<br />",$action,"<br />",dirname(__FILE__),"<br />";
+    //echo "<br />",$action,"<br />",dirname(__FILE__),"<br />";
     require_once(dirname(__FILE__)."/partials/footer.php");
 ?>
