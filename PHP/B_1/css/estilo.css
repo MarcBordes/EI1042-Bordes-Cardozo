@@ -1,13 +1,18 @@
 :root {
-    --color-1: #494E6B; /* Asi es como se ponen los colores para que sean globales, nosotros vamos a usar el hexa */
-    --color-2: #98878F; /* Asi es como se ponen los colores para que sean globales, nosotros vamos a usar el hexa */
-    --color-3: #985E6D; /* Asi es como se ponen los colores para que sean globales, nosotros vamos a usar el hexa */
-    --color-4: #d5d5d5; /* Asi es como se ponen los colores para que sean globales, nosotros vamos a usar el hexa */
-    --color-5: #192231; /* Asi es como se ponen los colores para que sean globales, nosotros vamos a usar el hexa */
+    --color-1: #494E6B;
+    /* Asi es como se ponen los colores para que sean globales, nosotros vamos a usar el hexa */
+    --color-2: #98878F;
+    /* Asi es como se ponen los colores para que sean globales, nosotros vamos a usar el hexa */
+    --color-3: #985E6D;
+    /* Asi es como se ponen los colores para que sean globales, nosotros vamos a usar el hexa */
+    --color-4: #d5d5d5;
+    /* Asi es como se ponen los colores para que sean globales, nosotros vamos a usar el hexa */
+    --color-5: #192231;
+    /* Asi es como se ponen los colores para que sean globales, nosotros vamos a usar el hexa */
 
 
     /* var()*/
-  }
+}
 
 
 
@@ -18,7 +23,8 @@ body {
     background-image: url('../img/fondo.png');
     margin: 0 auto;
     background-color: #000;
-    min-height: 100vh; /* Asegura que el cuerpo tenga al menos el 100% de la altura de la ventana */
+    min-height: 100vh;
+    /* Asegura que el cuerpo tenga al menos el 100% de la altura de la ventana */
 
     /* Centrado */
 }
@@ -26,6 +32,7 @@ body {
 main {
     flex-grow: 1;
     color: white;
+    padding: 4em;
 }
 
 header {
@@ -35,10 +42,11 @@ header {
     display: flex;
     align-items: center;
     justify-content: center;
-    
+
 }
 
-nav, footer {
+nav,
+footer {
     clear: both;
     padding: 4px;
     text-align: center;
@@ -86,15 +94,29 @@ h2 {
     right: 10%;
 }
 
-table { background-color:#FFFFE0;
-    border-collapse:collapse;
-    color:#000;
-    font-size:18px;
-    border:1px;
-    margin: 10px auto; }
-th { background-color:#BDB76B; }
-td, th { border: 1px solid;padding:1px;width: 10%; }
-td { border-bottom:1px dotted #BDB76B; }
+table {
+    background-color: #FFFFE0;
+    border-collapse: collapse;
+    color: #000;
+    font-size: 18px;
+    border: 1px;
+    margin: 10px auto;
+}
+
+th {
+    background-color: #BDB76B;
+}
+
+td,
+th {
+    border: 1px solid;
+    padding: 1px;
+    width: 10%;
+}
+
+td {
+    border-bottom: 1px dotted #BDB76B;
+}
 
 
 #registro a:hover {
@@ -104,7 +126,7 @@ td { border-bottom:1px dotted #BDB76B; }
 nav a {
     font-weight: bold;
     text-decoration: none;
-    color: var(--color-5);
+    color: var(--color-4);
 }
 
 nav a:hover {
@@ -141,5 +163,79 @@ section#blog {
     margin-top: 0px;
     text-align: right;
 }
-header>img{width:15%}
-img{max-width: 50%;}
+
+header>img {
+    width: 15%
+}
+
+img {
+    max-width: 50%;
+}
+
+
+/* quienes somos */
+
+.contenedor {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Estilo para el párrafo */
+.contenedor p {
+    width: 50%;
+    /* Ajustar según sea necesario */
+}
+
+/* Estilo para la imagen */
+.contenedor iframe {
+    width: 40%;
+    /* Ajustar según sea necesario */
+    border-radius: 8px;
+    /* Agregar bordes redondeados si lo deseas */
+}
+
+/* galeria */
+
+/* Estilo para el contenedor principal */
+.galeria {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+/* Estilo para cada caja de imagen */
+.imagen-caja {
+    width: calc(33.33% - 10px);
+    /* 10px de espacio entre las imágenes */
+    margin-bottom: 20px;
+    /* Espacio entre las filas */
+}
+
+/* Estilo para las imágenes dentro de las cajas */
+.imagen-caja img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    /* Opcional: bordes redondeados para las imágenes */
+}
+
+/*tablas*/
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background-color: var(--color-4);
+    border-radius: 15px; /* Agrega bordes redondeados a la tabla */
+    overflow: hidden; /* Asegura que los bordes redondeados se apliquen correctamente */
+    box-shadow: 0 0 10px var(--color-4); 
+
+  }
+  th, td {
+    border: 1px solid var(--color-4);
+    padding: 8px;
+    text-align: left;
+  }
+  th {
+    background-color: var(--color-2);
+  }
