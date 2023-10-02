@@ -33,6 +33,8 @@ main {
     flex-grow: 1;
     color: white;
     padding: 4em;
+    background: linear-gradient(to bottom, #000000, #242323);
+
 }
 
 header {
