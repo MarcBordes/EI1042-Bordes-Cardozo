@@ -95,11 +95,11 @@ td { border-bottom:1px dotted #BDB76B; }
 nav a {
     font-weight: bold;
     text-decoration: none;
-    color: white;
+    color: var(--color-5);
 }
 
 nav a:hover {
-    color: #aaaaaa;
+    color: var(--color-2);
 }
 
 nav li {
