@@ -14,5 +14,4 @@
 <body>
 	<header>
 		<img src="./media/imagen1.png" id="logo" alt="logo" />
-		<h1 id="eslogan"> Mi primer portal</h1>
 	</header>
