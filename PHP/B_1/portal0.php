@@ -32,6 +32,10 @@ switch ($action) {
     case "tablas":
         $central = "/partials/tablas.php";
         break;
+
+    case "form_cursos":
+        $central = "/partials/form_cursos.php";
+        break;
     default:
         $central = "/partials/error.php";
 }

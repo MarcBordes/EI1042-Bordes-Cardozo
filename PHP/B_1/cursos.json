@@ -1,0 +1,44 @@
+[
+    {
+        "Codigo": "C001",
+        "Descripcion": "Introducci\u00f3n a la Programaci\u00f3n",
+        "AlumnosMaximos": 30,
+        "PlazasVacantes": 10,
+        "Precio": 150
+    },
+    {
+        "Codigo": "C002",
+        "Descripcion": "Matem\u00e1ticas Avanzadas",
+        "AlumnosMaximos": 25,
+        "PlazasVacantes": 5,
+        "Precio": 180
+    },
+    {
+        "Codigo": "C003",
+        "Descripcion": "Idiomas: Franc\u00e9s",
+        "AlumnosMaximos": 20,
+        "PlazasVacantes": 8,
+        "Precio": 120
+    },
+    {
+        "Codigo": "C004",
+        "Descripcion": "Desarrollo Web",
+        "AlumnosMaximos": 35,
+        "PlazasVacantes": 15,
+        "Precio": 200
+    },
+    {
+        "Codigo": "C005",
+        "Descripcion": "Art Digital",
+        "AlumnosMaximos": 18,
+        "PlazasVacantes": 3,
+        "Precio": 160
+    },
+    {
+        "Codigo": "C006",
+        "Descripcion": "prueba de descripcion de curso",
+        "AlumnosMaximos": "15",
+        "PlazasVacantes": "14",
+        "Precio": "500"
+    }
+]

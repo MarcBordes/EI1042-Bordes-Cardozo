@@ -13,7 +13,7 @@
 
     /* var()*/
 }
-
+@import url('https://fonts.googleapis.com/css2?family=Luxurious+Roman&family=Merienda:wght@300&family=Montserrat&family=Space+Grotesk:wght@500&display=swap');
 
 
 body {
@@ -25,8 +25,11 @@ body {
     background-color: #000;
     min-height: 100vh;
     /* Asegura que el cuerpo tenga al menos el 100% de la altura de la ventana */
-
+    font-family:'Luxurious Roman', serif;
     /* Centrado */
+}
+a {
+    font-size: 15px;
 }
 
 main {
@@ -132,7 +135,7 @@ nav a {
 }
 
 nav a:hover {
-    color: var(--color-2);
+    color: var(--color-5);
 }
 
 nav li {
@@ -211,7 +214,6 @@ img {
     width: calc(33.33% - 10px);
     /* 10px de espacio entre las imágenes */
     margin-bottom: 20px;
-    /* Espacio entre las filas */
 }
 
 /* Estilo para las imágenes dentro de las cajas */
@@ -220,6 +222,16 @@ img {
     height: auto;
     border-radius: 8px;
     /* Opcional: bordes redondeados para las imágenes */
+}
+.galeria img {
+    height: auto; /* Altura automática para mantener la proporción */
+    transition: transform 0.3s; /* Agregar una transición suave */
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.galeria img:hover {
+    transform: scale(1.1); /* Escalar un 10% más grande en hover */
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.5); /* Sombra de color gris oscuro */
 }
 
 /*tablas*/
@@ -234,10 +246,37 @@ table {
 
   }
   th, td {
-    border: 1px solid var(--color-4);
+    
     padding: 8px;
     text-align: left;
   }
   th {
     background-color: var(--color-2);
   }
+
+.contenedor {
+    display: flex;
+    justify-content: space-between;
+}
+
+.div-50 {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #000;
+    
+}
+.div-50 img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    /* Opcional: bordes redondeados para las imágenes */
+}
+
+.imagen-caja {
+    display: flex;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+}

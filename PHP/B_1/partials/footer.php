@@ -4,7 +4,7 @@
 	<address>
 		<p class="izq"> Written by
 			<a href="mailto:al405682@uji.es" rev="author">Marc Bordes</a> and
-			<a href="mailto:al405647@uji.es" rev="author">Elias Martin Cardozo</a>.</p>
+			<a href="mailto:al405647@uji.es" rev="author">Elías Martín Cardozo</a>.</p>
 		<p class="der"> Visit us at: UJI, Castellón de la Plana, España </p>
 	</address>
 </footer>
