@@ -13,5 +13,5 @@
 
 <body>
 	<header>
-		<img src="./media/imagen1.png" id="logo" alt="logo" />
+		<img src="./media/imagen2.png" id="logo" alt="logo" />
 	</header>
