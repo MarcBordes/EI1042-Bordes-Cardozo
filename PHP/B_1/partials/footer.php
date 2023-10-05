@@ -7,7 +7,7 @@
 			<a href="mailto:al405647@uji.es" rev="author">Elías Martín Cardozo</a>.</p>
 		<p class="der"> Visit us at: UJI, Castellón de la Plana, España </p>
 	</address>
-	<a href="./partials/pdf_generator.php" target="_blank">Protección de datos</a>
+	<a href="./resources/proteccion.pdf" target="_blank">Protección de datos</a>
 </footer>
 </body>
 
