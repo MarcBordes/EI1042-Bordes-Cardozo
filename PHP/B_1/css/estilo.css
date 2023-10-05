@@ -14,6 +14,7 @@
 
     /* var()*/
 }
+
 @import url('https://fonts.googleapis.com/css2?family=Luxurious+Roman&family=Merienda:wght@300&family=Montserrat&family=Space+Grotesk:wght@500&display=swap');
 
 
@@ -26,9 +27,10 @@ body {
     background-color: white;
     min-height: 100vh;
     /* Asegura que el cuerpo tenga al menos el 100% de la altura de la ventana */
-    font-family:'Luxurious Roman', serif;
+    font-family: 'Luxurious Roman', serif;
     /* Centrado */
 }
+
 a {
     font-size: 15px;
 }
@@ -37,7 +39,7 @@ main {
     flex-grow: 1;
     /*color: white;*/
     padding: 4em;
-    /*background: linear-gradient(to bottom, #000000, #242323);*/
+    background: linear-gradient(to bottom, rgb(255, 255, 255), rgb(233, 251, 253));
 
 }
 
@@ -113,8 +115,12 @@ table {
     margin: 10px auto;
 }
 
+a {
+    color: var(--color-6);
+}
+
 th {
-    background-color: #BDB76B;
+    background-color: var(--color-6);
 }
 
 td,
@@ -130,7 +136,7 @@ td {
 
 
 #registro a:hover {
-    color: blue;
+    color: var(--color-6);
 }
 
 nav a {
@@ -180,7 +186,7 @@ header>img {
     width: 15%
 }
 
-img {
+.home-img {
     max-width: 50%;
 }
 
@@ -218,27 +224,35 @@ img {
 
 /* Estilo para cada caja de imagen */
 .imagen-caja {
-    width: calc(33.33% - 10px);
+    width: calc(33.33% - 50px);
     /* 10px de espacio entre las imágenes */
-    margin-bottom: 20px;
+    margin-bottom: 60px;
 }
 
 /* Estilo para las imágenes dentro de las cajas */
 .imagen-caja img {
     width: 100%;
-    height: auto;
+    /* La imagen ocupará el 100% del ancho del div */
+    height: 100%;
+    /* La imagen ocupará el 100% del alto del div */
+    object-fit: cover;
     border-radius: 8px;
     /* Opcional: bordes redondeados para las imágenes */
 }
+
 .galeria img {
-    height: auto; /* Altura automática para mantener la proporción */
-    transition: transform 0.3s; /* Agregar una transición suave */
+    transition: transform 0.3s;
+    /* Agregar una transición suave */
     transition: transform 0.3s, box-shadow 0.3s;
 }
 
 .galeria img:hover {
-    transform: scale(1.1); /* Escalar un 10% más grande en hover */
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5); /* Sombra de color gris oscuro */
+    transform: scale(1.05);
+    /* Escalar un 10% más grande en hover */
+    box-shadow: 0 0 20px rgba(0, 0, 0, 1.5);
+    /* Sombra de color gris oscuro */
+    border-color: black;
+    border-style: solid;
 }
 
 /*tablas*/
@@ -247,19 +261,24 @@ table {
     border-collapse: collapse;
     margin-top: 20px;
     background-color: var(--color-4);
-    border-radius: 15px; /* Agrega bordes redondeados a la tabla */
-    overflow: hidden; /* Asegura que los bordes redondeados se apliquen correctamente */
-    box-shadow: 0 0 10px var(--color-4); 
+    border-radius: 15px;
+    /* Agrega bordes redondeados a la tabla */
+    overflow: hidden;
+    /* Asegura que los bordes redondeados se apliquen correctamente */
+    box-shadow: 0 0 10px var(--color-4);
 
-  }
-  th, td {
-    
+}
+
+th,
+td {
+
     padding: 8px;
     text-align: left;
-  }
-  th {
-    background-color: var(--color-2);
-  }
+}
+
+th {
+    background-color: var(--color-6);
+}
 
 .contenedor {
     display: flex;
@@ -272,8 +291,9 @@ table {
     justify-content: center;
     align-items: center;
     /*border: 1px solid #000;*/
-    
+
 }
+
 .div-50 img {
     width: 100%;
     height: auto;
@@ -286,4 +306,27 @@ table {
     align-items: center;
     align-content: center;
     justify-content: center;
+}
+
+/* Boton Tabla*/
+.button-tabla {
+  align-items: center;
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: transparent 0 0 0 3px,rgba(18, 18, 18, .1) 0 6px 20px;
+  box-sizing: border-box;
+  color: #121212;
+  cursor: pointer;
+  font-size: 1.2rem;
+  font-weight: 600;
+  justify-content: center;
+  line-height: 1;
+  padding: 1rem 1.2rem;
+  transition: box-shadow .2s,-webkit-box-shadow .2s;
+  border: 0;
+  touch-action: manipulation;
+}
+
+.button-tabla:hover {
+  box-shadow: #121212 0 0 0 3px, transparent 0 0 0 0;
 }

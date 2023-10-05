@@ -36,7 +36,7 @@
 				</ul>
 		</div>
 		<div class="div-50">
-		<img src="../media/science.jpg" alt="imagen ciencia">
+		<img class="home-img" src="../media/science.jpg" alt="imagen ciencia">
 		</div>
 	</div>
 

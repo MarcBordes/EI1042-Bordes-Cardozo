@@ -1,5 +1,9 @@
 <main>
+
+    <h2>¿Quieres conocernos mejor?</h2>
+
     <div class="contenedor">
+        
         <p>¡Bienvenidos al Centro Educativo Future Mind School! Nos complace darles la más cordial bienvenida a nuestra
             comunidad dedicada a la excelencia
             académica y al desarrollo integral de cada estudiante. En nuestro compromiso con la educación de calidad,
