@@ -357,6 +357,7 @@ th {
     border-radius: 6px;
     padding: 10px;
     position: absolute;
+    left: 70px; /* Ajusta esta propiedad para cambiar la posición a la derecha */
     z-index: 1;
     top: 125%;
     left: 125%;
@@ -367,7 +368,8 @@ th {
 
 .tooltip img {
     height: auto;
-    padding: 15px;
+    margin: -30px;
+    
 }
 .tooltip .tooltiptext ul {
     list-style-type: disc;
