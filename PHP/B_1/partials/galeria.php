@@ -1,13 +1,15 @@
 <main>
+
   <div class="contenedor">
 
+    <h1>Galería</h1>
 
     <div class="galeria">
 
       <!-- Repetir para las imágenes restantes -->
       <div class="imagen-caja">
         <div class="cortina">
-          <p>Hola esto solo se tiene que ver si es que hemos pasado el mouse por encima de la imagen.</p>
+          <p>Ganador del concurso de fotografia de animales de 2020.</p>
         </div>
         <img src="https://images.pexels.com/photos/4623806/pexels-photo-4623806.jpeg" alt="imagen 2">
       </div>
@@ -15,7 +17,7 @@
 
       <div class="imagen-caja">
       <div class="cortina">
-          <p>Hola esto solo se tiene que ver si es que hemos pasado el mouse por encima de la imagen.</p>
+          <p>Expo de tecnología donde participaron diferentes estudiantes.</p>
         </div>
           <img src="https://fly-news.es/wp-content/uploads/CMR-2022-generales-jueves-067-768x512-1.jpg" alt="imagen 2">
     
@@ -23,7 +25,7 @@
 
       <div class="imagen-caja">
       <div class="cortina">
-          <p>Hola esto solo se tiene que ver si es que hemos pasado el mouse por encima de la imagen.</p>
+          <p>Ganador del concurso de fotografia de paisajes del año 2021.</p>
         </div>
         <img
           src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcRULpbtr0H9F27XqrCOQyvxDEE4K4reeX2I20Nn4D6v30Nc9F_bUazf_VwUr_gV"
@@ -32,57 +34,77 @@
 
       <div class="imagen-caja">
       <div class="cortina">
-          <p>Hola esto solo se tiene que ver si es que hemos pasado el mouse por encima de la imagen.</p>
+          <p>Recreación de imagen absatracta hecha por estudiantes del colegio.</p>
         </div>
-        <img src="https://images.pexels.com/photos/2320427/pexels-photo-2320427.jpeg" alt="imagen 2">
+        <img src="https://imgs.search.brave.com/kSnZccZvre3LaQRQnGicNeiOQxeJOxrqS8kCwJ9Ft3E/rs:fit:860:0:0/g:ce/aHR0cHM6Ly90NC5m/dGNkbi5uZXQvanBn/LzA1LzY0Lzk5Lzk1/LzM2MF9GXzU2NDk5/OTU0MF9YZFR2cUxH/RHBuZUIzdjRpZnow/U1pnenhNT0ZtZm9W/by5qcGc" alt="imagen 2">
       </div>
 
       <div class="imagen-caja">
       <div class="cortina">
-          <p>Hola esto solo se tiene que ver si es que hemos pasado el mouse por encima de la imagen.</p>
+          <p>Poster del dia de la literatura.</p>
         </div>
-        <img src="https://images.pexels.com/photos/2619743/pexels-photo-2619743.jpeg" alt="imagen 2">
+        <img src="https://imgs.search.brave.com/C0sc-uMl0samfSg3rHROtg24Zb2pbNmWDUv_c7GyudA/rs:fit:860:0:0/g:ce/aHR0cHM6Ly93YWxs/cGFwZXItaG91c2Uu/Y29tL2RhdGEvb3V0/Lzkvd2FsbHBhcGVy/MnlvdV8zNDEyNDgu/anBn" alt="imagen 2">
       </div>
 
       <div class="imagen-caja">
       <div class="cortina">
-          <p>Hola esto solo se tiene que ver si es que hemos pasado el mouse por encima de la imagen.</p>
+          <p>Celebración del dia del libro del 2022.</p>
         </div>
         <img
-          src="https://img.freepik.com/foto-gratis/campo-flores-silvestres-color-purpura-verano_53876-95066.jpg?w=740&t=st=1696456232~exp=1696456832~hmac=45b7c60e864a3f3ca4ae8aebbf79bd20a4be2731c66eee207dc5b8f5a844becf"
+          src="https://imgs.search.brave.com/dEjAzQeimYstX-OKtdgE-GYigYd_aZNtl-TChGM_HyU/rs:fit:860:0:0/g:ce/aHR0cHM6Ly9jMS53/YWxscGFwZXJmbGFy/ZS5jb20vcHJldmll/dy80NzgvNjUyLzIv/Ym9va3MtbGlicmFy/eS1zY2hvb2wtdW5p/dmVyc2l0eS5qcGc"
           alt="imagen 2">
       </div>
       <div class="imagen-caja">
       <div class="cortina">
-          <p>Hola esto solo se tiene que ver si es que hemos pasado el mouse por encima de la imagen.</p>
+          <p>Excursión a la montaña realizada por los estudiantes.</p>
         </div>
         <img src="https://images.pexels.com/photos/2888102/pexels-photo-2888102.jpeg" alt="imagen 2">
       </div>
 
       <div class="imagen-caja">
       <div class="cortina">
-          <p>Hola esto solo se tiene que ver si es que hemos pasado el mouse por encima de la imagen.</p>
+          <p>Primer ganador del concurso de fotografía nocturno 2021 - Elias Martin</p>
         </div>
         <img
-          src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/73/Leonardo_da_Vinci_-_Mona_Lisa_%28Louvre%2C_Paris%29.jpg/245px-Leonardo_da_Vinci_-_Mona_Lisa_%28Louvre%2C_Paris%29.jpg"
+          src="https://imgs.search.brave.com/hGntLVKZ7U3NfC39Qh8eMRLbsIliavHEQHxtJrPM1dA/rs:fit:860:0:0/g:ce/aHR0cHM6Ly93YWxs/cGFwZXJjYXZlLmNv/bS93cC83d1h3RXdK/LmpwZw"
           alt="imagen 2">
       </div>
 
       <div class="imagen-caja">
       <div class="cortina">
-          <p>Hola esto solo se tiene que ver si es que hemos pasado el mouse por encima de la imagen.</p>
+          <p>Segundo ganador del concurso de fotografía nocturno 2021 - Marc Bordes</p>
         </div>
         <img src="https://images.pexels.com/photos/3059297/pexels-photo-3059297.jpeg" alt="imagen 2">
       </div>
 
       <div class="imagen-caja">
       <div class="cortina">
-          <p>Hola esto solo se tiene que ver si es que hemos pasado el mouse por encima de la imagen.</p>
+          <p>Excursión a la luna realizada por los estudiantes de ingenieria aeroespacial.</p>
         </div>
         <img
           src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcR-Wc_RqfnioJI2QdFjw3h5DnJyMzjl_JYN27pzCafHi6xDhblyUoyTg4n3li-O"
           alt="imagen 2">
       </div>
+
+      <div class="imagen-caja">
+      <div class="cortina">
+          <p>Foto del ganador de 100m lisos de la competicion de la escuela.</p>
+        </div>
+        <img
+          src="https://imgs.search.brave.com/YxfsMbNBf4OzfpgBBFGbs9fmnH8s8X70hhUI2IFNR1I/rs:fit:860:0:0/g:ce/aHR0cHM6Ly9pbWFn/ZXMzLmFscGhhY29k/ZXJzLmNvbS83NDEv/NzQxOTcuanBn"
+          alt="imagen 2">
+      </div>
+
+
+      <div class="imagen-caja">
+      <div class="cortina">
+          <p>Participantes de la XI carrera de la Future Mind School</p>
+        </div>
+        <img
+          src="https://imgs.search.brave.com/rP_i3ffSFvcF89xftK2PiDyIupD7knVixXtEdNr8NKA/rs:fit:860:0:0/g:ce/aHR0cHM6Ly9wNC53/YWxscGFwZXJiZXR0/ZXIuY29tL3dhbGxw/YXBlci8zMzIvMTg2/LzQ4MS90cmFjay1h/bmQtZmllbGQtYXRo/bGV0aWNzLXN0YXJ0/LXJ1bi1zdGFkaXVt/LXdhbGxwYXBlci1w/cmV2aWV3LmpwZw"
+          alt="imagen 2">
+      </div>
+
 
     </div>
   </div>

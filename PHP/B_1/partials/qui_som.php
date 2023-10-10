@@ -2,7 +2,7 @@
 
     <h2>¿Quieres conocernos mejor?</h2>
 
-    <div class="contenedor">
+    <div class="contenedor-home">
         
         <p>¡Bienvenidos al Centro Educativo Future Mind School! Nos complace darles la más cordial bienvenida a nuestra
             comunidad dedicada a la excelencia

@@ -17,7 +17,7 @@
 	</p>
 	<br>
 
-	<div class="contenedor">
+	<div class="contenedor-home">
 		<div class="div-50">
 			<h2>Próximos Eventos: </h2>
 
@@ -49,7 +49,7 @@
 			</ul>
 		</div>
 		<div class="div-50">
-			<img class="home-img" src="../media/science.jpg" alt="imagen ciencia">
+			<img class="home-img" src="../media/futureBuilding.png" alt="imagen edificio">
 		</div>
 	</div>
 
