@@ -303,9 +303,11 @@ th {
 
 .imagen-caja {
     display: flex;
+    flex-direction: column;
     align-items: center;
     align-content: center;
     justify-content: center;
+    max-height: 80%;
 }
 
 /* Boton Tabla*/
@@ -330,37 +332,53 @@ th {
 .button-tabla:hover {
   box-shadow: #121212 0 0 0 3px, transparent 0 0 0 0;
 }
+.cortina {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.7); /* Color de fondo semi-transparente */
+    opacity: 0; /* Inicialmente, la cortina está oculta */
+    transition: opacity 0.3s ease-in-out;
+    z-index: 0; /* Asegura que la cortina esté por encima de la imagen */
+}
+.imagen-caja:hover .cortina {
+    opacity: 1;
+    transition: opacity 0.3s;
 
-/* tooltip */
+}
+.cortina p {
+    color: white;
+}
 
 
 .tooltip {
-    position: relative;
+    position: absolute;
+    right: 0;
+    transform: translateY(-50%);
     display: inline-block;
     cursor: pointer;
     opacity: 1;
-
+    padding: 20px;
 }
 
 .tooltip:hover .tooltiptext {
     visibility: visible;
     opacity: 1;
-
+    right: 100%;
 }
 
 .tooltip .tooltiptext {
     visibility: hidden;
-    width: 550px;
-    background-color: #243454;
+    width: 400px;
+    background-color: var(--color-1);
     color: #fff;
     text-align: left;
     border-radius: 6px;
     padding: 10px;
     position: absolute;
-    left: 70px; /* Ajusta esta propiedad para cambiar la posición a la derecha */
-    z-index: 1;
-    top: 125%;
-    left: 125%;
+    top: 50%;
+    right: 0;
     transform: translateY(-50%);
     opacity: 0;
     transition: opacity 0.3s;
@@ -368,14 +386,12 @@ th {
 
 .tooltip img {
     height: auto;
-    margin: -30px;
-    
 }
+
 .tooltip .tooltiptext ul {
     list-style-type: disc;
     padding-left: 20px;
     margin: 0;
-
 }
 
 .tooltip .tooltiptext li {

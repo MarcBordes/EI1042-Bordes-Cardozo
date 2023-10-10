@@ -5,7 +5,7 @@
 		<span class="tooltiptext"> Ayuda:
 			<ul>
 				<li>No dude en contactarnos si tiene alguna duda</li>
-				<li>En este portal podrás encontrar toda la información que requiera sobre el centro</li>
+				<li>Telefono de contacto +6556060660</li>
 			</ul>
 		</span>
 	</div>
