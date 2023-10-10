@@ -330,3 +330,52 @@ th {
 .button-tabla:hover {
   box-shadow: #121212 0 0 0 3px, transparent 0 0 0 0;
 }
+
+/* tooltip */
+
+
+.tooltip {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    opacity: 1;
+
+}
+
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+
+}
+
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 550px;
+    background-color: #243454;
+    color: #fff;
+    text-align: left;
+    border-radius: 6px;
+    padding: 10px;
+    position: absolute;
+    z-index: 1;
+    top: 125%;
+    left: 125%;
+    transform: translateY(-50%);
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.tooltip img {
+    height: auto;
+    padding: 15px;
+}
+.tooltip .tooltiptext ul {
+    list-style-type: disc;
+    padding-left: 20px;
+    margin: 0;
+
+}
+
+.tooltip .tooltiptext li {
+    margin-bottom: 5px;
+}

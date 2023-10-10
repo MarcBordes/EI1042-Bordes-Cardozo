@@ -15,3 +15,4 @@
 	<header>
 		<img src="./media/imagen2.png" id="logo" alt="logo" />
 	</header>
+</body>

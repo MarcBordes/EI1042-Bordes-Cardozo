@@ -1,5 +1,7 @@
 <main>
+
 	<h2>Bienvenido a la Future Mind School</h2>
+
 	<p>
 		En esta página encontrarás toda la información relevante sobre nuestro centro educativo!!!
 	</p>
@@ -9,11 +11,12 @@
 		<div class="div-50">
 			<h2>Próximos Eventos: </h2>
 
-				<ul >
+			<ul>
 				<li>
 					<span>22 de octubre, 2023</span>
 					<h2>Conferencia Parental</h2>
-					<span>Una sesión informativa para padres sobre el progreso académico y actividades extracurriculares.</span>
+					<span>Una sesión informativa para padres sobre el progreso académico y actividades
+						extracurriculares.</span>
 					<br><br><br>
 				</li>
 
@@ -33,10 +36,10 @@
 
 				</li>
 
-				</ul>
+			</ul>
 		</div>
 		<div class="div-50">
-		<img class="home-img" src="../media/science.jpg" alt="imagen ciencia">
+			<img class="home-img" src="../media/science.jpg" alt="imagen ciencia">
 		</div>
 	</div>
 
