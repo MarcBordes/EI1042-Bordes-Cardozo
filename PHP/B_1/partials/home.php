@@ -1,5 +1,15 @@
 <main>
 
+	<div class="tooltip">
+		<img src="/media/tooltip.png" alt="imagen tooltip ayuda" width="70px" class="imageRight">
+		<span class="tooltiptext"> Ayuda:
+			<ul>
+				<li>No dude en contactarnos si tiene alguna duda</li>
+				<li>En este portal podrás encontrar toda la información que requiera sobre el centro</li>
+			</ul>
+		</span>
+	</div>
+
 	<h2>Bienvenido a la Future Mind School</h2>
 
 	<p>
