@@ -1,6 +1,6 @@
 <main>
 
-    <h2>¿Quieres conocernos mejor?</h2>
+    <h1>¿Quieres conocernos mejor?</h1>
 
     <div class="contenedor-home">
         

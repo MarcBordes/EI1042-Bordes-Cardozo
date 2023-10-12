@@ -10,7 +10,7 @@
 		</span>
 	</div>
 
-	<h2>Bienvenido a la Future Mind School</h2>
+	<h1>Bienvenido a la Future Mind School</h1>
 
 	<p>
 		En esta página encontrarás toda la información relevante sobre nuestro centro educativo!!!

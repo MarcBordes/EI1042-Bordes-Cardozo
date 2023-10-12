@@ -1,5 +1,5 @@
 <main>
-  <h2>Cursos Disponibles</h2>
+  <h1>Cursos Disponibles</h1>
   
 
   <!-- Tabla de Cursos -->
