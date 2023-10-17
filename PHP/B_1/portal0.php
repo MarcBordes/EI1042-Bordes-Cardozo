@@ -2,10 +2,9 @@
 /**
  * * Descripción: Controlador principal
  * *
- * * Descripción extensa: Iremos añadiendo cosas complejas en PHP.
  * *
- * * @author  Lola <dllido@uji.es> <fulanito@example.com>
- * * @copyright 2018 Lola
+ * * @author Marc Bordes Gómez <al405682@uji.es> Elías Martín Cardozo <al405647@uji.es>
+ * * @copyright 2023 Bordes-Cardozo
  * * @license http://www.fsf.org/licensing/licenses/gpl.txt GPL 2 or later
  * * @version 2
  * * Si la URL tiene este esquema http://xxxx/portal0?action=fregistro

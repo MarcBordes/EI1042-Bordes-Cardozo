@@ -1,3 +1,16 @@
+<!-- /**
+ * * Descripción: Página de inicio del centro
+ * *
+ * *
+ * * @author Marc Bordes Gómez <al405682@uji.es> Elías Martín Cardozo <al405647@uji.es>
+ * * @copyright 2023 Bordes-Cardozo
+ * * @license http://www.fsf.org/licensing/licenses/gpl.txt GPL 2 or later
+ * * @version 2
+ **/
+
+ -->
+
+
 <main>
 
 	<div class="tooltip">
@@ -13,7 +26,7 @@
 	<h1>Bienvenido a la Future Mind School</h1>
 
 	<p>
-		En esta página encontrarás toda la información relevante sobre nuestro centro educativo!!!
+		En esta página encontrarás toda la información relevante sobre nuestro centro educativo!!! 
 	</p>
 	<br>
 

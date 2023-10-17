@@ -1,5 +1,15 @@
-<main>
+<!-- /**
+ * * Descripción: Galería con las imagenes del centro.
+ * *
+ * *
+ * * @author Marc Bordes Gómez <al405682@uji.es> Elías Martín Cardozo <al405647@uji.es>
+ * * @copyright 2023 Bordes-Cardozo
+ * * @license http://www.fsf.org/licensing/licenses/gpl.txt GPL 2 or later
+ * * @version 2
+ **/
 
+ -->
+<main>
   <div class="contenedor">
 
     <h1>Galería</h1>
@@ -56,14 +66,14 @@
       </div>
       <div class="imagen-caja">
       <div class="cortina">
-          <p>Excursión a la montaña realizada por los estudiantes.</p>
+          <p>Excursión a la montaña realizada (PERÚ) por los estudiantes.</p>
         </div>
         <img src="https://images.pexels.com/photos/2888102/pexels-photo-2888102.jpeg" alt="imagen 2">
       </div>
 
       <div class="imagen-caja">
       <div class="cortina">
-          <p>Primer ganador del concurso de fotografía nocturno 2021 - Elias Martin</p>
+          <p>Primer ganador del concurso de fotografía nocturno 2021 - Elías Martín</p>
         </div>
         <img
           src="https://imgs.search.brave.com/hGntLVKZ7U3NfC39Qh8eMRLbsIliavHEQHxtJrPM1dA/rs:fit:860:0:0/g:ce/aHR0cHM6Ly93YWxs/cGFwZXJjYXZlLmNv/bS93cC83d1h3RXdK/LmpwZw"
@@ -79,7 +89,7 @@
 
       <div class="imagen-caja">
       <div class="cortina">
-          <p>Excursión a la luna realizada por los estudiantes de ingenieria aeroespacial.</p>
+          <p>Excursión a la luna realizada por los estudiantes de ingeniería aeroespacial.</p>
         </div>
         <img
           src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcR-Wc_RqfnioJI2QdFjw3h5DnJyMzjl_JYN27pzCafHi6xDhblyUoyTg4n3li-O"
@@ -88,7 +98,7 @@
 
       <div class="imagen-caja">
       <div class="cortina">
-          <p>Foto del ganador de 100m lisos de la competicion de la escuela.</p>
+          <p>Foto del ganador de 100m lisos de la competición de la escuela.</p>
         </div>
         <img
           src="https://imgs.search.brave.com/YxfsMbNBf4OzfpgBBFGbs9fmnH8s8X70hhUI2IFNR1I/rs:fit:860:0:0/g:ce/aHR0cHM6Ly9pbWFn/ZXMzLmFscGhhY29k/ZXJzLmNvbS83NDEv/NzQxOTcuanBn"
