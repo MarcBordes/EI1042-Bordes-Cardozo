@@ -12,8 +12,17 @@
  **/
 
 
+require_once(dirname(__FILE__) . "/partials/header.php");
+require_once(dirname(__FILE__) . "/partials/menu.php");
+
 $action = (array_key_exists('action', $_REQUEST)) ? $_REQUEST["action"] : "home";
 
+if(isset($_REQUEST["action"]))
+
+    if(strpos($_SERVER["SERVER_NAME"], $_SERVER['HTTP_REFERER']) === true) {
+        $error_msg ="Acceso directo no permitido";
+        $central = "/partials/home.php";
+    }
 
 switch ($action) {
     case "home":
@@ -36,11 +45,14 @@ switch ($action) {
         $central = "/partials/form_cursos.php";
         break;
     default:
-        $central = "/partials/error.php";
+        if(!isset($error_msg))
+            $error_msg = "Accion no permitida";
+        $central = "/partials/home.php";
 }
 
-require_once(dirname(__FILE__) . "/partials/header.php");
-require_once(dirname(__FILE__) . "/partials/menu.php");
+if (isset($error_msg))  
+    require_once(dirname(__FILE__)."/partials/error.php");
+
 require_once(dirname(__FILE__) . $central);
 //echo "<br />",$action,"<br />",dirname(__FILE__),"<br />";
 echo "<aside></aside> <aside></aside> <aside></aside>";

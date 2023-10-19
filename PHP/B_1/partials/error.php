@@ -10,8 +10,9 @@
 
  -->
 <main>
-	<h1>¡Vaya parece que algo no ha ido bien! :(</h1>
-	<div style="text-align:center ;">
+	<h1>¡Vaya parece que algo no ha ido bien! :( </h1>
+	<p> <?php echo($error_msg);?>
+	<!-- <div style="text-align:center ;">
 		<img src="https://geek.design/wp-content/uploads/2019/01/BlogGraphic_4_404.png" width="50%" alt="imagen error">
-	</div>	
+	</div>	 -->
 </main>
