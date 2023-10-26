@@ -7,7 +7,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $alumnos_maximos = $_POST["alumnos_maximos"];
     $plazas_vacantes = $_POST["plazas_vacantes"];
     $precio = $_POST["precio"];
-
+    
     // Crea un arreglo con los datos
     $nuevoCurso = array(
         "Codigo" => $codigo,

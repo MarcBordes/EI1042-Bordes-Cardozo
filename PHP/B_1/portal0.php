@@ -17,41 +17,44 @@ require_once(dirname(__FILE__) . "/partials/menu.php");
 
 $action = (array_key_exists('action', $_REQUEST)) ? $_REQUEST["action"] : "home";
 
-if(isset($_REQUEST["action"]))
+if (isset($_REQUEST["action"])) {
 
-    if(strpos($_SERVER["SERVER_NAME"], $_SERVER['HTTP_REFERER']) === true) {
-        $error_msg ="Acceso directo no permitido";
+    if (!str_contains($_SERVER['HTTP_REFERER'], $_SERVER["SERVER_NAME"])) {
+        $error_msg = "Acceso directo no permitido";
         $central = "/partials/home.php";
+    } else {
+        switch ($action) {
+            case "home":
+                $central = "/partials/home.php";
+                break;
+            case "form_register":
+                $central = "/partials/form_register.php";
+                break;
+            case "qui_som":
+                $central = "/partials/qui_som.php";
+                break;
+            case "galeria":
+                $central = "/partials/galeria.php";
+                break;
+            case "tablas":
+                $central = "/partials/tablas.php";
+                break;
+
+            case "form_cursos":
+                $central = "/partials/form_cursos.php";
+                break;
+            default:
+                if (!isset($error_msg))
+                    $error_msg = "Accion no permitida";
+                $central = "/partials/home.php";
+        }
+
     }
-
-switch ($action) {
-    case "home":
-        $central = "/partials/home.php";
-        break;
-    case "form_register":
-        $central = "/partials/form_register.php";
-        break;
-    case "qui_som":
-        $central = "/partials/qui_som.php";
-        break;
-    case "galeria":
-        $central = "/partials/galeria.php";
-        break;
-    case "tablas":
-        $central = "/partials/tablas.php";
-        break;
-
-    case "form_cursos":
-        $central = "/partials/form_cursos.php";
-        break;
-    default:
-        if(!isset($error_msg))
-            $error_msg = "Accion no permitida";
-        $central = "/partials/home.php";
 }
 
-if (isset($error_msg))  
-    require_once(dirname(__FILE__)."/partials/error.php");
+
+if (isset($error_msg))
+    require_once(dirname(__FILE__) . "/partials/error.php");
 
 require_once(dirname(__FILE__) . $central);
 //echo "<br />",$action,"<br />",dirname(__FILE__),"<br />";
