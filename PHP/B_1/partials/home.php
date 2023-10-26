@@ -26,6 +26,7 @@
 	<h1>Bienvenido a la Future Mind School</h1>
 
 	<p>
+		
 		En esta página encontrarás toda la información relevante sobre nuestro centro educativo!!! 
 	</p>
 	<br>

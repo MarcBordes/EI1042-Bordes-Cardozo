@@ -10,8 +10,10 @@
  * * Si la URL tiene este esquema http://xxxx/portal0?action=fregistro
  * * mostrara el formulario de registro. Si no hay nada la página principal.
  **/
+//include "/partials/sessions.php";
+//sessions.empezar_sesion();
 
-
+require_once(dirname(__FILE__) . "/partials/sessions.php");
 require_once(dirname(__FILE__) . "/partials/header.php");
 require_once(dirname(__FILE__) . "/partials/menu.php");
 
@@ -58,6 +60,6 @@ if (isset($error_msg))
 
 require_once(dirname(__FILE__) . $central);
 //echo "<br />",$action,"<br />",dirname(__FILE__),"<br />";
-echo "<aside></aside> <aside></aside> <aside></aside>";
+echo "<aside>",var_dump($_SESSION["visita"]),"</aside> <aside></aside> <aside></aside>";
 require_once(dirname(__FILE__) . "/partials/footer.php");
 ?>
