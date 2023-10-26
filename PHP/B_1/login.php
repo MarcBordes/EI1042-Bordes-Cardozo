@@ -23,6 +23,9 @@
  * @return array
  * 
  */
+
+ session_start();
+ 
 function importar_dades_csv($nomFitxer)
 {
    $fichero = fopen($nomFitxer, 'r');

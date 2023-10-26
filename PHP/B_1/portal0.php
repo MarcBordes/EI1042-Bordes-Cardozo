@@ -13,7 +13,7 @@
 //include "/partials/sessions.php";
 //sessions.empezar_sesion();
 
-require_once(dirname(__FILE__) . "/partials/sessions.php");
+require_once(dirname(__FILE__) . "/sessions.php");
 require_once(dirname(__FILE__) . "/partials/header.php");
 require_once(dirname(__FILE__) . "/partials/menu.php");
 
