@@ -1,5 +1,4 @@
 <?php
-session_start();
 
 /**
  * * Descripción: Utilidades para portal.php
@@ -24,8 +23,6 @@ session_start();
  * @return array
  * 
  */
-
- 
 function importar_dades_csv($nomFitxer)
 {
    $fichero = fopen($nomFitxer, 'r');
@@ -124,32 +121,12 @@ function autentificacion_ok($nomFitxer, $user, $passwd)
  * Si existe deveuelve el rol del usuario
  * Si no existe devuelve falso indicando que no se ha autentificado.
  */
-function autentificado()
+function autorizacion()
 {
    if (isset($_SESSION["user_role"]))
       return $_SESSION["user_role"];
    return False;
 }
-
-
-$nomFitxer = './recursos/seguro/users.csv';
-include './partials/form_login.php';
-
-
-if ($_REQUEST['action'] == 'login') {
-   if (autentificado()) {
-      session_unset();
-      session_destroy();
-   }
-} else if ($_REQUEST['action'] == 'auten') {
-   $user = $_POST['user'];
-   $password = $_POST['passwd'];
-   if (autentificacion_ok($nomFitxer, $user, $password)) {
-      var_dump($_SESSION);
-   } else {
-      echo 'usuario o contraseña erroneas';
-   }
-} 
 
 /*
 $nomFitxer = '../recursos/seguro/users.csv';
