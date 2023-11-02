@@ -66,12 +66,18 @@ if (isset($_REQUEST["action"])) {
                     $central = "/partials/error.php";
                     $error_msg = "Acción denegada, no eres administrador";
                 } else {
+                    $jsonFile = "recursos/cursos.json";
+                    $cursos = [];
+                    if (file_exists($jsonFile)) {
+                        $jsonContent = file_get_contents($jsonFile);
+                        $cursos = json_decode($jsonContent, true);
+                    }
                     if (array_key_exists($_REQUEST['curso'], $cursos)) {
-                        unset($cursos['curso']);
-                        guarda_dades($cursos, "fitxer.json");
-                        $central = "partials/listar.php";
+                        unset($cursos[$_REQUEST['curso']]);
+                        guarda_dades($cursos, $jsonFile);
                     }
                 }
+                $central = "/partials/listar.php";
                 break;
             case "auten":
                 $central = "/partials/home.php";
