@@ -140,17 +140,15 @@ if ($_REQUEST['action'] == 'login') {
       session_unset();
       session_destroy();
    }
-   
-   include './partials/form_login.php';
 } else if ($_REQUEST['action'] == 'auten') {
    $user = $_POST['user'];
    $password = $_POST['passwd'];
    if (autentificacion_ok($nomFitxer, $user, $password)) {
       var_dump($_SESSION);
    } else {
-      include './partials/form_login.php';
+      header("Location: ./portal0.php?action=login");
    }
-} 
+}  
 
 /*
 $nomFitxer = '../recursos/seguro/users.csv';

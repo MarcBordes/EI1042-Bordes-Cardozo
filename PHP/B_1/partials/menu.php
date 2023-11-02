@@ -19,7 +19,7 @@
 			<a href="?action=registrar">Registro</a>
 		</li>
 		<li>
-			<a href="?action=modify">Modificar</a>
+			<a href="?action=listar_admin">Modificar</a>
 		</li>
 
 		<li>

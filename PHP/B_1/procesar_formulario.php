@@ -28,7 +28,12 @@ if (file_exists($jsonFile)) {
 }
 
 // Comprobamos si existe o no el curso.
-if (array_key_exists($nombre_actividad, $cursos)) {
+if (!autentificado() || $_SESSION["user_role"] != "admin") {
+    $cursos[$nombre_actividad] = $nuevoCurso;
+    $jsonCursos = json_encode($cursos, JSON_PRETTY_PRINT);
+    file_put_contents($jsonFile, $jsonCursos);
+
+}elseif (array_key_exists($nombre_actividad, $cursos)) {
     echo "El curso ya existe";
     header("Location: ./portal0.php?action=registrar");
     return;

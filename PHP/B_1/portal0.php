@@ -16,11 +16,11 @@
 require_once(dirname(__FILE__) . "/login.php");
 if (!autentificado()) {
     echo '<div class="loguear">';
-    echo '<a href="?action=login">Login</a>';
+    echo '<a class="button-login" href="?action=login">Login</a>';
     echo '</div>';
 } else {
     echo '<div class="loguear">';
-    echo '<a href="?action=logout">Logout</a>';
+    echo '<a class="button-login" href="?action=logout">Logout</a>';
     echo '</div>';
 }
 
@@ -51,17 +51,37 @@ if (isset($_REQUEST["action"])) {
             case "qui_som":
                 $central = "/partials/qui_som.php";
                 break;
+            case "registrar-modificacion":
+                
+                $central = "/partials/listar.php";
+                break;
             case "galeria":
                 $central = "/partials/galeria.php";
                 break;
             case "listar":
-                $central = "/partials/listar.php";
+                if (!autentificado() || $_SESSION["user_role"] != "admin") {
+                    $central = "/partials/listar.php";
+                } else {
+                    $central = "/partials/listar_admin.php";
+                }
+                break;
+            case "borrar":
+                if (!autentificado() || $_SESSION["user_role"] != "admin") {
+                    $central = "/partials/error.php";
+                    $error_msg = "Acción denegada, no eres administrador";
+                } else {
+                    if (array_key_exists($_REQUEST['curso'], $cursos)) {
+                        unset($cursos['curso']);
+                        guarda_dades($cursos, "fitxer.json");
+                        $central = "partials/listar.php";
+                    }
+                }
                 break;
             case "auten":
                 $central = "/partials/home.php";
                 break;
             case "login":
-                $central = "/partials/home.php";
+                $central = "/partials/form_login.php";
                 break;
             case "logout":
                 session_unset();

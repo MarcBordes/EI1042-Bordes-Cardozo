@@ -1,3 +1,4 @@
+<main>
 <h1>Login </h1>
 <form class="form_usuario" method="post" action="?action=auten">
 	<label for="user">Usuario</label>
@@ -7,3 +8,4 @@
 		<input type="submit" value="Enviar">
 		<input type="reset" value="Deshacer">
 </form>
+</main>
