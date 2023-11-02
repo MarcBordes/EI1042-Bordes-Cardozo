@@ -1,6 +1,6 @@
 <?php
 
-
+echo '<main>';
 
 
 $jsonFile = "recursos/cursos.json";
@@ -37,4 +37,7 @@ foreach ($cursos as $nombreCurso => $curso) {
 
 echo '</table>';
 echo '</form>';
+
+echo '</main>';
+
 ?>
