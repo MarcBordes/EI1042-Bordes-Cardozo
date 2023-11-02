@@ -13,6 +13,17 @@
 //include "/partials/sessions.php";
 //sessions.empezar_sesion();
 
+require_once(dirname(__FILE__) . "/login.php");
+if (!autentificado()) {
+    echo '<div class="loguear">';
+    echo '<a href="?action=login">Login</a>';
+    echo '</div>';
+} else {
+    echo '<div class="loguear">';
+    echo '<a href="?action=logout">Logout</a>';
+    echo '</div>';
+}
+
 require_once(dirname(__FILE__) . "/sessions.php");
 require_once(dirname(__FILE__) . "/partials/header.php");
 require_once(dirname(__FILE__) . "/partials/menu.php");
@@ -41,7 +52,11 @@ if (isset($_REQUEST["action"])) {
             case "tablas":
                 $central = "/partials/tablas.php";
                 break;
-
+            case "logout":
+                session_unset();
+                session_destroy();
+                $central = "/partials/home.php";
+                break;
             case "form_cursos":
                 $central = "/partials/form_cursos.php";
                 break;

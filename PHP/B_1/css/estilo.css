@@ -402,3 +402,7 @@ th {
 .tooltip .tooltiptext li {
     margin-bottom: 5px;
 }
+
+.loguear {
+    position: absolute; top: 0; right: 0;
+}

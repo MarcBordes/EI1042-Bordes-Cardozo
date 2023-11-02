@@ -133,7 +133,6 @@ function autentificado()
 
 
 $nomFitxer = './recursos/seguro/users.csv';
-include './partials/form_login.php';
 
 
 if ($_REQUEST['action'] == 'login') {
@@ -141,13 +140,14 @@ if ($_REQUEST['action'] == 'login') {
       session_unset();
       session_destroy();
    }
+   include './partials/form_login.php';
 } else if ($_REQUEST['action'] == 'auten') {
    $user = $_POST['user'];
    $password = $_POST['passwd'];
    if (autentificacion_ok($nomFitxer, $user, $password)) {
       var_dump($_SESSION);
    } else {
-      echo 'usuario o contraseña erroneas';
+      include './partials/form_login.php';
    }
 } 
 
