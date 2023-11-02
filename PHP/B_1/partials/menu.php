@@ -19,10 +19,6 @@
 			<a href="?action=registrar">Registro</a>
 		</li>
 		<li>
-			<a href="?action=listar_admin">Modificar</a>
-		</li>
-
-		<li>
 			<a href="?action=qui_som">Quienes somos</a>
 		</li>
 		<li>

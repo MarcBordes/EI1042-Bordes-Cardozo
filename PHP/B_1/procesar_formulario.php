@@ -28,28 +28,33 @@ if (file_exists($jsonFile)) {
 }
 
 // Comprobamos si existe o no el curso.
-if (!autentificado() || $_SESSION["user_role"] != "admin") {
+/*if (!autentificado() || $_SESSION["user_role"] != "admin") {
     $cursos[$nombre_actividad] = $nuevoCurso;
     $jsonCursos = json_encode($cursos, JSON_PRETTY_PRINT);
     file_put_contents($jsonFile, $jsonCursos);
+*/
 
-}elseif (array_key_exists($nombre_actividad, $cursos)) {
-    echo "El curso ya existe";
-    header("Location: ./portal0.php?action=registrar");
-    return;
+$referer = isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER'] : '';
+
+
+if (array_key_exists($nombre_actividad, $cursos)) { #si el nombre de la actividad ya existe comprobamos desde donde se ha llamado al procesar_formulario
+
+    if (strpos($referer, 'portal0.php?action=registrar') != false) {   #si venimos del formualario de añadir curso significa que hemos añadido uno repetido y no lo insertamos
+        echo "El curso ya existe";
+        header("Location: ./portal0.php?action=registrar");
+    } else {                                                #si no venimos del formulario de añadir esk venimos del formualrio de modificar y en ese caso actualizamos.
+        $cursos[$nombre_actividad] = $nuevoCurso;
+        $jsonCursos = json_encode($cursos, JSON_PRETTY_PRINT);
+        file_put_contents($jsonFile, $jsonCursos);
+        header("Location: ./portal0.php?action=listar");
+    }
 } else {
-    // Agrega el nuevo curso al arreglo con el nombre como clave
     $cursos[$nombre_actividad] = $nuevoCurso;
-    // Convierte el arreglo a formato JSON
     $jsonCursos = json_encode($cursos, JSON_PRETTY_PRINT);
-
-    // Guarda el JSON en el archivo
     file_put_contents($jsonFile, $jsonCursos);
 
-    header("Location: ./portal0.php?action=tablas");
+    header("Location: ./portal0.php?action=listar");
 }
-
-
 
 } else {
     echo "No se ha enviado el formulario.";

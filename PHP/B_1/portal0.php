@@ -51,10 +51,6 @@ if (isset($_REQUEST["action"])) {
             case "qui_som":
                 $central = "/partials/qui_som.php";
                 break;
-            case "registrar-modificacion":
-                
-                $central = "/partials/listar.php";
-                break;
             case "galeria":
                 $central = "/partials/galeria.php";
                 break;

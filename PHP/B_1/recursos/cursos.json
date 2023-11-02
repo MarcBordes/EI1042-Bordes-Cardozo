@@ -47,5 +47,26 @@
         "AlumnosMaximos": "50",
         "PlazasVacantes": "50",
         "Precio": "50"
+    },
+    "Programacion": {
+        "nombre_actividad": "Programacion",
+        "Descripcion": "few",
+        "AlumnosMaximos": "22",
+        "PlazasVacantes": "42",
+        "Precio": "42"
+    },
+    "Programacion 2 ": {
+        "nombre_actividad": "Programacion 2 ",
+        "Descripcion": "11",
+        "AlumnosMaximos": "11",
+        "PlazasVacantes": "11",
+        "Precio": "11"
+    },
+    "Programacion 3": {
+        "nombre_actividad": "Programacion 3",
+        "Descripcion": "13",
+        "AlumnosMaximos": "13",
+        "PlazasVacantes": "13",
+        "Precio": "13"
     }
 }
