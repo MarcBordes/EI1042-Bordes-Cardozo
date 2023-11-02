@@ -40,8 +40,13 @@ if (isset($_REQUEST["action"])) {
             case "home":
                 $central = "/partials/home.php";
                 break;
-            case "form_register":
-                $central = "/partials/form_register.php";
+            case "registrar":
+                if (!autentificado() || $_SESSION["user_role"] != "admin") {
+                    $error_msg = "Acceso denegado, no eres administrador";
+                    $central = "/partials/error.php";
+                } else {
+                    $central = "/partials/form_register.php";
+                }
                 break;
             case "qui_som":
                 $central = "/partials/qui_som.php";
@@ -49,16 +54,19 @@ if (isset($_REQUEST["action"])) {
             case "galeria":
                 $central = "/partials/galeria.php";
                 break;
-            case "tablas":
-                $central = "/partials/tablas.php";
+            case "listar":
+                $central = "/partials/listar.php";
+                break;
+            case "auten":
+                $central = "/partials/home.php";
+                break;
+            case "login":
+                $central = "/partials/home.php";
                 break;
             case "logout":
                 session_unset();
                 session_destroy();
                 $central = "/partials/home.php";
-                break;
-            case "form_cursos":
-                $central = "/partials/form_cursos.php";
                 break;
             default:
                 if (!isset($error_msg))
@@ -75,6 +83,6 @@ if (isset($error_msg))
 
 require_once(dirname(__FILE__) . $central);
 //echo "<br />",$action,"<br />",dirname(__FILE__),"<br />";
-echo "<aside>",var_dump($_SESSION),"</aside> <aside></aside> <aside></aside>";
+echo "<aside>", var_dump($_SESSION), "</aside> <aside></aside> <aside></aside>";
 require_once(dirname(__FILE__) . "/partials/footer.php");
 ?>

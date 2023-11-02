@@ -16,7 +16,7 @@
 			<a href="?action=home">Home</a>
 		</li>
 		<li>
-			<a href="?action=form_register">Registro</a>
+			<a href="?action=registrar">Registro</a>
 		</li>
 		<li>
 			<a href="?action=modify">Modificar</a>
@@ -29,7 +29,7 @@
 			<a href="?action=galeria">Galeria</a>
 		</li>
 		<li>
-			<a href="?action=tablas">Listado de cursos</a>
+			<a href="?action=listar">Listado de cursos</a>
 		</li>
 	</ul>
 </nav>

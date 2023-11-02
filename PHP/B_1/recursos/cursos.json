@@ -1,44 +1,51 @@
-[
-    {
-        "Codigo": "C001",
+{
+    "0": {
+        "nombre_actividad": "C001",
         "Descripcion": "Introducci\u00f3n a la Programaci\u00f3n",
         "AlumnosMaximos": 30,
         "PlazasVacantes": 10,
         "Precio": 150
     },
-    {
-        "Codigo": "C002",
+    "1": {
+        "nombre_actividad": "C002",
         "Descripcion": "Matem\u00e1ticas Avanzadas",
         "AlumnosMaximos": 25,
         "PlazasVacantes": 5,
         "Precio": 180
     },
-    {
-        "Codigo": "C003",
+    "2": {
+        "nombre_actividad": "C003",
         "Descripcion": "Idiomas: Franc\u00e9s",
         "AlumnosMaximos": 20,
         "PlazasVacantes": 8,
         "Precio": 120
     },
-    {
-        "Codigo": "C004",
+    "3": {
+        "nombre_actividad": "C004",
         "Descripcion": "Desarrollo Web",
         "AlumnosMaximos": 35,
         "PlazasVacantes": 15,
         "Precio": 200
     },
-    {
-        "Codigo": "C005",
+    "4": {
+        "nombre_actividad": "C005",
         "Descripcion": "Art Digital",
         "AlumnosMaximos": 18,
         "PlazasVacantes": 3,
         "Precio": 160
     },
-    {
-        "Codigo": "C006",
+    "5": {
+        "nombre_actividad": "C006",
         "Descripcion": "prueba de descripcion de curso",
         "AlumnosMaximos": "15",
         "PlazasVacantes": "14",
         "Precio": "500"
+    },
+    "Ampliaci\u00f3n de Matem\u00e1ticas": {
+        "nombre_actividad": "Ampliaci\u00f3n de Matem\u00e1ticas",
+        "Descripcion": "50",
+        "AlumnosMaximos": "50",
+        "PlazasVacantes": "50",
+        "Precio": "50"
     }
-]
+}

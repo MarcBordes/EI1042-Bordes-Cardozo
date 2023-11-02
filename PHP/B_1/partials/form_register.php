@@ -9,7 +9,7 @@
  **/
 
  -->
-<main>
+<!-- <main>
 	<h1>Gestión de Actividades </h1>
 	<form class="fom_usuario" action="?action=registrar" method="POST">
 		<legend>Datos básicos</legend>
@@ -25,4 +25,34 @@
 		<input type="submit" value="Enviar">
 		<input type="reset" value="Deshacer">
 	</form>
+</main> -->
+
+<main>
+<h1>Ingrese los datos:</h1>
+
+<form method="post" action="procesar_formulario.php">
+    <table>
+        <tr>
+            <th><label for="nombre_actividad">Nombre Actividad:</label></th>
+            <td><input type="text" id="nombre_actividad" name="nombre_actividad" size="50" required maxlength="50"></td>
+        </tr>
+        <tr>
+            <th><label for="alumnos_maximos">Alumnos Máximos:</label></th>
+            <td><input type="number" id="alumnos_maximos" name="alumnos_maximos" size="4" required maxlength="5" min="0"placeholder="0"></td>
+        </tr>
+        <tr>
+            <th><label for="plazas_vacantes">Plazas Vacantes:</label></th>
+            <td><input type="number" id="plazas_vacantes" name="plazas_vacantes" size="4"  required maxlength="5" min="0" placeholder="0"></td>
+        </tr>
+        <tr>
+            <th><label for="precio">Precio:</label></th>
+            <td><input type="number" id="precio" name="precio" required maxlength="5" min="0" placeholder="0€"></td>
+        </tr>
+        <tr>
+            <th><label for="descripcion">Descripción:</label></th>
+            <td><input type="text" id="descripcion" name="descripcion" style="width: 300px; height: 100px;" required maxlength="500" width="300" ></td>
+        </tr>
+    </table>
+     <a href="./portal0.php?action=registar"><button class="button-tabla">Añadir Curso</button></a>
+</form>
 </main>

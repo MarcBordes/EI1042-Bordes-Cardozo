@@ -140,6 +140,7 @@ if ($_REQUEST['action'] == 'login') {
       session_unset();
       session_destroy();
    }
+   
    include './partials/form_login.php';
 } else if ($_REQUEST['action'] == 'auten') {
    $user = $_POST['user'];

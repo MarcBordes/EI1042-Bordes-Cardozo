@@ -18,7 +18,7 @@
   <table>
     <thead>
       <tr>
-        <th>Código</th>
+        <th>Nombre Actividad</th>
         <th>Descripción</th>
         <th>Alumnos Màximos</th>
         <th>Plazas Vacantes</th>
@@ -27,12 +27,12 @@
     <tbody>
       <?php
       // Ejemplo de datos de cursos
-      $json_data = file_get_contents('cursos.json');
+      $json_data = file_get_contents('recursos/cursos.json');
       $cursos = json_decode($json_data, true);
 
       foreach ($cursos as $curso) {
         echo "<tr>";
-        echo "<td>{$curso["Codigo"]}</td>";
+        echo "<td>{$curso["nombre_actividad"]}</td>";
         echo "<td>{$curso["Descripcion"]}</td>";
         echo "<td>{$curso["AlumnosMaximos"]}</td>";
         echo "<td><span" . ($curso["PlazasVacantes"] < 10 ? ' style="color: red;"' : '') . ">" . $curso["PlazasVacantes"] . "</span></td>";
@@ -43,5 +43,4 @@
 
     </tbody>
   </table>
-  <a href="./portal0.php?action=form_cursos"><button class="button-tabla">Añadir Curso</button></a>
 </main>
