@@ -1,1 +1,29 @@
-{"0":{"nombre_actividad":"C001","Descripcion":"Introducci\u00f3n a la Programaci\u00f3n","AlumnosMaximos":30,"PlazasVacantes":10,"Precio":150},"1":{"nombre_actividad":"C002","Descripcion":"Matem\u00e1ticas Avanzadas","AlumnosMaximos":25,"PlazasVacantes":5,"Precio":180},"2":{"nombre_actividad":"C003","Descripcion":"Idiomas: Franc\u00e9s","AlumnosMaximos":20,"PlazasVacantes":8,"Precio":120},"3":{"nombre_actividad":"C004","Descripcion":"Desarrollo Web","AlumnosMaximos":35,"PlazasVacantes":15,"Precio":200},"4":{"nombre_actividad":"C005","Descripcion":"Art Digital","AlumnosMaximos":18,"PlazasVacantes":3,"Precio":160},"Ampliaci\u00f3n de Matem\u00e1ticas":{"nombre_actividad":"Ampliaci\u00f3n de Matem\u00e1ticas","Descripcion":"50","AlumnosMaximos":"50","PlazasVacantes":"50","Precio":"50"}}
+{
+    "Whallhala": {
+        "nombre_actividad": "Whallhala",
+        "Descripcion": "5",
+        "AlumnosMaximos": "5",
+        "PlazasVacantes": "5",
+        "Precio": "5",
+        "NombreImagen": "5",
+        "fotoCliente": "\/media\/fotos\/wallpaperflare.com_wallpaper.jpg"
+    },
+    "Programacion 2 ": {
+        "nombre_actividad": "Programacion 2 ",
+        "Descripcion": "345",
+        "AlumnosMaximos": "45",
+        "PlazasVacantes": "54",
+        "Precio": "345",
+        "NombreImagen": "foto prueba 3",
+        "fotoCliente": "\/media\/fotos\/science.jpg"
+    },
+    "Programacion 3": {
+        "nombre_actividad": "Programacion 3",
+        "Descripcion": "423",
+        "AlumnosMaximos": "34",
+        "PlazasVacantes": "432",
+        "Precio": "342",
+        "NombreImagen": "hola",
+        "fotoCliente": "\/media\/fotos\/"
+    }
+}

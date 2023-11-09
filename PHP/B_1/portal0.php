@@ -90,6 +90,18 @@ if (isset($_REQUEST["action"])) {
                 session_destroy();
                 $central = "/partials/home.php";
                 break;
+            case "foto_upload":
+                $central = "/partials/form_foto.php";
+
+                $directorio_destino = './media/fotos/';
+                $archivo_destino = $directorio_destino . basename($_FILES['foto_cliente']['name']);
+                if (move_uploaded_file($_FILES['foto_cliente']['tmp_name'], $archivo_destino)) {
+                    echo "La imagen se ha subido correctamente.";
+                } else {
+                    echo "Hubo un error al subir la imagen.";
+                }
+                break;
+
             default:
                 if (!isset($error_msg))
                     $error_msg = "Accion no permitida";
@@ -105,6 +117,6 @@ if (isset($error_msg))
 
 require_once(dirname(__FILE__) . $central);
 //echo "<br />",$action,"<br />",dirname(__FILE__),"<br />";
-echo "<aside>", var_dump($_SESSION), "</aside> <aside></aside> <aside></aside>";
+echo "<aside> Session: ", var_dump($_SESSION), "</aside> <aside> Files: ", var_dump($_FILES), "Request-->", var_dump($_REQUEST), "</aside> <aside></aside>";
 require_once(dirname(__FILE__) . "/partials/footer.php");
 ?>

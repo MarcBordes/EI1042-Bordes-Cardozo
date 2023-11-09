@@ -14,7 +14,7 @@
 <main>
 <h1>Ingrese los datos:</h1>
 
-<form method="post" action="procesar_formulario.php">
+<form method="post" action="procesar_formulario.php" enctype="multipart/form-data">
     <table>
         <tr>
             <th><label for="codigo">Código:</label></th>
@@ -36,6 +36,16 @@
             <th><label for="descripcion">Descripción:</label></th>
             <td><input type="text" id="descripcion" name="descripcion" style="width: 300px; height: 100px;" required maxlength="500" width="300" ></td>
         </tr>
+        <tr>
+            <th><label for="name_foto">Nombre de la imagen:</label></th>
+            <td><input type="text" name="name_foto" id="name_foto" class="item_requerid" size="20" maxlength="25"></td>
+        </tr>
+        <tr>
+            <th><label for="foto_cliente">Nombre de la imagen:</label></th>
+            <td><input type="file" accept="image/*" name="foto_cliente" id="foto_cliente"></td>
+        </tr>
+        
+
     </table>
     <input type="submit" value="Enviar">
 </form>

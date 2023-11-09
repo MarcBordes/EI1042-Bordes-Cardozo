@@ -17,7 +17,12 @@ echo '<th>Alumnos Máximos</th>';
 echo '<th>Plazas Vacantes</th>';
 echo '<th>Precio</th>';
 echo '<th>Descripción</th>';
+echo '<th>Nombre Imagen</th>';
+//echo '<th>Imagen</th>';
 echo '<th>Acciones</th>';
+
+
+
 echo '</tr>';
 
 foreach ($cursos as $nombreCurso => $curso) {
@@ -27,6 +32,8 @@ foreach ($cursos as $nombreCurso => $curso) {
     echo '<td><input type="number" name="plazas_vacantes" value="' . $curso['PlazasVacantes'] . '" required maxlength="5" min="0"></td>';
     echo '<td><input type="number" name="precio" value="' . $curso['Precio'] . '" required maxlength="5" min="0"></td>';
     echo '<td><input type="text" name="descripcion" value="' . $curso['Descripcion'] . '" style="width: 300px; height: 100px;" required maxlength="500"></td>';
+    echo '<td><input type="text" name="name_foto" id="name" class="item_requerid" value="' . $curso['NombreImagen'] .'"  size="20" maxlength="25" required></td>';
+    //echo '<td><input type="file" accept="image/*" name="foto_cliente" id="foto_cliente" value="' . $curso['fotoCliente'] . '" ></td>';
     echo '<td>';
     echo '<input type="hidden" name="nombre_actividad" value="' . $nombreCurso . '">';
     echo '<input type="submit" value="Registrar">';

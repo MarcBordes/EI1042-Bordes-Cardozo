@@ -23,6 +23,8 @@
         <th>Alumnos Màximos</th>
         <th>Plazas Vacantes</th>
         <th>Precio</th>
+        <th>Nombre de la imagen</th>
+        <th>Imagen</th>
       </tr>
     <tbody>
       <?php
@@ -37,6 +39,8 @@
         echo "<td>{$curso["AlumnosMaximos"]}</td>";
         echo "<td><span" . ($curso["PlazasVacantes"] < 10 ? ' style="color: red;"' : '') . ">" . $curso["PlazasVacantes"] . "</span></td>";
         echo "<td>{$curso["Precio"]}€</td>";
+        echo "<td>{$curso["NombreImagen"]}</td>";
+        echo "<td><img style= 'max-width: 500px; max-height: 200px;' alt='imagen listar' src='{$curso["fotoCliente"]}'/></td>";
         echo "</tr>";
       }
       ?>
