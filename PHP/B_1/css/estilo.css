@@ -10,6 +10,7 @@
     --color-5: #192231;
     /* Asi es como se ponen los colores para que sean globales, nosotros vamos a usar el hexa */
     --color-6: #42acb1;
+    --color-7: #491475;
 
     /* var()*/
 }
@@ -411,25 +412,20 @@ th {
 
 .button-login {
     align-items: center;
-    background-color: #fff;
-    border-radius: 12px;
-    box-shadow: transparent 0 0 0 3px, rgba(7, 171, 212, 0.1) 0 6px 20px;
-    box-sizing: border-box;
-    color: #121212;
+    background-color: var(--color-7);  
+    color: white;
     cursor: pointer;
-    font-size: 1.0rem;
+    font-size: 0.9rem;
     font-weight: 600;
     justify-content: center;
     line-height: 1;
-    padding: 1rem 1.2rem;
-    transition: box-shadow .2s, -webkit-box-shadow .2s;
-    border: 0;
+    padding: 1rem;
     touch-action: manipulation;
     text-decoration: none;
 }
 
 .button-login:hover {
-    box-shadow: #378a8d 0 0 0 3px, transparent 0 0 0 0;
+    box-shadow: var(--color-3) 0 0 0 3px;
 }
 
 aside {
@@ -447,7 +443,7 @@ aside {
     gap: 10px;
     margin: 0 auto;
     overflow: visible;
-    background-color: yellowgreen;
+    background-color: var(--color-6);
 }
 
 aside>div {
@@ -504,3 +500,14 @@ aside>div>img:hover {
     background-color: rgb(26, 80, 29);
   }
 
+/*Centrado de Login*/
+.form-centrado {
+    width: 300px; /* O ajusta el ancho según tus necesidades */
+    margin: auto;
+    text-align: center;
+}
+.form-centrado input {
+    width: 100%;
+    margin-bottom: 10px;
+  
+}
