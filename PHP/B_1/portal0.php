@@ -88,7 +88,8 @@ if (isset($_REQUEST["action"])) {
             case "logout":
                 session_unset();
                 session_destroy();
-                $central = "/partials/home.php";
+                header("Location: ./portal0.php?action=home");    //si ponemos el header forzamos a cargar bien el boton pero creo que no se borra bien la sesion
+                //$central = "/partials/home.php";
                 break;
             case "foto_upload":
                 $central = "/partials/form_foto.php";
@@ -121,7 +122,7 @@ echo "<aside>";
 require_once(dirname(__FILE__) . "/partials/imagenes_cursos.php");
 echo "</aside>";
 
-//echo "<aside> Session: ", var_dump($_SESSION), "</aside> <aside> Files: ", var_dump($_FILES), "Request-->", var_dump($_REQUEST), "</aside> <aside></aside>";
+echo "<aside> Session: ", var_dump($_SESSION), "</aside> <aside> Files: ", var_dump($_FILES), "Request-->", var_dump($_REQUEST), "</aside> <aside></aside>";
 
 require_once(dirname(__FILE__) . "/partials/footer.php");
 ?>

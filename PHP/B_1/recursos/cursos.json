@@ -1,1 +1,11 @@
-{"Whallhala":{"nombre_actividad":"Whallhala","Descripcion":"foto sscience\u00a1aQ","AlumnosMaximos":"49","PlazasVacantes":"8","Precio":"8","NombreImagen":"5","fotoCliente":"\/media\/fotos\/science.jpg"}}
+{
+    "Whallhala": {
+        "nombre_actividad": "Whallhala",
+        "Descripcion": "mejor curso del mundo!!!!!!",
+        "AlumnosMaximos": "49",
+        "PlazasVacantes": "8",
+        "Precio": "8",
+        "NombreImagen": "science",
+        "fotoCliente": "\/media\/fotos\/science.jpg"
+    }
+}

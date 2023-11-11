@@ -1,7 +1,5 @@
 <?php
 
-session_start();
-
 if (!isset($_SESSION["activo"])) {
     $_SESSION["visita"] = 0;
     $_SESSION["visitado"] = array();
