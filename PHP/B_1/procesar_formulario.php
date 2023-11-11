@@ -1,4 +1,9 @@
 <?php
+
+
+$referer = isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER'] : '';
+
+
 // Verifica si se ha enviado el formulario
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Recopila los datos del formulario
@@ -9,7 +14,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $precio = $_POST["precio"];
 
     $name_foto = $_POST["name_foto"];
-    $foto_cliente = "/media/fotos/".basename($_FILES['foto_cliente']['name']);
+
+    
+    if (strpos($referer, 'portal0.php?action=registrar') != false) {
+        $foto_cliente = "/media/fotos/" . basename($_FILES['foto_cliente']['name']);
+    } else {
+        $foto_cliente = $_POST["foto_cliente"];
+    }
+    
+    //$foto_cliente = "/media/fotos/".basename($_FILES['foto_cliente']['name']);
+    
 
 
     //Para que sea más óptimo, antes de hacer nada voy a mira que este curso no exista.
