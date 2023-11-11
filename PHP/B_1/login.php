@@ -146,6 +146,8 @@ if ($_REQUEST['action'] == 'login') {
    if (autentificacion_ok($nomFitxer, $user, $password)) {
       var_dump($_SESSION);
    } else {
+      $Login_error = "Usuario o contraseña incorrectos";
+      $_SESSION['Login_error'] = $Login_error;
       header("Location: ./portal0.php?action=login");
    }
 }  
