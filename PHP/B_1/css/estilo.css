@@ -21,7 +21,6 @@ body {
     display: flex;
     flex-direction: column;
     font-family: arial;
-    background-image: url('../img/fondo.png');
     margin: 0 auto;
     background-color: white;
     min-height: 100vh;
@@ -404,7 +403,9 @@ th {
 }
 
 .loguear {
-    position: absolute; top: 0; right: 0;
+    position: absolute;
+    top: 0;
+    right: 0;
     margin: 30px;
 }
 
@@ -429,4 +430,36 @@ th {
 
 .button-login:hover {
     box-shadow: #378a8d 0 0 0 3px, transparent 0 0 0 0;
+}
+
+/*Estilos para el aside*/
+aside {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    border-top: 1px solid #610404;
+
+}
+
+.div-aside {
+    padding: 15px;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin: 0 auto;
+    overflow: visible;
+    background-color: yellowgreen;
+}
+
+aside>div>img {
+    display: inline;
+    max-width: 10%;
+    min-height: 100%;
+    transition: transform 0.2s ease;
+}
+
+aside>div>img:hover {
+    border: 2px solid var(--color-6);
+    transform: scale(1.2);
+
 }

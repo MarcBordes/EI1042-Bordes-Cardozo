@@ -117,6 +117,11 @@ if (isset($error_msg))
 
 require_once(dirname(__FILE__) . $central);
 //echo "<br />",$action,"<br />",dirname(__FILE__),"<br />";
-echo "<aside> Session: ", var_dump($_SESSION), "</aside> <aside> Files: ", var_dump($_FILES), "Request-->", var_dump($_REQUEST), "</aside> <aside></aside>";
+echo "<aside>";
+require_once(dirname(__FILE__) . "/partials/imagenes_cursos.php");
+echo "</aside>";
+
+//echo "<aside> Session: ", var_dump($_SESSION), "</aside> <aside> Files: ", var_dump($_FILES), "Request-->", var_dump($_REQUEST), "</aside> <aside></aside>";
+
 require_once(dirname(__FILE__) . "/partials/footer.php");
 ?>

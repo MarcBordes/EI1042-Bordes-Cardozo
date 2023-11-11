@@ -22,7 +22,6 @@
 
 </head>	
 
-
 <body>
 	<header>
 		<a href="/portal0.php?action=home">
