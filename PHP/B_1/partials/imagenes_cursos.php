@@ -2,9 +2,11 @@
     $imageDir = __DIR__ . '/../media/fotos';
     $images = glob($imageDir . '/{*.jpg,*.png}', GLOB_BRACE);
     shuffle($images);
-    $randomImages = array_slice($images, 0, 9);
+    sizeof($images) > 9 ? $slice =  9 : $slice = sizeof($images);
+    $randomImages = array_slice($images, 0, $slice );
     if ($images === false) {
-        die('Error al leer el directorio');
+        print('Error al leer el directorio');
+        exit();
     }
 
     echo '<div class="div-aside">';    

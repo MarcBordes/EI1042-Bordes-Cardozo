@@ -28,7 +28,7 @@
 			<a href="?action=listar">Listado de cursos</a>
 		</li>
 		<li>
-			<a href="?action=foto_upload">FOTO UPLOAD</a>
+			<a href="?action=foto_upload">Foto Upload</a>
 		</li>
 	</ul>
 </nav>

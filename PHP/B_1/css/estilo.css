@@ -417,7 +417,7 @@ th {
     box-sizing: border-box;
     color: #121212;
     cursor: pointer;
-    font-size: 1.2rem;
+    font-size: 1.0rem;
     font-weight: 600;
     justify-content: center;
     line-height: 1;
@@ -432,37 +432,39 @@ th {
     box-shadow: #378a8d 0 0 0 3px, transparent 0 0 0 0;
 }
 
-/*Estilos para el aside*/
 aside {
     display: flex;
-    height: 10%;
     justify-content: center;
+    flex-wrap: wrap;
     border-top: 1px solid #610404;
-    background-color: aqua;
-    padding: 10px;
-
 }
 
 .div-aside {
-    padding: 30px;
+    padding: 15px;
+    width: 100%;
     display: flex;
-    flex-wrap: wrap;
     justify-content: center;
     gap: 10px;
+    margin: 0 auto;
+    overflow: visible;
     background-color: yellowgreen;
 }
 
-.imagenes-aside {
+aside>div {
     position: relative;
-    display: flex;
-    min-height: 150px;
-    min-width: 150px;
-    width: 10%; /* Establece el ancho fijo para todas las imágenes */
-    transition: transform 0.1s ease;
 }
 
-.imagenes-aside:hover {
-    border: 2px solid var(--color-6);
+aside>div>img {
+    display: inline;
+    width: 10%;
+    height: 100%;
+    transition: transform 0.2s ease; /* Agregada transición para el borde */
+    border: 2px solid transparent; /* Color azul al hacer hover */
+}
+
+aside>div>img:hover {
+    border-color: var(--color-4); /* Color azul al hacer hover */
+    filter: brightness(70%); /* Ajusta el valor según tu preferencia (0% a 100%) */
     transform: scale(1.2);
 
 }
