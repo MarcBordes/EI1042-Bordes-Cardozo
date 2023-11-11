@@ -10,7 +10,7 @@
     echo '<div class="div-aside">';    
     foreach ($randomImages as $image) {
         if($relativePath = 'media/fotos/' . basename($image))
-            echo '<img src="' . $relativePath . '" alt="Random Image">';
+            echo '<img class="imagenes-aside" src="' . $relativePath . '" alt="Random Image">';
     }
     echo '</div>';
     ?>

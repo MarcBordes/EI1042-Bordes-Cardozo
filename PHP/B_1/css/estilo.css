@@ -435,30 +435,33 @@ th {
 /*Estilos para el aside*/
 aside {
     display: flex;
+    height: 10%;
     justify-content: center;
-    flex-wrap: wrap;
     border-top: 1px solid #610404;
+    background-color: aqua;
+    padding: 10px;
 
 }
 
 .div-aside {
-    padding: 15px;
+    padding: 30px;
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     gap: 10px;
-    margin: 0 auto;
-    overflow: visible;
     background-color: yellowgreen;
 }
 
-aside>div>img {
-    display: inline;
-    max-width: 10%;
-    min-height: 100%;
-    transition: transform 0.2s ease;
+.imagenes-aside {
+    position: relative;
+    display: flex;
+    min-height: 150px;
+    min-width: 150px;
+    width: 10%; /* Establece el ancho fijo para todas las imágenes */
+    transition: transform 0.1s ease;
 }
 
-aside>div>img:hover {
+.imagenes-aside:hover {
     border: 2px solid var(--color-6);
     transform: scale(1.2);
 
