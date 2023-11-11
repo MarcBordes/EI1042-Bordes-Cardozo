@@ -16,7 +16,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $name_foto = $_POST["name_foto"];
 
     
-    if (strpos($referer, 'portal0.php?action=registrar') != false) {
+    if (strpos($referer, 'portal0.php?action=registrar') != false) {    //comprobamos que se inserta la imagen en crear, si no estamos creando pillamos el valor.
         $foto_cliente = "/media/fotos/" . basename($_FILES['foto_cliente']['name']);
     } else {
         $foto_cliente = $_POST["foto_cliente"];
