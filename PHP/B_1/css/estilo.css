@@ -267,11 +267,11 @@ table {
 /* Boton Tabla*/
 .button-tabla {
     align-items: center;
-    background-color: #fff;
+    background-color: var(--color-7);
     border-radius: 12px;
     box-shadow: transparent 0 0 0 3px, rgba(18, 18, 18, .1) 0 6px 20px;
     box-sizing: border-box;
-    color: #121212;
+    color: white;
     cursor: pointer;
     font-size: 1.2rem;
     font-weight: 600;
@@ -524,7 +524,7 @@ aside>div>img:hover {
     }
 
 
-
+    /*CAMBIO LAS TABLAS PARA QUE SE AJUSTEN AL TAMAÑO DEL DISPOSITIVO, Y QUITO CABECERA*/
 
     table, th, td {
         display: block;
