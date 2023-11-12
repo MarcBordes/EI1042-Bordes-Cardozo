@@ -42,8 +42,8 @@ foreach ($cursos as $nombreCurso => $curso) {
     echo '<input type="hidden" name="foto_cliente" value="' . $curso['fotoCliente'] . '" >';
     echo '<input type="hidden" name="nombre_actividad" value="' . $nombreCurso . '">';
     echo '<input class="btn-registrar" type="submit" value="Registrar">';
-    echo '<button class="btn-delete" href="?action=borrar&curso=' . $nombreCurso . '">Borrar</button>';
-    echo '</td>';
+    echo '<a class="btn-delete" href="?action=borrar&curso=' . $nombreCurso . '" " style="text-decoration: none;">Borrar</a>';
+        echo '</td>';
     echo '</tr>';
 }
 

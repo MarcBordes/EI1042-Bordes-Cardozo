@@ -29,13 +29,12 @@
             Gracias por ser parte de nuestra comunidad educativa. Si desea obtener más información o programar una
             visita,
             no dude en ponerse en contacto con nosotros.
-
         </p>
 
 
-        <iframe
+        <iframe class="mapa"
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6515.925377726716!2d-0.06604482681680854!3d39.99214756869806!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd5ffe0fca9b5147%3A0x1368bf53b3a7fb3f!2sUniversitat%20Jaume%20I!5e0!3m2!1ses!2ses!4v1696275515321!5m2!1ses!2ses"
-            width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+            allowfullscreen="" loading="lazy"
             referrerpolicy="no-referrer-when-downgrade"></iframe>
     </div>
 </main>

@@ -93,13 +93,15 @@ if (isset($_REQUEST["action"])) {
                 break;
             case "foto_upload":
                 $central = "/partials/form_foto.php";
-
+                break;
+            case "foto_uploading":
+                $central = "/partials/form_foto.php";
                 $directorio_destino = './media/fotos/';
                 $archivo_destino = $directorio_destino . basename($_FILES['foto_cliente']['name']);
                 if (move_uploaded_file($_FILES['foto_cliente']['tmp_name'], $archivo_destino)) {
-                    echo "La imagen se ha subido correctamente.";
+                    echo "<p style='color:green;margin-left:50px;'>La imagen se ha subido correctamente.</p>";
                 } else {
-                    echo "Hubo un error al subir la imagen.";
+                    echo "<p style='color:red;margin-left:50px;'>Hubo un error al subir la imagen.</p>";
                 }
                 break;
 

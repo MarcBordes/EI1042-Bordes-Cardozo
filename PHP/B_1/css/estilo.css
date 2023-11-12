@@ -184,6 +184,33 @@ header>img {
 
 .contenedor-home p {
     width: 50%;
+    text-align: justify;
+    margin: 40px;
+}
+
+.loguear {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 30px;
+}
+
+.button-login {
+    align-items: center;
+    background-color: var(--color-7);
+    color: white;
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: 600;
+    justify-content: center;
+    line-height: 1;
+    padding: 1rem;
+    touch-action: manipulation;
+    text-decoration: none;
+}
+
+.button-login:hover {
+    box-shadow: var(--color-3) 0 0 0 3px;
 }
 
 /*tablas*/
@@ -240,6 +267,13 @@ table {
     border-radius: 8px;
 }
 
+/*MAPA*/
+.mapa {
+    margin: 10px;
+    width: 40%;
+    height: 400px;
+}
+
 /* galeria */
 
 /* Estilo para el contenedor principal */
@@ -282,6 +316,8 @@ table {
     border-radius: 8px;
 }
 
+
+
 .imagen-caja:hover .cortina {
     opacity: 1;
     transition: opacity 0.3s;
@@ -293,6 +329,7 @@ table {
     padding: 20px;
 }
 
+/*AQUI CREO QUE ACABA GALERIA*/
 .contenedor h1 {
     font-size: 100px;
     color: black;
@@ -319,6 +356,7 @@ th {
 .div-50 img {
     width: 100%;
     height: auto;
+    min-width: 300px;
     border-radius: 8px;
 }
 
@@ -368,30 +406,7 @@ th {
     margin-bottom: 5px;
 }
 
-.loguear {
-    position: absolute;
-    top: 0;
-    right: 0;
-    margin: 30px;
-}
 
-.button-login {
-    align-items: center;
-    background-color: var(--color-7);  
-    color: white;
-    cursor: pointer;
-    font-size: 0.9rem;
-    font-weight: 600;
-    justify-content: center;
-    line-height: 1;
-    padding: 1rem;
-    touch-action: manipulation;
-    text-decoration: none;
-}
-
-.button-login:hover {
-    box-shadow: var(--color-3) 0 0 0 3px;
-}
 
 aside {
     display: flex;
@@ -430,7 +445,7 @@ aside>div>img:hover {
 }
 
 .btn-delete {
-    margin: 10px;
+    margin: 32px;
     background-color: red;
     border: 2px solid black;
     color: white;
@@ -446,7 +461,7 @@ aside>div>img:hover {
 }
 
 .btn-registrar {
-    margin: 10px;
+    margin: 18px;
     background-color: green;
     border: 2px solid black;
     color: white;
@@ -470,4 +485,97 @@ aside>div>img:hover {
 .form-centrado input {
     width: 100%;
     margin-bottom: 10px;
+}
+
+/*AQUI ES DONDE PONDREMOS LOS MEDIA-QUERIES*/
+
+@media (max-width: 880px) {
+    .contenedor-home {
+        /* Reglas específicas para pantallas de 768 píxeles o menos */
+        flex-direction: column;
+    }
+
+    .div-50 {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .div-50 p {
+        margin: 0;
+        padding: auto;
+    }
+
+    nav {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+    }
+
+    nav a {
+        display: block;
+        white-space: nowrap;
+    }
+
+    .contenedor-home p {
+        width: 100%;
+
+    }
+
+    .mapa {
+        width: 100%;
+    }
+
+    .galeria {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+    }
+
+    .imagen-caja {
+        width: 100%;
+        margin-bottom: 20px;
+        position: relative;
+    }
+
+    /* Estilo para las imágenes dentro de las cajas */
+    .imagen-caja img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 8px;
+        transition: transform 0.3s;
+    }
+
+    .cortina {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        background-color: rgba(0, 0, 0, 0.7);
+        opacity: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        color: white;
+        transition: opacity 0.3s ease-in-out;
+        border-radius: 8px;
+    }
+
+
+
+    .imagen-caja:hover .cortina {
+        opacity: 1;
+        transition: opacity 0.3s;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    }
+
+    .cortina p {
+        color: white;
+        padding: 20px;
+        size: 10px;
+    }
+
 }
