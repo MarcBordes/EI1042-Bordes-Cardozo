@@ -42,7 +42,7 @@ if (isset($_REQUEST["action"])) {
                 break;
             case "registrar":
                 if (!autentificado() || $_SESSION["user_role"] != "admin") {
-                    $error_msg = "Acceso denegado, no eres administrador";
+                    $error_msg = "Acceso denegado ✋❌. No eres administrador 😎";
                     $central = "/partials/error.php";
                 } else {
                     $central = "/partials/form_register.php";
@@ -88,7 +88,7 @@ if (isset($_REQUEST["action"])) {
             case "logout":
                 session_unset();
                 session_destroy();
-                header("Location: ./portal0.php?action=home");    //si ponemos el header forzamos a cargar bien el boton pero creo que no se borra bien la sesion
+                header("Location: ./portal0.php?action=home"); //si ponemos el header forzamos a cargar bien el boton pero creo que no se borra bien la sesion
                 //$central = "/partials/home.php";
                 break;
             case "foto_upload":
@@ -124,7 +124,7 @@ echo "<aside>";
 require_once(dirname(__FILE__) . "/partials/imagenes_cursos.php");
 echo "</aside>";
 
-echo "<aside> Session: ", var_dump($_SESSION), "</aside> <aside> Files: ", var_dump($_FILES), "Request-->", var_dump($_REQUEST), "</aside> <aside></aside>";
+echo "<aside class='aside-info'> Session: ", var_dump($_SESSION), "</aside> <aside  class='aside-info' > Files: ", var_dump($_FILES), "Request-->", var_dump($_REQUEST), "</aside> <aside></aside>";
 
 require_once(dirname(__FILE__) . "/partials/footer.php");
 ?>

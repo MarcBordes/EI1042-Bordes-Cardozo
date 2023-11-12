@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Luxurious+Roman&family=Merienda:wght@300&family=Montserrat&family=Space+Grotesk:wght@500&display=swap');
+
 :root {
     --color-1: #494E6B;
     --color-2: #98878F;
@@ -16,7 +17,8 @@ body {
     font-family: 'Luxurious Roman', serif;
     margin: 0 auto;
     background-color: white;
-    min-height: 100vh;}
+    min-height: 100vh;
+}
 
 a {
     font-size: 15px;
@@ -55,15 +57,6 @@ footer {
     color: white;
 }
 
-section {
-    width: 45%;
-    min-width: 300px;
-    margin: 0px 0px 15px 0px;
-    padding: 15px 5px 5px 5px;
-    background-color: beige;
-    box-shadow: 3px 3px 3px 3px rgba(50, 50, 50, .75);
-}
-
 h1 {
     font-size: 35px;
     margin-top: 0;
@@ -86,6 +79,7 @@ table {
     color: #000;
     font-size: 18px;
     border: 1px;
+    font-family: Arial, Helvetica, sans-serif;
     margin: 10px auto;
 }
 
@@ -232,6 +226,9 @@ table {
     overflow: hidden;
     box-shadow: 0 0 10px var(--color-4);
 }
+
+/* Botones Tabla*/
+/*botones tabla admin*/
 .btn-delete {
     margin: 32px;
     background-color: red;
@@ -248,6 +245,7 @@ table {
     background-color: rgb(112, 26, 26);
 }
 
+/*botones tabla admin*/
 .btn-registrar {
     margin: 18px;
     background-color: green;
@@ -268,19 +266,17 @@ table {
 .button-tabla {
     align-items: center;
     background-color: var(--color-7);
+    color: white;
     border-radius: 12px;
     box-shadow: transparent 0 0 0 3px, rgba(18, 18, 18, .1) 0 6px 20px;
     box-sizing: border-box;
-    color: white;
+    color: wh;
     cursor: pointer;
     font-size: 1.2rem;
     font-weight: 600;
     justify-content: center;
     line-height: 1;
     padding: 1rem 1.2rem;
-    transition: box-shadow .2s, -webkit-box-shadow .2s;
-    border: 0;
-    touch-action: manipulation;
 }
 
 .button-tabla:hover {
@@ -323,6 +319,7 @@ table {
     justify-content: space-between;
 }
 
+/*div contenedor imagenes en galeria*/
 .imagen-caja {
     width: calc(33.33% - 20px);
     margin-bottom: 20px;
@@ -339,6 +336,7 @@ table {
     transition: transform 0.3s;
 }
 
+/*Esto hace que se oscurezca y aparezca la descripción de la foto*/
 .cortina {
     position: absolute;
     top: 0;
@@ -367,7 +365,7 @@ table {
     padding: 20px;
 }
 
-/*AQUI CREO QUE ACABA GALERIA*/
+/*AQUI  QUE ACABA GALERIA*/
 
 .contenedor h1 {
     font-size: 100px;
@@ -403,6 +401,7 @@ aside {
     font-family: Arial, Helvetica, sans-serif;
     size: 5px;
     background: repeating-linear-gradient(45deg, transparent, transparent 10px, #f0bccc 10px, #ccc 20px);
+    /*Esto es el rayado en los asides.*/
 }
 
 .div-aside {
@@ -430,6 +429,11 @@ aside>div>img {
 aside>div>img:hover {
     border-color: var(--color-1);
     transform: scale(1.3);
+}
+
+.aside-info {
+    color: green;
+    font-weight: 800;
 }
 
 
@@ -526,25 +530,28 @@ aside>div>img:hover {
 
     /*CAMBIO LAS TABLAS PARA QUE SE AJUSTEN AL TAMAÑO DEL DISPOSITIVO, Y QUITO CABECERA*/
 
-    table, th, td {
+    table,
+    th,
+    td {
         display: block;
-      }
-    
-      /* Ajustes adicionales para las celdas en pantallas pequeñas */
-      th, td {
+    }
+
+    /* Ajustes adicionales para las celdas en pantallas pequeñas */
+    th,
+    td {
         width: 100%;
         box-sizing: border-box;
-      }
-    
-      /* Ocultar la cabecera en pantallas pequeñas */
-      thead {
+    }
+
+    /* Ocultar la cabecera en pantallas pequeñas */
+    thead {
         display: none;
-      }
-    
+    }
+
     aside>div>img {
         width: 30%;
     }
-    
+
     aside>div>img:hover {
         border-color: var(--color-4);
     }
