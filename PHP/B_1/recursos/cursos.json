@@ -19,7 +19,7 @@
     },
     "BBDD": {
         "nombre_actividad": "BBDD",
-        "Descripcion": "Base de datos",
+        "Descripcion": "Base de datos dos tres",
         "AlumnosMaximos": "30",
         "PlazasVacantes": "25",
         "Precio": "200",
@@ -79,5 +79,14 @@
         "Precio": "400",
         "NombreImagen": "quimica",
         "fotoCliente": "\/media\/fotos\/quimica.jpeg"
+    },
+    "joselito": {
+        "nombre_actividad": "joselito",
+        "Descripcion": "asdfalshdlfkahsdklfhalkjshdfkljahsdfjkhalsjkdfhlkajshdfljkashdklfalsjkdfkjashdlkfjahsdkljfhaklsjdf",
+        "AlumnosMaximos": "12",
+        "PlazasVacantes": "14",
+        "Precio": "12",
+        "NombreImagen": "asdfasdfasdf",
+        "fotoCliente": "\/media\/fotos\/Screenshot from 2023-11-08 13-31-55.png"
     }
 }

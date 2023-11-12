@@ -19,10 +19,10 @@
 			<a href="?action=registrar">Registro</a>
 		</li>
 		<li>
-			<a href="?action=qui_som">Quienes somos</a>
+			<a href="?action=qui_som">Quiénes somos</a>
 		</li>
 		<li>
-			<a href="?action=galeria">Galeria</a>
+			<a href="?action=galeria">Galería</a>
 		</li>
 		<li>
 			<a href="?action=listar">Listado de cursos</a>

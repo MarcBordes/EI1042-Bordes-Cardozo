@@ -8,7 +8,6 @@
         print('Error al leer el directorio');
         exit();
     }
-
     echo '<div class="div-aside">';    
     foreach ($randomImages as $image) {
         if($relativePath = 'media/fotos/' . basename($image))
