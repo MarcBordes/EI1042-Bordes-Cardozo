@@ -21,6 +21,7 @@ body {
 
 a {
     font-size: 15px;
+    color: var(--color-6);
 }
 
 main {
@@ -74,22 +75,7 @@ h2 {
     margin-bottom: 5px;
 }
 
-#logo {
-    float: left;
-    min-width: 80px;
-}
-
-#eslogan {
-    float: left;
-    margin: 5% 5%;
-    color: #914bb9;
-}
-
-#registro {
-    position: absolute;
-    top: 5px;
-    right: 10%;
-}
+/*listado*/
 
 table {
     background-color: #FFFFE0;
@@ -100,9 +86,6 @@ table {
     margin: 10px auto;
 }
 
-a {
-    color: var(--color-6);
-}
 
 th {
     background-color: var(--color-6);
@@ -110,19 +93,16 @@ th {
 
 td,
 th {
-    border: 1px solid;
-    padding: 1px;
+    border-radius: 3px;
+    border: 1px solid gray;
     width: 10%;
+    padding: 8px;
+    text-align: left;
 }
 
-td {
-    border-bottom: 1px dotted #BDB76B;
-}
 
-#registro a:hover {
-    color: var(--color-6);
-}
 
+/*NAV*/
 nav a {
     font-weight: bold;
     text-decoration: none;
@@ -138,38 +118,12 @@ nav li {
     padding: 0 40px 0 0;
 }
 
-section#blog {
-    float: right;
-}
-
-.valoracion-usuario {
-    font-style: italic;
-}
-
-.botonleermas {
-    font-size: 80%;
-    font-weight: bold;
-    margin-bottom: 10px;
-    text-align: right;
-}
-
-.izq {
-    float: left;
-    margin-top: 0px;
-    text-align: left;
-    color: white;
-}
-
-.der {
-    margin-top: 0px;
-    text-align: right;
-    color: white;
-}
-
+/*FOTO HEADER*/
 header>img {
     width: 15%;
 }
 
+/*HOME*/
 .home-img {
     max-width: 50%;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.7);
@@ -195,6 +149,57 @@ header>img {
     margin: 30px;
 }
 
+/*tool tip-home*/
+
+.tooltip {
+    position: absolute;
+    right: 0;
+    transform: translateY(-50%);
+    display: inline-block;
+    cursor: pointer;
+    opacity: 1;
+    padding: 20px;
+}
+
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+    right: 100%;
+}
+
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 400px;
+    background-color: var(--color-1);
+    color: #fff;
+    text-align: left;
+    border-radius: 6px;
+    padding: 10px;
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.tooltip img {
+    height: auto;
+}
+
+.tooltip .tooltiptext ul {
+    list-style-type: disc;
+    padding-left: 20px;
+    margin: 0;
+}
+
+.tooltip .tooltiptext li {
+    margin-bottom: 5px;
+}
+
+
+
+/*BOTON LOGIN*/
 .button-login {
     align-items: center;
     background-color: var(--color-7);
@@ -222,6 +227,37 @@ table {
     border-radius: 15px;
     overflow: hidden;
     box-shadow: 0 0 10px var(--color-4);
+}
+.btn-delete {
+    margin: 32px;
+    background-color: red;
+    border: 2px solid black;
+    color: white;
+    padding: 12px 16px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 10px;
+    min-width: 100px;
+}
+
+.btn-delete:hover {
+    background-color: rgb(112, 26, 26);
+}
+
+.btn-registrar {
+    margin: 18px;
+    background-color: green;
+    border: 2px solid black;
+    color: white;
+    padding: 12px 16px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 10px;
+    min-width: 100px;
+}
+
+.btn-registrar:hover {
+    background-color: rgb(26, 80, 29);
 }
 
 /* Boton Tabla*/
@@ -316,8 +352,6 @@ table {
     border-radius: 8px;
 }
 
-
-
 .imagen-caja:hover .cortina {
     opacity: 1;
     transition: opacity 0.3s;
@@ -330,22 +364,15 @@ table {
 }
 
 /*AQUI CREO QUE ACABA GALERIA*/
+
 .contenedor h1 {
     font-size: 100px;
     color: black;
     margin-bottom: 40px;
 }
 
-th,
-td {
-    padding: 8px;
-    text-align: left;
-}
 
-th {
-    background-color: var(--color-6);
-}
-
+/*DIVS DE ELEMENTOS HERMANOS, ES DECIR UNO IZQUIERDA Y DERECHA, COMO EN HOME Y QUIENES SOMOS.*/
 .div-50 {
     width: 50%;
     display: flex;
@@ -360,59 +387,18 @@ th {
     border-radius: 8px;
 }
 
-.tooltip {
-    position: absolute;
-    right: 0;
-    transform: translateY(-50%);
-    display: inline-block;
-    cursor: pointer;
-    opacity: 1;
-    padding: 20px;
-}
-
-.tooltip:hover .tooltiptext {
-    visibility: visible;
-    opacity: 1;
-    right: 100%;
-}
-
-.tooltip .tooltiptext {
-    visibility: hidden;
-    width: 400px;
-    background-color: var(--color-1);
-    color: #fff;
-    text-align: left;
-    border-radius: 6px;
-    padding: 10px;
-    position: absolute;
-    top: 50%;
-    right: 0;
-    transform: translateY(-50%);
-    opacity: 0;
-    transition: opacity 0.3s;
-}
-
-.tooltip img {
-    height: auto;
-}
-
-.tooltip .tooltiptext ul {
-    list-style-type: disc;
-    padding-left: 20px;
-    margin: 0;
-}
-
-.tooltip .tooltiptext li {
-    margin-bottom: 5px;
-}
 
 
+/*ASIDES*/
 
 aside {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
     border-top: 1px solid #610404;
+    font-family: Arial, Helvetica, sans-serif;
+    size: 5px;
+    background: repeating-linear-gradient(45deg, transparent, transparent 10px, #f0bccc 10px, #ccc 20px);
 }
 
 .div-aside {
@@ -444,38 +430,8 @@ aside>div>img:hover {
     transform: scale(1.2);
 }
 
-.btn-delete {
-    margin: 32px;
-    background-color: red;
-    border: 2px solid black;
-    color: white;
-    padding: 12px 16px;
-    font-size: 16px;
-    cursor: pointer;
-    border-radius: 10px;
-    min-width: 100px;
-}
 
-.btn-delete:hover {
-    background-color: rgb(112, 26, 26);
-}
-
-.btn-registrar {
-    margin: 18px;
-    background-color: green;
-    border: 2px solid black;
-    color: white;
-    padding: 12px 16px;
-    font-size: 16px;
-    cursor: pointer;
-    border-radius: 10px;
-    min-width: 100px;
-}
-
-.btn-registrar:hover {
-    background-color: rgb(26, 80, 29);
-}
-
+/*formularios*/
 .form-centrado {
     width: 300px;
     margin: auto;
@@ -486,6 +442,7 @@ aside>div>img:hover {
     width: 100%;
     margin-bottom: 10px;
 }
+
 
 /*AQUI ES DONDE PONDREMOS LOS MEDIA-QUERIES*/
 
@@ -577,5 +534,20 @@ aside>div>img:hover {
         padding: 20px;
         size: 10px;
     }
+
+    table, th, td {
+        display: block;
+      }
+    
+      /* Ajustes adicionales para las celdas en pantallas pequeñas */
+      th, td {
+        width: 100%;
+        box-sizing: border-box;
+      }
+    
+      /* Ocultar la cabecera en pantallas pequeñas */
+      thead {
+        display: none;
+      }
 
 }

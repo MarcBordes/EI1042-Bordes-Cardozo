@@ -20,7 +20,7 @@
       <tr>
         <th>Nombre Actividad</th>
         <th>Descripción</th>
-        <th>Alumnos Màximos</th>
+        <th>Alumnos Máximos</th>
         <th>Plazas Vacantes</th>
         <th>Precio</th>
         <th>Nombre de la imagen</th>

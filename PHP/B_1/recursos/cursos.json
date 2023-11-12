@@ -7,5 +7,14 @@
         "Precio": "25",
         "NombreImagen": "sciences",
         "fotoCliente": "\/media\/fotos\/science.jpg"
+    },
+    "asdfa": {
+        "nombre_actividad": "asdfa",
+        "Descripcion": "12",
+        "AlumnosMaximos": "12",
+        "PlazasVacantes": "12",
+        "Precio": "12",
+        "NombreImagen": "112341234",
+        "fotoCliente": "\/media\/fotos\/Screenshot from 2023-11-08 13-31-55.png"
     }
 }
