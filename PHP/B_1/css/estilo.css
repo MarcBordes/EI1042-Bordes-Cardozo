@@ -140,14 +140,14 @@ header>img {
     margin: 40px;
 }
 
-.loguear {
+.loguear {                  /* Boton arriba a la derecha */
     position: absolute;
     top: 0;
     right: 0;
     margin: 30px;
 }
 
-/*tool tip-home*/
+/*tooltip home*/
 
 .tooltip {
     position: absolute;
@@ -270,7 +270,6 @@ table {
     border-radius: 12px;
     box-shadow: transparent 0 0 0 3px, rgba(18, 18, 18, .1) 0 6px 20px;
     box-sizing: border-box;
-    color: wh;
     cursor: pointer;
     font-size: 1.2rem;
     font-weight: 600;
@@ -320,6 +319,10 @@ table {
 }
 
 /*div contenedor imagenes en galeria*/
+/*Esto es sencillo, es decir, es un div, que calculamos la anchura para que siempre haya 3 imagenes 
+por fila, eso lo hacemo con el calc, dentro de cada fila, hay un imagen-caja que es un div que dentro tiene una imagen, 
+el resto de elementos son las vistas en clase, por lo que son intuitivas de entender. La cortina lo hacemos con un transform que simplemente oscurece 
+la imagen.*/
 .imagen-caja {
     width: calc(33.33% - 20px);
     margin-bottom: 20px;
@@ -374,7 +377,8 @@ table {
 }
 
 
-/*DIVS DE ELEMENTOS HERMANOS, ES DECIR UNO IZQUIERDA Y DERECHA, COMO EN HOME Y QUIENES SOMOS.*/
+/*Esto es el css de los divs donde hay 2 elementos uno en la izquierda que suele ser el texto y otro a la derecha que 
+suele ser una imagen o un mapa en otro caso.*/
 .div-50 {
     width: 50%;
     display: flex;
@@ -400,8 +404,7 @@ aside {
     border-top: 1px solid #610404;
     font-family: Arial, Helvetica, sans-serif;
     size: 5px;
-    background: repeating-linear-gradient(45deg, transparent, transparent 10px, #f0bccc 10px, #ccc 20px);
-    /*Esto es el rayado en los asides.*/
+    background: repeating-linear-gradient(45deg, transparent, transparent 10px, #f0bccc 10px, #ccc 20px); /*Esto es para que el fondo sea rallado en los asides.*/
 }
 
 .div-aside {
@@ -423,7 +426,7 @@ aside>div>img {
     width: 10%;
     height: 120px;
     transition: transform 0.05s ease-in-out;
-    border: 3px solid transparent;
+    border: 3px solid transparent; /*Est lo tuve que hacer así porque sino hacía cosas muy raras y me cambiaba todo el div.*/
 }
 
 aside>div>img:hover {
@@ -443,7 +446,7 @@ aside>div>img:hover {
     margin: auto;
     text-align: center;
 }
-
+/*Esto es para centrar el formulario de subir imagen*/
 .form-centrado input {
     width: 100%;
     margin-bottom: 10px;

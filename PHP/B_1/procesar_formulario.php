@@ -1,3 +1,15 @@
+<!-- /**
+ * * Descripción: logica del formulario de cursos
+ * *
+ * *
+ * * @author Marc Bordes Gómez <al405682@uji.es> Elías Martín Cardozo <al405647@uji.es>
+ * * @copyright 2023 Bordes-Cardozo
+ * * @license http://www.fsf.org/licensing/licenses/gpl.txt GPL 2 or later
+ * * @version 2
+ **/
+
+ -->
+
 <?php
 
 
@@ -16,19 +28,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $name_foto = $_POST["name_foto"];
 
     
-    if (strpos($referer, 'portal0.php?action=registrar') != false) {    //comprobamos que se inserta la imagen en crear, si no estamos creando pillamos el valor.
+    if (strpos($referer, 'portal0.php?action=registrar') != false) {    //comprobamos que se inserta la imagen en crear el curso, si no estamos creando es que estamos modificando y extraemos el valor.
         $foto_cliente = "/media/fotos/" . basename($_FILES['foto_cliente']['name']);
     } else {
         $foto_cliente = $_POST["foto_cliente"];
     }
-    
-    //$foto_cliente = "/media/fotos/".basename($_FILES['foto_cliente']['name']);
-    
+        
 
 
     //Para que sea más óptimo, antes de hacer nada voy a mira que este curso no exista.
-    // Crea un arreglo con los datos
-    // Crea un arreglo con los datos
+    // Crea un array con los datos
     $nuevoCurso = array(
         "nombre_actividad" => $nombre_actividad,
         "Descripcion" => $descripcion,
@@ -49,7 +58,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 
 
-    /*$referer = isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER'] : ''; --> Esto se supone que no es necesario.*/ 
     $directorio_destino = './media/fotos/';
 
 
@@ -58,13 +66,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if (strpos($referer, 'portal0.php?action=registrar') != false) { #si venimos del formualario de añadir curso significa que hemos añadido uno repetido y no lo insertamos
             echo "El curso ya existe";
             header("Location: ./portal0.php?action=registrar");
-        } else { #si no venimos del formulario de añadir esk venimos del formualrio de modificar y en ese caso actualizamos.
+        } else {                                        #si no venimos del formulario de añadir esk venimos del formualario de modificar y en ese caso actualizamos.
                 $cursos[$nombre_actividad] = $nuevoCurso;
                 $jsonCursos = json_encode($cursos, JSON_PRETTY_PRINT);
                 file_put_contents($jsonFile, $jsonCursos);
                 header("Location: ./portal0.php?action=listar");
         }
-    } else {
+    } else {                                            # no existe el curso y lo añadimos
         $archivo_destino = $directorio_destino . basename($_FILES['foto_cliente']['name']);
         print($_FILES);
         if (move_uploaded_file($_FILES['foto_cliente']['tmp_name'], $archivo_destino)) {

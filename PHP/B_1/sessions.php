@@ -1,3 +1,16 @@
+
+<!-- /**
+ * * Descripción: logica de las sesiones para guardar el numero de visitas y las paginas que ha visitado
+ * *
+ * *
+ * * @author Marc Bordes Gómez <al405682@uji.es> Elías Martín Cardozo <al405647@uji.es>
+ * * @copyright 2023 Bordes-Cardozo
+ * * @license http://www.fsf.org/licensing/licenses/gpl.txt GPL 2 or later
+ * * @version 2
+ **/
+
+ -->
+
 <?php
 
 if (!isset($_SESSION["activo"])) {

@@ -1,5 +1,5 @@
 <!-- /**
- * * Descripción: Tablas de con cursos
+ * * Descripción: Tabla con los cursos para los usuarios
  * *
  * *
  * * @author Marc Bordes Gómez <al405682@uji.es> Elías Martín Cardozo <al405647@uji.es>
@@ -37,7 +37,7 @@
         echo "<td>{$curso["nombre_actividad"]}</td>";
         echo "<td>{$curso["Descripcion"]}</td>";
         echo "<td>{$curso["AlumnosMaximos"]}</td>";
-        echo "<td><span" . ($curso["PlazasVacantes"] < 10 ? ' style="color: red;"' : '') . ">" . $curso["PlazasVacantes"] . "</span></td>";
+        echo "<td><span" . ($curso["PlazasVacantes"] < 10 ? ' style="color: red;"' : '') . ">" . $curso["PlazasVacantes"] . "</span></td>"; /* si las vacantes son menor de 10 se pone el texto en rojo  */
         echo "<td>{$curso["Precio"]}€</td>";
         echo "<td>{$curso["NombreImagen"]}</td>";
         echo "<td><img style= 'max-width: 500px; max-height: 200px;' alt='imagen listar' src='{$curso["fotoCliente"]}'/></td>";

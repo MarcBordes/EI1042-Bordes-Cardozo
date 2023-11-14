@@ -128,14 +128,4 @@ function autorizacion()
    return False;
 }
 
-/*
-$nomFitxer = '../recursos/seguro/users.csv';
-$dic = importar_dades0($nomFitxer);
-print(autentificacion_ok($nomFitxer, "admin1", "admin1"));
-print_r($_SESSION);
-print(autentificado());
-guarda_dades($dic, "fitxer.json");
-$dic = carregar_dades("fitxer.json");
-print_r($dic);
-*/
 ?>

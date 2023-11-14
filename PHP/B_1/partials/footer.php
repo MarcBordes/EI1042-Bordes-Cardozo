@@ -13,7 +13,7 @@
 <footer>
 	<img src="https://licensebuttons.net/l/by-sa/3.0/88x31.png" alt="licencia" />
 	<time datetime="2023-09-18">2023</time><br/>
-	<a href="./resources/proteccion.pdf" target="_blank">Protección de datos</a>
+	<a href="./resources/proteccion.pdf" target="_blank">Protección de datos</a>	
 	<address>
 		<p class="izq"> Written by
 			<a href="mailto:al405682@uji.es" rev="author">Marc Bordes</a> and

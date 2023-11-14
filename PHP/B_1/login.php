@@ -2,15 +2,15 @@
 session_start();
 
 /**
- * * Descripción: Utilidades para portal.php
+ * * Descripción: Utilidades para portal.php y el login
  * *
  * * Descripción extensa: Iremos añadiendo funciones que se requieran para usar en el controlador.
  * *
- * * @author  Lola <dllido@uji.es> 
- * * @copyright 2023 Lola
+ * * @author Marc Bordes Gómez <al405682@uji.es> Elías Martín Cardozo <al405647@uji.es>
+ * * @copyright 2023 Bordes-Cardozo
  * * @license http://www.fsf.org/licensing/licenses/gpl.txt GPL 2 or later
- * * @version 1
- * * 
+ * * @version 2
+
  **/
 
 
@@ -135,7 +135,7 @@ function autentificado()
 $nomFitxer = './recursos/seguro/users.csv';
 
 
-if ($_REQUEST['action'] == 'login') {
+if ($_REQUEST['action'] == 'login') {              
    if (autentificado()) {
       session_unset();
       session_destroy();
@@ -143,7 +143,7 @@ if ($_REQUEST['action'] == 'login') {
 } else if ($_REQUEST['action'] == 'auten') {
    $user = $_POST['user'];
    $password = $_POST['passwd'];
-   if (autentificacion_ok($nomFitxer, $user, $password)) {
+   if (autentificacion_ok($nomFitxer, $user, $password)) {     
       var_dump($_SESSION);
    } else {
       $Login_error = "Usuario o contraseña incorrectos";
@@ -152,14 +152,4 @@ if ($_REQUEST['action'] == 'login') {
    }
 }  
 
-/*
-$nomFitxer = '../recursos/seguro/users.csv';
-$dic = importar_dades0($nomFitxer);
-print(autentificacion_ok($nomFitxer, "admin1", "admin1"));
-print_r($_SESSION);
-print(autentificado());
-guarda_dades($dic, "fitxer.json");
-$dic = carregar_dades("fitxer.json");
-print_r($dic);
-*/
 ?>
