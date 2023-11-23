@@ -13,6 +13,7 @@
 <?php
 
 
+
 echo '<main>';
 
 
@@ -47,7 +48,9 @@ foreach ($cursos as $nombreCurso => $curso) {   /* Hacemos un formulario por cad
     echo '<td><input type="number" name="precio" value="' . $curso['Precio'] . '" required maxlength="5" min="0"></td>';
     echo '<td><textarea name="descripcion" style="width: 300px; height: 100px;" required maxlength="500">' . $curso['Descripcion'] . '</textarea></td>';
     echo '<td><input type="text" name="name_foto" class="item_requerid" value="' . $curso['NombreImagen'] .'"  size="20" maxlength="25" required></td>';
-    echo '<td><img style= "max-width: 300px; max-height: 200px;" src="' . $curso['fotoCliente'] . '" ></td>';
+    echo '<td><img style= "max-width: 300px; max-height: 200px;" src="' . $curso['fotoCliente'] . '" >
+          <input name="foto_cliente" accept="image/*" id="foto_cliente" type="file" required></td>';    /* Linea añadida para cambiar imagen, no esta hecho*/
+
 
     echo '<td>';
     echo '<input type="hidden" name="foto_cliente" value="' . $curso['fotoCliente'] . '" >';    /* Campo hidden para no modificar el campo*/ 

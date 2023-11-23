@@ -49,7 +49,7 @@ function activarCanvas(imagen){
 }
 function ready() {
   var imagen = null;
-  var fichero = document.querySelector("#foto");
+  var fichero = document.querySelector("#foto_cliente");
   var child = document.createElement("img");
   child.setAttribute("width", "600px");
   child.setAttribute("hight", "500px");

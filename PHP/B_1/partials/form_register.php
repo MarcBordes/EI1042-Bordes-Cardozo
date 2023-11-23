@@ -10,7 +10,12 @@
 
  -->
 
+
+ <script type="text/javascript" src="canvas_File.js" defer></script>
+
 <main>
+
+
     <h1>Ingrese los datos:</h1>
 
     <form method="POST" action="procesar_formulario.php" enctype="multipart/form-data"> <!-- Llamamos al procesar_formulario donde esta la logica del form -->
@@ -48,7 +53,7 @@
             </tr>
             <tr>
                 <th><label for="foto_cliente">Insertar Imagen:</label></th>
-                <td><input type="file" accept="image/*" name="foto_cliente" id="foto_cliente" required></td>
+                <td><input name="foto_cliente" accept="image/*" id="foto_cliente" type="file" required></td>
             </tr>
         </table>
         <a href="./portal0.php?action=registar"><button class="button-tabla">Añadir Curso</button></a>
