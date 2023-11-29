@@ -28,12 +28,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $name_foto = $_POST["name_foto"];
 
     
-    if (strpos($referer, 'portal0.php?action=registrar') != false) {    //comprobamos que se inserta la imagen en crear el curso, si no estamos creando es que estamos modificando y extraemos el valor.
+    if (strpos($referer, 'portal0.php?action=registrar') !== false) {   //estamos creando un curso
         $foto_cliente = "/media/fotos/" . basename($_FILES['foto_cliente']['name']);
-    } else {
-        $foto_cliente = $_POST["foto_cliente"];
+    } else {    //estamos en listar admin
+        $foto_cliente_actual = $_POST["foto_cliente_actual"];
+        $foto_cliente_nueva = $_FILES["foto_cliente"];
+    
+        if ($foto_cliente_nueva['error'] == 0) {
+            // Se ha subido un nuevo archivo
+            $foto_cliente = "/media/fotos/" . basename($foto_cliente_nueva['name']);
+        } else {
+            // No se ha subido ningun archivo y usamos el arhcivo actual
+            $foto_cliente = $foto_cliente_actual;
+        }
     }
-        
 
 
     //Para que sea más óptimo, antes de hacer nada voy a mira que este curso no exista.
@@ -67,10 +75,27 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             echo "El curso ya existe";
             header("Location: ./portal0.php?action=registrar");
         } else {                                        #si no venimos del formulario de añadir esk venimos del formualario de modificar y en ese caso actualizamos.
+
+            $archivo_destino = $directorio_destino . basename($_FILES['foto_cliente']['name']);
+    
+            // Verificar si se ha enviado un nuevo archivo de imagen
+            if ($_FILES['foto_cliente']['error'] == 0) {
+                if (move_uploaded_file($_FILES['foto_cliente']['tmp_name'], $archivo_destino)) {
+                    $cursos[$nombre_actividad] = $nuevoCurso;
+                    $cursos[$nombre_actividad]['fotoCliente'] = $archivo_destino;
+                    $jsonCursos = json_encode($cursos, JSON_PRETTY_PRINT);
+                    file_put_contents($jsonFile, $jsonCursos);
+                    header("Location: ./portal0.php?action=listar");
+                } else {
+                    echo "Hubo un error al subir la imagen.";
+                }
+            } else {
+                // Si no se envió un nuevo archivo, actualizar el curso sin cambiar la imagen
                 $cursos[$nombre_actividad] = $nuevoCurso;
                 $jsonCursos = json_encode($cursos, JSON_PRETTY_PRINT);
                 file_put_contents($jsonFile, $jsonCursos);
                 header("Location: ./portal0.php?action=listar");
+            }
         }
     } else {                                            # no existe el curso y lo añadimos
         $archivo_destino = $directorio_destino . basename($_FILES['foto_cliente']['name']);

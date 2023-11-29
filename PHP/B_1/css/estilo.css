@@ -452,6 +452,9 @@ aside>div>img:hover {
     margin-bottom: 10px;
 }
 
+.ocultar {
+    display: none;
+}
 
 /*AQUI ES DONDE PONDREMOS LOS MEDIA-QUERIES*/
 

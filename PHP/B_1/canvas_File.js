@@ -56,11 +56,15 @@ function ready() {
   child.setAttribute("background-color", "lightblue");
   child.setAttribute("id", "imagen");
   imagen = fichero.parentNode.appendChild(child);
+
+  
+  
   fichero.addEventListener("change", function (event) {
-    if (fichero.files[0]["type"] == "image/png") 
-      {mostrarFoto(this, imagen);
+    var allowedTypes = ["image/png", "image/jpeg"];
+    if (allowedTypes.includes(fichero.files[0]["type"])) {
+      mostrarFoto(this, imagen);
       }
-    else alert("Seleccione una imagen PNG");
+    else alert("Seleccione una imagen (PNG, jpeg, jpg");
   });
   activarCanvas(imagen);
 

@@ -13,8 +13,9 @@
 <?php
 
 
-
 echo '<main>';
+
+echo '<script type="text/javascript" src="canvas_File.js" defer></script>';
 
 
 $jsonFile = "recursos/cursos.json";
@@ -39,7 +40,7 @@ echo '<th>Acciones</th>';
 echo '</tr>';
 
 foreach ($cursos as $nombreCurso => $curso) {   /* Hacemos un formulario por cada curso en el JSON*/ 
-    echo '<form method="post" action="procesar_formulario.php">';
+    echo '<form method="post" action="procesar_formulario.php" enctype="multipart/form-data">';
 
     echo '<tr>';
     echo '<td>' . $curso['nombre_actividad'] . '</td>';
@@ -48,12 +49,16 @@ foreach ($cursos as $nombreCurso => $curso) {   /* Hacemos un formulario por cad
     echo '<td><input type="number" name="precio" value="' . $curso['Precio'] . '" required maxlength="5" min="0"></td>';
     echo '<td><textarea name="descripcion" style="width: 300px; height: 100px;" required maxlength="500">' . $curso['Descripcion'] . '</textarea></td>';
     echo '<td><input type="text" name="name_foto" class="item_requerid" value="' . $curso['NombreImagen'] .'"  size="20" maxlength="25" required></td>';
-    echo '<td><img style= "max-width: 300px; max-height: 200px;" src="' . $curso['fotoCliente'] . '" >
-          <input name="foto_cliente" accept="image/*" id="foto_cliente" type="file" required></td>';    /* Linea añadida para cambiar imagen, no esta hecho*/
+
+    echo '<td>';
+    echo '<img style="max-width: 300px; max-height: 200px;" src="' . $curso['fotoCliente'] . '">';
+    echo '<br><br><input class="example" name="foto_cliente" accept="image/*" id="foto_cliente" type="file">';
+    echo '</td>';
 
 
     echo '<td>';
-    echo '<input type="hidden" name="foto_cliente" value="' . $curso['fotoCliente'] . '" >';    /* Campo hidden para no modificar el campo*/ 
+    echo '<input type="hidden" class="example" name="foto_cliente_actual" value="' . $curso['fotoCliente'] . '">';
+
     echo '<input type="hidden" name="nombre_actividad" value="' . $nombreCurso . '">';
     echo '<input class="btn-registrar" type="submit" value="Registrar">';
     echo '<a class="btn-delete" href="?action=borrar&curso=' . $nombreCurso . '" " style="text-decoration: none;">Borrar</a>';
