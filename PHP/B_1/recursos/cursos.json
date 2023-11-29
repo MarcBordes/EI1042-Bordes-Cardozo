@@ -4,9 +4,9 @@
         "Descripcion": "Curso de matematicas",
         "AlumnosMaximos": "50",
         "PlazasVacantes": "55",
-        "Precio": "230",
+        "Precio": "235",
         "NombreImagen": "mates",
-        "fotoCliente": ".\/media\/fotos\/mates.jpg"
+        "fotoCliente": ".\/media\/fotos\/historia.jpg"
     },
     "AI": {
         "nombre_actividad": "AI",

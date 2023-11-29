@@ -52,12 +52,12 @@ foreach ($cursos as $nombreCurso => $curso) {   /* Hacemos un formulario por cad
 
     echo '<td>';
     echo '<img style="max-width: 300px; max-height: 200px;" src="' . $curso['fotoCliente'] . '">';
-    echo '<br><br><input class="example" name="foto_cliente" accept="image/*" id="foto_cliente" type="file">';
+    echo '<br><br><input name="foto_cliente" accept="image/*" id="foto_cliente" type="file">';
     echo '</td>';
 
 
     echo '<td>';
-    echo '<input type="hidden" class="example" name="foto_cliente_actual" value="' . $curso['fotoCliente'] . '">';
+    echo '<input type="hidden" name="foto_cliente_actual" value="' . $curso['fotoCliente'] . '">';
 
     echo '<input type="hidden" name="nombre_actividad" value="' . $nombreCurso . '">';
     echo '<input class="btn-registrar" type="submit" value="Registrar">';
