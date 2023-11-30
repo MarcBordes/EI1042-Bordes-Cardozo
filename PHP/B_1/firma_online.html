@@ -1,0 +1,119 @@
+<html lang="en">
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1, maximum-scale=1, user-scalable=no" ;="">
+    <title>Firma </title>
+</head>
+
+<body>
+    <H1>Firma</H1>
+    <input type="file" id="upload" accept=".jpeg, .jpg" />
+    <canvas id="sketchpad" width="800" height="600" style="background-color: coral;"></canvas>
+    <div>
+        <button id="guardar">GUARDAR AL SERVIDOR</button>
+    </div>
+    <script type="text/javascript" charset="utf-8">
+        function ready() {
+            var canvas = document.querySelector("#sketchpad");
+            var context = canvas.getContext('2d');
+            var input = document.getElementById('upload');
+
+            input.addEventListener('change', function (e) {
+                var file = e.target.files[0];
+
+                if (file) {
+                    var reader = new FileReader();
+
+                    // Validar tipo y tamaño del archivo antes de cargarlo
+                    if (file.type === 'image/jpeg' || file.type === 'image/jpg') {
+                        if (file.size <= 400 * 1024) {  // 400 KB
+                            reader.onload = function (event) {
+                                var img = new Image();
+                                img.onload = function () {
+                                    context.drawImage(img, 0, 0, canvas.width, canvas.height);
+                                };
+                                img.src = event.target.result;
+                            };
+                            reader.readAsDataURL(file);
+                        } else {
+                            alert("El tamaño del archivo excede los 400 KB permitidos.");
+                        }
+                    } else {
+                        alert("Tipo de archivo no válido. Por favor, seleccione un archivo JPEG.");
+                    }
+                }
+            });
+
+            function getMousePos(canvas, evt) {
+                var rect = canvas.getBoundingClientRect();
+                return {
+                    x: evt.clientX - rect.left,
+                    y: evt.clientY - rect.top
+                };
+            }
+            var drawer = {
+                isDrawing: false,
+                mousedown: function (coors) {
+                    context.beginPath();
+                    context.moveTo(coors.x, coors.y);
+                    this.isDrawing = true;
+                },
+                mousemove: function (coors) {
+                    if (this.isDrawing) {
+                        context.lineTo(coors.x, coors.y);
+                        context.stroke();
+                    }
+                },
+                mouseup: function (coors) {
+                    if (this.isDrawing) {
+                        this.mousemove(coors);
+                        this.isDrawing = false;
+                    }
+                }
+            }
+            canvas.addEventListener('mousedown', function (evt) {
+                drawer[evt.type](getMousePos(canvas, evt));
+            }, false);
+            canvas.addEventListener('mousemove', function (evt) {
+                drawer[evt.type](getMousePos(canvas, evt));
+            }, false);
+            canvas.addEventListener('mouseup', function (evt) {
+                drawer[evt.type](getMousePos(canvas, evt));
+            }, false);
+
+            document.querySelector("#guardar").addEventListener("click", function () {
+                // Guardar al servidor y crear enlace de descarga
+                var dataURL = canvas.toDataURL("image/jpeg", 0.8);
+                fetch("/guardar_firma", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify({
+                        imageData: dataURL
+                    })
+                }).then(response => {
+                    if (response.ok) {
+                        // Crear enlace de descarga
+                        var downloadLink = document.createElement('a');
+                        downloadLink.href = dataURL;
+                        downloadLink.download = 'firma_online.jpg';
+                        downloadLink.textContent = 'Descargar Firma';
+                        
+                        // Agregar enlace al documento
+                        document.body.appendChild(downloadLink);
+                    } else {
+                        alert("Error al guardar la imagen en el servidor.");
+                    }
+                }).catch(error => {
+                    console.error("Error:", error);
+                });
+            });
+        }
+        ready()
+    </script>
+</body>
+
+</html>

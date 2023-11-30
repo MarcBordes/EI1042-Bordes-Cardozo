@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Memory Game</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            font-family: 'Arial', sans-serif;
+        }
+
+        h2 {
+            margin-bottom: 20px;
+        }
+
+        canvas {
+            border: 2px solid #333;
+            margin-bottom: 20px;
+        }
+
+        button {
+            padding: 10px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        #reactionTime {
+            font-size: 18px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h2>Memory Game 😎</h2>
+    <canvas id="gameCanvas" width="400" height="400"></canvas>
+    <button onclick="startGame()">Nuevas figuras</button>
+    <p id="reactionTime"></p>
+    <p>Es posible que no aparezca tu figura ;), vuelve a pulsar, pero ten cuidado, ya que si te equivocas, pierdes tu récord. </p>
+
+    <script>
+        const canvas = document.getElementById('gameCanvas');
+        const ctx = canvas.getContext('2d');
+        let targetFigure;
+        let startTime;
+
+        function startGame() {
+            clearCanvas();
+            setTimeout(() => {
+                startTime = Date.now();
+                drawFixedFigure();
+                setTimeout(() => {
+                    clearCanvas();
+                    drawRandomFigures();
+                }, 500);
+            }, 500);
+        }
+
+        function drawFixedFigure() {
+            const fixedColor = 'red'; // Puedes cambiar el color según tus preferencias
+            const fixedShape = 'circle'; // Puedes cambiar la forma según tus preferencias
+            const x = canvas.width / 2;
+            const y = canvas.height / 2;
+
+            targetFigure = {
+                color: fixedColor,
+                shape: fixedShape,
+                x,
+                y
+            };
+
+            drawFigure(targetFigure, x, y);
+        }
+
+        function drawRandomFigures() {
+            const colors = ['blue', 'green', 'yellow', 'purple'];
+            const shapes = ['square', 'triangle', 'rectangle', 'hexagon'];
+
+            // Calcular posiciones alrededor del centro
+            const centerX = canvas.width / 2;
+            const centerY = canvas.height / 2;
+            const radius = 100;
+            const angleIncrement = (2 * Math.PI) / 4;
+
+            for (let i = 0; i < 4; i++) {
+                const angle = i * angleIncrement;
+                const x = centerX + radius * Math.cos(angle);
+                const y = centerY + radius * Math.sin(angle);
+
+                const randomColor = getRandomColor(colors);
+                const randomShape = getRandomShape(shapes);
+
+                const figure = {
+                    color: randomColor,
+                    shape: randomShape,
+                    x,
+                    y
+                };
+
+                drawFigure(figure, figure.x, figure.y);
+            }
+        }
+
+        function drawFigure(figure, x, y) {
+            ctx.fillStyle = figure.color;
+
+            switch (figure.shape) {
+                case 'circle':
+                    ctx.beginPath();
+                    ctx.arc(x, y, 30, 0, 2 * Math.PI);
+                    ctx.fill();
+                    break;
+                case 'square':
+                    ctx.fillRect(x - 30, y - 30, 60, 60);
+                    break;
+                case 'triangle':
+                    ctx.beginPath();
+                    ctx.moveTo(x, y - 30);
+                    ctx.lineTo(x - 30, y + 30);
+                    ctx.lineTo(x + 30, y + 30);
+                    ctx.fill();
+                    break;
+                case 'rectangle':
+                    ctx.fillRect(x - 40, y - 20, 80, 40);
+                    break;
+                case 'hexagon':
+                    ctx.beginPath();
+                    ctx.moveTo(x, y - 30);
+                    for (let i = 1; i <= 6; i++) {
+                        const angle = (i * 2 * Math.PI) / 6;
+                        const hexX = x + 30 * Math.cos(angle);
+                        const hexY = y + 30 * Math.sin(angle);
+                        ctx.lineTo(hexX, hexY);
+                    }
+                    ctx.fill();
+                    break;
+            }
+        }
+
+        function clearCanvas() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+        }
+
+        function getRandomColor(colors) {
+            const randomIndex = Math.floor(Math.random() * colors.length);
+            return colors.splice(randomIndex, 1)[0];
+        }
+
+        function getRandomShape(shapes) {
+            const randomIndex = Math.floor(Math.random() * shapes.length);
+            return shapes.splice(randomIndex, 1)[0];
+        }
+
+        // Rest of your code...
+
+    </script>
+</body>
+</html>
