@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -33,56 +34,152 @@
         }
     </style>
 </head>
+
 <body>
-    <h2>Memory Game 😎</h2>
+    <h2>Juego de Reacción 😎</h2>
+    <p>Al pulsar el botón "Jugar" se mostrará una figura y seguidamente desaparecerá, acuérdate de cuál es porque
+        seguidamente aparecerán 4 figuras y trendrás que pulsar en la correcta!</p>
     <canvas id="gameCanvas" width="400" height="400"></canvas>
-    <button onclick="startGame()">Nuevas figuras</button>
+    <button onclick="startGame()">Jugar</button>
     <p id="reactionTime"></p>
-    <p>Es posible que no aparezca tu figura ;), vuelve a pulsar, pero ten cuidado, ya que si te equivocas, pierdes tu récord. </p>
+
+    <p id="personalBest"></p>
+
+    <div id="topTimes">
+        <h3>Top 3 Tiempos</h3>
+        <ul id="topList"></ul>
+    </div>
+
 
     <script>
         const canvas = document.getElementById('gameCanvas');
         const ctx = canvas.getContext('2d');
         let targetFigure;
         let startTime;
+        let fixedFigureClicked = false;
+        let fixedFigurePosition; // Almacena la posición de la fixedFigure
+
+        const topTimes = [];
+        let personalBest = Infinity; // Inicializado en Infinity para garantizar que cualquier tiempo registrado sea menor.
+
+        canvas.addEventListener('click', handleCanvasClick);
+
+        function handleCanvasClick(event) {
+            const clickX = event.clientX - canvas.getBoundingClientRect().left;
+            const clickY = event.clientY - canvas.getBoundingClientRect().top;
+
+            if (isInsideFigure(clickX, clickY, fixedFigurePosition) && fixedFigureClicked) {
+                const endTime = Date.now();
+                const reactionTime = endTime - startTime;
+
+                // Verificar si el tiempo actual es mejor que el récord personal
+                if (reactionTime < personalBest) {
+                    personalBest = reactionTime;
+
+                    document.getElementById('personalBest').textContent = `¡Nuevo récord personal: ${personalBest} ms!`;
+                    document.getElementById('personalBest').style.color = 'red';
+                } else {
+                    // Si no se ha mejorado el récord, ocultar el mensaje después de 2 segundos
+                    setTimeout(() => {
+                        document.getElementById('personalBest').textContent = '';
+                    }, 2000);
+                }
+
+                // Agregar el tiempo al array
+                topTimes.push(reactionTime);
+
+                // Ordenar el array de tiempos de menor a mayor
+                topTimes.sort((a, b) => a - b);
+
+                // Mantener solo los 3 mejores tiempos
+                topTimes.splice(3);
+
+                // Mostrar el tiempo del jugador
+                const reactionTimeElement = document.getElementById('reactionTime');
+                reactionTimeElement.textContent = `Tu tiempo de reacción es: ${reactionTime} ms`;
+
+                // Mostrar el top 3 de manera visual
+                const topListElement = document.getElementById('topList');
+                topListElement.innerHTML = '';  // Limpiar la lista antes de actualizar
+
+                topTimes.forEach((time, index) => {
+                    const listItem = document.createElement('li');
+                    listItem.textContent = `${index + 1}. ${time} ms`;
+                    topListElement.appendChild(listItem);
+                });
+            }
+        }
+
+
+        function isInsideFigure(x, y, position) {
+            // Utilizamos un área ligeramente más grande que el tamaño máximo de la figura
+            return x >= position.x - 35 && x <= position.x + 35 && y >= position.y - 35 && y <= position.y + 35;
+        }
 
         function startGame() {
+            // Limpiar el mensaje de nuevo récord personal al inicio del juego
+            document.getElementById('personalBest').textContent = '';
+
             clearCanvas();
             setTimeout(() => {
                 startTime = Date.now();
-                drawFixedFigure();
+                drawFixedFigure(true);  // Pasar un parámetro indicando que es la primera vez
                 setTimeout(() => {
                     clearCanvas();
-                    drawRandomFigures();
+                    fixedFigurePosition = drawRandomFigures();
+                    drawFixedFigure();  // Dibujar la fixedFigure después de las figuras aleatorias
+                    fixedFigureClicked = true;
                 }, 500);
             }, 500);
         }
 
-        function drawFixedFigure() {
-            const fixedColor = 'red'; // Puedes cambiar el color según tus preferencias
-            const fixedShape = 'circle'; // Puedes cambiar la forma según tus preferencias
-            const x = canvas.width / 2;
-            const y = canvas.height / 2;
 
-            targetFigure = {
+        function drawFixedFigure(isFirstTime = false) {
+            const fixedColor = 'red';
+            const fixedShape = 'circle';
+
+            const centerX = canvas.width / 2;
+            const centerY = canvas.height / 2;
+            const radius = 100;
+
+            let x, y;
+
+            if (isFirstTime) {
+                // Si es la primera vez, colocar la figura fija en el centro
+                x = centerX;
+                y = centerY;
+            } else {
+                // Si no es la primera vez, colocar la figura fija en una posición aleatoria
+                const randomIndex = Math.floor(Math.random() * 4);
+                const randomAngle = randomIndex * (2 * Math.PI) / 4;
+                x = centerX + radius * Math.cos(randomAngle);
+                y = centerY + radius * Math.sin(randomAngle);
+            }
+
+            fixedFigurePosition = { x, y };
+
+            const figure = {
                 color: fixedColor,
                 shape: fixedShape,
                 x,
                 y
             };
 
-            drawFigure(targetFigure, x, y);
+            drawFigure(figure, figure.x, figure.y);
+            return fixedFigurePosition;
         }
+
 
         function drawRandomFigures() {
             const colors = ['blue', 'green', 'yellow', 'purple'];
-            const shapes = ['square', 'triangle', 'rectangle', 'hexagon'];
+            const shapes = ['square', 'triangle', 'rectangle', 'cross'];
 
-            // Calcular posiciones alrededor del centro
             const centerX = canvas.width / 2;
             const centerY = canvas.height / 2;
             const radius = 100;
             const angleIncrement = (2 * Math.PI) / 4;
+
+            //const numFigures = 4 * 
 
             for (let i = 0; i < 4; i++) {
                 const angle = i * angleIncrement;
@@ -101,9 +198,14 @@
 
                 drawFigure(figure, figure.x, figure.y);
             }
+
+            return { x: centerX, y: centerY }; // Devolver la posición del centro como posición de la fixedFigure
         }
 
+
         function drawFigure(figure, x, y) {
+            ctx.clearRect(x - 35, y - 35, 70, 70);  // Borrar un área ligeramente más grande que el tamaño máximo de la figura
+
             ctx.fillStyle = figure.color;
 
             switch (figure.shape) {
@@ -123,21 +225,21 @@
                     ctx.fill();
                     break;
                 case 'rectangle':
-                    ctx.fillRect(x - 40, y - 20, 80, 40);
-                    break;
-                case 'hexagon':
                     ctx.beginPath();
                     ctx.moveTo(x, y - 30);
-                    for (let i = 1; i <= 6; i++) {
-                        const angle = (i * 2 * Math.PI) / 6;
-                        const hexX = x + 30 * Math.cos(angle);
-                        const hexY = y + 30 * Math.sin(angle);
-                        ctx.lineTo(hexX, hexY);
-                    }
+                    ctx.lineTo(x - 30, y);
+                    ctx.lineTo(x, y + 30);
+                    ctx.lineTo(x + 30, y);
                     ctx.fill();
+                    break;
+                case 'cross':
+                    ctx.fillRect(x - 5, y - 30, 10, 60);
+                    ctx.fillRect(x - 30, y - 5, 60, 10);
+                    break;
                     break;
             }
         }
+
 
         function clearCanvas() {
             ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -153,8 +255,8 @@
             return shapes.splice(randomIndex, 1)[0];
         }
 
-        // Rest of your code...
 
     </script>
 </body>
+
 </html>
