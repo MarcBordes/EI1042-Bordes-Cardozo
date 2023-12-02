@@ -1,18 +1,67 @@
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, minimum-scale=1, maximum-scale=1, user-scalable=no" ;="">
-    <title>Firma </title>
+    <meta name="viewport" content="width=device-width, minimum-scale=1, maximum-scale=1, user-scalable=no">
+    <title>Firma</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f2f2f2;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        #sketchpad {
+            display: block;
+            margin: 20px auto;
+            border: 1px solid #ccc;
+            background-color: #fff;
+        }
+
+        #upload {
+            display: block;
+            margin: 10px auto;
+        }
+
+        #guardar {
+            display: block;
+            margin: 10px auto;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .enlace {
+            display: block;
+            margin: 10px auto;
+            padding: 10px;
+            background-color: #337ab7;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            text-align: center;
+        }
+    </style>
 </head>
 
 <body>
-    <H1>Firma</H1>
+    <h1>Firma</h1>
     <input type="file" id="upload" accept=".jpeg, .jpg" />
     <canvas id="sketchpad" width="800" height="600" style="background-color: coral;"></canvas>
     <div>
-        <button id="guardar">GUARDAR AL SERVIDOR</button>
+        <button id="guardar">Guardar Firma</button>
     </div>
     <script type="text/javascript" charset="utf-8">
         function ready() {
@@ -22,7 +71,6 @@
 
             input.addEventListener('change', function (e) {
                 var file = e.target.files[0];
-
                 if (file) {
                     var reader = new FileReader();
 
@@ -83,33 +131,38 @@
                 drawer[evt.type](getMousePos(canvas, evt));
             }, false);
 
-            document.querySelector("#guardar").addEventListener("click", function () {
-                // Guardar al servidor y crear enlace de descarga
-                var dataURL = canvas.toDataURL("image/jpeg", 0.8);
-                fetch("/guardar_firma", {
-                    method: "POST",
-                    headers: {
-                        "Content-Type": "application/json"
-                    },
-                    body: JSON.stringify({
-                        imageData: dataURL
+            document.getElementById('guardar').addEventListener('click', function () {
+                var imageDataURL = canvas.toDataURL('image/jpeg', 0.8);
+
+                // Crea un objeto FormData y agrega la imagen al formulario
+                const formData = new FormData();
+                formData.append('imagen', input.files[0]);
+                formData.append('firma', imageDataURL);
+
+                // Realiza la solicitud Fetch al servidor
+                fetch('/guardar_firma.php', {
+                    method: 'POST',
+                    body: formData
+                })
+                    .then(response => response.json()) // Parsea la respuesta como JSON
+                    .then(data => {
+                        if (data.success) {
+                            // Crea un enlace y muestra la URL al usuario
+                            var enlace = document.createElement('a');
+                            enlace.className = 'enlace';
+                            enlace.href = data.url;
+                            enlace.textContent = 'Descargar Firma';
+                            enlace.download = 'firma.jpg';
+                            document.body.appendChild(enlace);
+                            console.log('Imagen enviada correctamente');
+                        } else {
+                            console.error('Error al enviar la imagen al servidor');
+                        }
+                        // window.location.href = data.url; --> Esto hace que se abra la imagen en otra página.
                     })
-                }).then(response => {
-                    if (response.ok) {
-                        // Crear enlace de descarga
-                        var downloadLink = document.createElement('a');
-                        downloadLink.href = dataURL;
-                        downloadLink.download = 'firma_online.jpg';
-                        downloadLink.textContent = 'Descargar Firma';
-                        
-                        // Agregar enlace al documento
-                        document.body.appendChild(downloadLink);
-                    } else {
-                        alert("Error al guardar la imagen en el servidor.");
-                    }
-                }).catch(error => {
-                    console.error("Error:", error);
-                });
+                    .catch(error => {
+                        console.error('Error:', error);
+                    });
             });
         }
         ready()
