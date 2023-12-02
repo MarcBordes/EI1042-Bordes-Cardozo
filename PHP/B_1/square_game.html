@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Canvas Game</title>
+  <style>
+    canvas {
+      border: 1px solid #000;
+    }
+  </style>
+</head>
+<body>
+
+<canvas id="gameCanvas" width="400" height="400"></canvas>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const canvas = document.getElementById("gameCanvas");
+    const ctx = canvas.getContext("2d");
+
+    let greenRectangles = 0;
+
+    const rectangles = [];
+
+    canvas.addEventListener("click", function (event) {
+      if (greenRectangles >= 10) {
+        alert("¡Felicidades, has ganado!");
+        greenRectangles = 0;
+        rectangles.length = 0;  // Limpiar el array de rectángulos
+        clearCanvas();
+        return;
+      }
+
+      const rectSize = Math.floor(Math.random() * 50) + 20;
+      const rectX = event.clientX - canvas.getBoundingClientRect().left - rectSize / 2;
+      const rectY = event.clientY - canvas.getBoundingClientRect().top - rectSize / 2;
+
+      let color = "green";
+
+      for (let i = 0; i < rectangles.length; i++) {
+        const otherRect = rectangles[i];
+        if (
+          rectX < otherRect.x + otherRect.size &&
+          rectX + rectSize > otherRect.x &&
+          rectY < otherRect.y + otherRect.size &&
+          rectY + rectSize > otherRect.y
+        ) {
+          color = "red";
+          break;
+        }
+      }
+
+      ctx.fillStyle = color;
+      ctx.fillRect(rectX, rectY, rectSize, rectSize);
+
+      if (color === "green") {
+        greenRectangles++;
+        rectangles.push({ x: rectX, y: rectY, size: rectSize, color: "green" });
+      }
+    });
+
+    function clearCanvas() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+    }
+  });
+</script>
+
+</body>
+</html>
