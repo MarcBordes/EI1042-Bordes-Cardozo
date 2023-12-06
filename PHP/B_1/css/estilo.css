@@ -458,7 +458,7 @@ aside>div>img:hover {
 
 /*AQUI ES DONDE PONDREMOS LOS MEDIA-QUERIES*/
 
-@media (max-width: 880px) {
+@media (max-width: 950px) {
     .contenedor-home {
         /* Reglas específicas para pantallas de 768 píxeles o menos */
         flex-direction: column;
