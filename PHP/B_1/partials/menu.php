@@ -30,5 +30,8 @@
 		<li>
 			<a href="?action=foto_upload">Foto Upload</a>
 		</li>
+		<li>
+			<a href="?action=juego">Jugar Juego</a>
+		</li>
 	</ul>
 </nav>

@@ -102,7 +102,9 @@ if (isset($_REQUEST["action"])) {
                     echo "<p style='color:red;margin-left:50px;'>Hubo un error al subir la imagen.</p>";
                 }
                 break;
-
+            case "juego":
+                $central = "/partials/juego.php";
+                break;
             default:
                 if (!isset($error_msg))
                     $error_msg = "Accion no permitida";

@@ -14,8 +14,8 @@
         "AlumnosMaximos": "20",
         "PlazasVacantes": "10",
         "Precio": "300",
-        "NombreImagen": "ai",
-        "fotoCliente": ".\/media\/fotos\/idiomas.png"
+        "NombreImagen": "AI",
+        "fotoCliente": ".\/media\/fotos\/Screenshot from 2023-12-02 13-34-23.png"
     },
     "BBDD": {
         "nombre_actividad": "BBDD",
