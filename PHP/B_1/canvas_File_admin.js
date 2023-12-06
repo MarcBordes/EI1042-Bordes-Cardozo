@@ -1,3 +1,15 @@
+/**
+ * * Descripción: Mostrar imagen antes de subirla en el listado admin
+ * *
+ * *
+ * * @author Marc Bordes Gómez <al405682@uji.es> Elías Martín Cardozo <al405647@uji.es>
+ * * @copyright 2023 Bordes-Cardozo
+ * * @license http://www.fsf.org/licensing/licenses/gpl.txt GPL 2 or later
+ * * @version 2
+ **/
+
+
+
 function mostrarFoto(nodo, imagen) {
   var reader = new FileReader();
   reader.addEventListener("load", function () {
@@ -7,7 +19,6 @@ function mostrarFoto(nodo, imagen) {
 }
 
 function ready() {
-  // Attach the change event to a common ancestor (e.g., the table)
   document.querySelector("table").addEventListener("change", function (event) {
       var fichero = event.target;
       if (fichero.classList.contains("foto_cliente")) {
@@ -18,23 +29,16 @@ function ready() {
           imagen.setAttribute("id", "imagen");
 
           
-
-          // Find the parent cell (td)
           var parentCell = fichero.closest("td");
-
-          // Check if the cell already contains an image
           var existingImage = parentCell.querySelector("img");
           
           if (existingImage) {
-              // If an image exists, replace its source
               existingImage.src = '';
               mostrarFoto(fichero, existingImage);
           } else {
-              // If no image exists, append the new image
               mostrarFoto(fichero, imagen);
               parentCell.appendChild(imagen);
           }
-
           activarCanvas(imagen);
       }
   });
