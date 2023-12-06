@@ -122,7 +122,7 @@
 
 
         function isInsideFigure(x, y, position) {
-            // Utilizamos un área ligeramente más grande que el tamaño máximo de la figura para la comprobación
+            // Utilizamos un área ligeramente más grande que el tamaño máximo de la figura para la comprobación ya que es más sencillo así para el jugador.
             return x >= position.x - 35 && x <= position.x + 35 && y >= position.y - 35 && y <= position.y + 35;
         }
 
@@ -187,9 +187,11 @@
             const centerX = canvas.width / 2;
             const centerY = canvas.height / 2;
             const radius = 100;
+            //calculamos el incremento de angulo para que las figuras se coloquen en circulo, es decir 360/4 o lo que es lo mismo 2pi/4
             const angleIncrement = (2 * Math.PI) / 4;
 
-            for (let i = 0; i < 4; i++) {       //calculamos donde irá la figura respecto al centro. ya que las ubiucamos en circulo.
+            for (let i = 0; i < 4; i++) {       
+                //calculamos donde irá la figura respecto al centro. ya que las ubicamos en circulo.
                 const angle = i * angleIncrement;
                 const x = centerX + radius * Math.cos(angle);
                 const y = centerY + radius * Math.sin(angle);
