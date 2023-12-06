@@ -51,11 +51,11 @@
         seguidamente aparecerán 4 figuras y trendrás que pulsar en la correcta!</p>
     <canvas id="gameCanvas" width="400" height="400"></canvas>
     <button onclick="startGame()">Jugar</button>
-    <p id="reactionTime"></p>
+    <p id="reactionTime"></p>   <!-- aqui se va a mostrar el tiempo que tarda el usuario en pulsar al elemento correcto -->
 
-    <p id="personalBest"></p>
+    <p id="personalBest"></p>   <!-- aqui se va a mostrar si se ha hecho un récord personal al pulsar la figura -->
 
-    <div id="topTimes">
+    <div id="topTimes">     <!-- Top 3 de los mejores tiempos del usuario-->
         <h3>Top 3 Tiempos</h3>
         <ul id="topList"></ul>
     </div>
@@ -69,7 +69,7 @@
         let fixedFigureClicked = false;
         let fixedFigurePosition; // Almacena la posición de la fixedFigure
 
-        const topTimes = [];
+        const topTimes = [];       //aqui se guardaran los mejores timepos
         let personalBest = Infinity; // Inicializado en Infinity para garantizar que cualquier tiempo registrado sea menor.
 
         canvas.addEventListener('click', handleCanvasClick);
@@ -82,7 +82,7 @@
                 const endTime = Date.now();
                 const reactionTime = endTime - startTime;
 
-                // Verificar si el tiempo actual es mejor que el récord personal
+                // Verificar si el tiempo actual es mejor que el récord personal y lo mostramos
                 if (reactionTime < personalBest) {
                     personalBest = reactionTime;
 
@@ -101,14 +101,14 @@
                 // Ordenar el array de tiempos de menor a mayor
                 topTimes.sort((a, b) => a - b);
 
-                // Mantener solo los 3 mejores tiempos
+                // Y Mantener solo los 3 mejores tiempos
                 topTimes.splice(3);
 
                 // Mostrar el tiempo del jugador
                 const reactionTimeElement = document.getElementById('reactionTime');
                 reactionTimeElement.textContent = `Tu tiempo de reacción es: ${reactionTime} ms`;
 
-                // Mostrar el top 3 de manera visual
+                //mostramos el top 3 en forma de lista
                 const topListElement = document.getElementById('topList');
                 topListElement.innerHTML = '';  // Limpiar la lista antes de actualizar
 
@@ -122,7 +122,7 @@
 
 
         function isInsideFigure(x, y, position) {
-            // Utilizamos un área ligeramente más grande que el tamaño máximo de la figura
+            // Utilizamos un área ligeramente más grande que el tamaño máximo de la figura para la comprobación
             return x >= position.x - 35 && x <= position.x + 35 && y >= position.y - 35 && y <= position.y + 35;
         }
 
@@ -133,9 +133,9 @@
             clearCanvas();
             setTimeout(() => {
                 startTime = Date.now();
-                drawFixedFigure(true);  // Pasar un parámetro indicando que es la primera vez
+                drawFixedFigure(true);  // Pasar un parámetro indicando que es la primera vez y dibujamos la figura que se mostrará la primera vez
                 setTimeout(() => {
-                    clearCanvas();
+                    clearCanvas();      //limpiamos el canvas y a continuacion dibujamos el resto de figuras aletatorias en una posición
                     fixedFigurePosition = drawRandomFigures();
                     drawFixedFigure();  // Dibujar la fixedFigure después de las figuras aleatorias
                     fixedFigureClicked = true;
@@ -159,14 +159,14 @@
                 x = centerX;
                 y = centerY;
             } else {
-                // Si no es la primera vez, colocar la figura fija en una posición aleatoria
+                // Si no es la primera vez, colocar la figura fija en una posición aleatoria junto a las demas figuras
                 const randomIndex = Math.floor(Math.random() * 4);
                 const randomAngle = randomIndex * (2 * Math.PI) / 4;
                 x = centerX + radius * Math.cos(randomAngle);
                 y = centerY + radius * Math.sin(randomAngle);
             }
 
-            fixedFigurePosition = { x, y };
+            fixedFigurePosition = { x, y }; //nos guardamos la posicion de la figura cuando aparece la segunda vez para saber donde hay que pulsar
 
             const figure = {
                 color: fixedColor,
@@ -181,23 +181,21 @@
 
 
         function drawRandomFigures() {
-            const colors = ['blue', 'green', 'yellow', 'purple'];
-            const shapes = ['square', 'triangle', 'rectangle', 'cross'];
+            const colors = ['blue', 'green', 'yellow', 'purple'];       //diferentes colores que se usaran en las figuras random
+            const shapes = ['square', 'triangle', 'rectangle', 'cross'];    //diferentes difuras que se usaran en las figuras random
 
             const centerX = canvas.width / 2;
             const centerY = canvas.height / 2;
             const radius = 100;
             const angleIncrement = (2 * Math.PI) / 4;
 
-            //const numFigures = 4 * 
-
-            for (let i = 0; i < 4; i++) {
+            for (let i = 0; i < 4; i++) {       //calculamos donde irá la figura respecto al centro. ya que las ubiucamos en circulo.
                 const angle = i * angleIncrement;
                 const x = centerX + radius * Math.cos(angle);
                 const y = centerY + radius * Math.sin(angle);
 
-                const randomColor = getRandomColor(colors);
-                const randomShape = getRandomShape(shapes);
+                const randomColor = getRandomColor(colors); //color aleatorio
+                const randomShape = getRandomShape(shapes); //figura aleatoria
 
                 const figure = {
                     color: randomColor,
@@ -218,7 +216,7 @@
 
             ctx.fillStyle = figure.color;
 
-            switch (figure.shape) {
+            switch (figure.shape) { //funcion para dibujar los tipos de figuras que hemos especificado
                 case 'circle':
                     ctx.beginPath();
                     ctx.arc(x, y, 30, 0, 2 * Math.PI);
