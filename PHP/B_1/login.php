@@ -144,7 +144,6 @@ if ($_REQUEST['action'] == 'login') {
    $user = $_POST['user'];
    $password = $_POST['passwd'];
    if (autentificacion_ok($nomFitxer, $user, $password)) {     
-      var_dump($_SESSION);
    } else {
       $Login_error = "Usuario o contraseña incorrectos";
       $_SESSION['Login_error'] = $Login_error;

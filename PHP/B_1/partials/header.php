@@ -27,7 +27,7 @@
 		<a href="/portal0.php?action=home">
 			<img src="./media/imagen2.png" id="logo" alt="future mind school logo" />
 		</a>
-		<div style="display: flex; flex-direction: column;" id="papa"></div>
+		<div id="papa"></div>
 
 
 	</header>
@@ -36,7 +36,7 @@
 
 <script>
 	async function obtenirDadesMeteorologiques() {
-		const apiUrl = 'https://www.el-tiempo.net/api/json/v2/provincias/08/municipios/08121';
+		const apiUrl = 'https://www.el-tiempo.net/api/json/v2/provincias/48/municipios/48020';
 
 		try {
 			const response = await fetch(apiUrl);
@@ -50,7 +50,7 @@
 			var child = document.createElement("p");
 			var child_image = document.createElement("img");
 			child_image.setAttribute("width", "80px");
-			var estado = "Tiempo: " + dades.stateSky.description + " Humedad: " + dades.humedad + " Temperatura: " + dades.temperatura_actual + "ºC";
+			var estado = "Tiempo: " + dades.stateSky.description + "\nHumedad: " + dades.humedad + "\nTemperatura: " + dades.temperatura_actual + "ºC";
 
 			/*src=`${getIcon(data.stateSky.id)}.svg`*/
 			var link = 'https://www.el-tiempo.net' + dameLink(dades.stateSky.id) + '.svg';
@@ -58,7 +58,6 @@
 			child_image.setAttribute("src", link);
 			console.log(dades)
 			child.innerText = estado;
-
 			father.appendChild(child);
 			father.appendChild(child_image);
 		} catch (error) {
@@ -82,5 +81,18 @@
 
 
 
+	let aside = document.createElement("aside");
+	document.body.appendChild(aside);
+
+
+
+	// Hacer una petición fetch a la API de Chuck Norris
+	fetch("https://api.chucknorris.io/jokes/random")
+		.then(response => response.json()) // Convertir la respuesta a JSON
+		.then(data => {
+			aside.textContent = data.value;
+		})
+		.catch(error => {
+			console.error(error);
+		});
 </script>
-/*Falta hacer el css */

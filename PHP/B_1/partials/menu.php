@@ -9,15 +9,23 @@
  **/
 
  -->
+ 
+ <?php 
+include('../login.php'); 
+ ?>
 
 <nav>
 	<ul>
 		<li>
 			<a href="?action=home">Home</a>
 		</li>
+		<?php if (autentificado() && $_SESSION["user_role"] == "admin") {    ?>
+
 		<li>
-			<a href="?action=registrar">Registro</a>
+				<a href="?action=registrar">Registro</a>
 		</li>
+		<?php } ?>
+
 		<li>
 			<a href="?action=qui_som">Quiénes somos</a>
 		</li>

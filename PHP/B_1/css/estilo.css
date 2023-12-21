@@ -401,10 +401,8 @@ aside {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    border-top: 1px solid #610404;
     font-family: Arial, Helvetica, sans-serif;
     size: 5px;
-    background: repeating-linear-gradient(45deg, transparent, transparent 10px, #f0bccc 10px, #ccc 20px); /*Esto es para que el fondo sea rallado en los asides.*/
 }
 
 .div-aside {
@@ -454,6 +452,18 @@ aside>div>img:hover {
 
 .ocultar {
     display: none;
+}
+
+#papa {
+
+    display: flex; 
+    flex-direction: row;  
+    align-items: center; 
+    border: 2px solid var(--color-6); 
+    position: absolute;
+    right: 0;
+    padding: 10px;
+    margin-right: 150px;
 }
 
 /*AQUI ES DONDE PONDREMOS LOS MEDIA-QUERIES*/
