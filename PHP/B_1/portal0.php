@@ -23,7 +23,7 @@ if (!autentificado()) {                                 /* Si el usuario no esta
     echo '</div>';
 }
 
-require_once(dirname(__FILE__) . "/sessions.php");      
+require_once(dirname(__FILE__) . "/sessions.php");
 require_once(dirname(__FILE__) . "/partials/header.php");
 require_once(dirname(__FILE__) . "/partials/menu.php");
 
@@ -31,7 +31,7 @@ $action = (array_key_exists('action', $_REQUEST)) ? $_REQUEST["action"] : "home"
 
 if (isset($_REQUEST["action"])) {
 
-    if (!str_contains($_SERVER['HTTP_REFERER'], $_SERVER["SERVER_NAME"])) { 
+    if (!str_contains($_SERVER['HTTP_REFERER'], $_SERVER["SERVER_NAME"])) {
         $error_msg = "Acceso directo no permitido";
         $central = "/partials/home.php";
     } else {
@@ -47,6 +47,84 @@ if (isset($_REQUEST["action"])) {
                     $central = "/partials/form_register.php";
                 }
                 break;
+
+
+            case "cursosDisponibles":
+                
+                $jsonFile = "recursos/cursos.json";
+                if (file_exists($jsonFile)) {
+                    $jsonContent = file_get_contents($jsonFile);
+                    $cursos = json_decode($jsonContent, true);
+                    if ($cursos !== null) {
+                        $response = json_encode($cursos, JSON_PRETTY_PRINT);
+                        header('Content-Type: application/json');
+                        echo $response;
+                        exit;
+                    }
+                }
+
+                // En caso de error
+                $error_response = json_encode(["mensaje" => "error"]);
+                header('Content-Type: application/json');
+                echo $error_response;
+                exit;
+                break;
+
+            case "matriculaCursos":
+                // Obtener datos del usuario desde la sesión (ajusta según tu estructura de sesión)
+                $userId = $_SESSION["user_name"];
+
+                // Obtener parámetros del curso y usuario desde la URL
+                $cursoId = isset($_GET['curso']) ? $_GET['curso'] : null;
+                $userId = isset($_GET['user']) ? $_GET['user'] : $userId;
+
+                // Verificar si el archivo cursos.json existe
+                $jsonFile = "recursos/cursos.json";
+                if (file_exists($jsonFile)) {
+                    $jsonContent = file_get_contents($jsonFile);
+                    $cursos = json_decode($jsonContent, true);
+
+                    // Verificar si el curso y el usuario son válidos
+                    if ($cursoId && array_key_exists($cursoId, $cursos) && $userId) {
+                        // Verificar si hay vacantes disponibles
+                        if ($cursos[$cursoId]["vacantes"] > 0) {
+                            // Matricular al usuario
+                            $matriculadosFile = "recursos/matriculados.json";
+                            $matriculados = [];
+                            if (file_exists($matriculadosFile)) {
+                                $matriculadosContent = file_get_contents($matriculadosFile);
+                                $matriculados = json_decode($matriculadosContent, true);
+                            }
+
+                            // Agregar al usuario al curso en matriculados.json
+                            $matriculados[$cursoId][] = $userId;
+                            guarda_dades($matriculados, $matriculadosFile);
+
+                            // Actualizar el archivo cursos.json disminuyendo las vacantes
+                            $cursos[$cursoId]["vacantes"] -= 1;
+                            guarda_dades($cursos, $jsonFile);
+
+                            // Respuesta exitosa
+                            $response = json_encode(["matricula" => "correcta"]);
+                            header('Content-Type: application/json');
+                            echo $response;
+                            exit;
+                        } else {
+                            // No hay vacantes disponibles
+                            $error_response = json_encode(["matricula" => "incorrecta", "mensaje" => "No hay vacantes disponibles"]);
+                            header('Content-Type: application/json');
+                            echo $error_response;
+                            exit;
+                        }
+                    }
+                }
+
+                // En caso de error
+                $error_response = json_encode(["matricula" => "incorrecta", "mensaje" => "Error al procesar la matrícula"]);
+                header('Content-Type: application/json');
+                echo $error_response;
+                exit;
+                break;
             case "qui_som":
                 $central = "/partials/qui_som.php";
                 break;
@@ -61,7 +139,7 @@ if (isset($_REQUEST["action"])) {
                 }
                 break;
             case "borrar":
-                if (!autentificado() || $_SESSION["user_role"] != "admin") {    
+                if (!autentificado() || $_SESSION["user_role"] != "admin") {
                     $central = "/partials/error.php";
                     $error_msg = "Acción denegada, no eres administrador";
                 } else {                                                        /* comprueba que el curso que queremos borrar exista y lo borra del JSON */
