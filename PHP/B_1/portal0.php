@@ -59,24 +59,18 @@ if (isset($_REQUEST["action"])) {
                 break;
 
             case "matriculaCursos":
-                // Obtener datos del usuario desde la sesión (ajusta según tu estructura de sesión)
                 $userId = $_SESSION["user_name"];
 
-                // Obtener parámetros del curso y usuario desde la URL
                 $cursoId = isset($_GET['curso']) ? $_GET['curso'] : null;
                 $userId = isset($_GET['user']) ? $_GET['user'] : $userId;
 
-                // Verificar si el archivo cursos.json existe
                 $jsonFile = "recursos/cursos.json";
                 if (file_exists($jsonFile)) {
                     $jsonContent = file_get_contents($jsonFile);
                     $cursos = json_decode($jsonContent, true);
 
-                    // Verificar si el curso y el usuario son válidos
                     if ($cursoId && array_key_exists($cursoId, $cursos) && $userId) {
-                        // Verificar si hay vacantes disponibles
                         if ($cursos[$cursoId]["vacantes"] > 0) {
-                            // Matricular al usuario
                             $matriculadosFile = "recursos/matriculados.json";
                             $matriculados = [];
                             if (file_exists($matriculadosFile)) {
@@ -84,21 +78,17 @@ if (isset($_REQUEST["action"])) {
                                 $matriculados = json_decode($matriculadosContent, true);
                             }
 
-                            // Agregar al usuario al curso en matriculados.json
                             $matriculados[$cursoId][] = $userId;
                             guarda_dades($matriculados, $matriculadosFile);
 
-                            // Actualizar el archivo cursos.json disminuyendo las vacantes
                             $cursos[$cursoId]["vacantes"] -= 1;
                             guarda_dades($cursos, $jsonFile);
 
-                            // Respuesta exitosa
                             $response = json_encode(["matricula" => "correcta"]);
                             header('Content-Type: application/json');
                             echo $response;
                             exit;
                         } else {
-                            // No hay vacantes disponibles
                             $error_response = json_encode(["matricula" => "incorrecta", "mensaje" => "No hay vacantes disponibles"]);
                             header('Content-Type: application/json');
                             echo $error_response;
@@ -107,11 +97,9 @@ if (isset($_REQUEST["action"])) {
                     }
                 }
 
-                // En caso de error
                 $error_response = json_encode(["matricula" => "incorrecta", "mensaje" => "Error al procesar la matrícula"]);
                 header('Content-Type: application/json');
                 echo $error_response;
-                exit;
                 break;
             case "qui_som":
                 $central = "/partials/qui_som.php";
