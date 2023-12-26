@@ -50,24 +50,12 @@ if (isset($_REQUEST["action"])) {
 
 
             case "cursosDisponibles":
-                
-                $jsonFile = "recursos/cursos.json";
-                if (file_exists($jsonFile)) {
-                    $jsonContent = file_get_contents($jsonFile);
-                    $cursos = json_decode($jsonContent, true);
-                    if ($cursos !== null) {
-                        $response = json_encode($cursos, JSON_PRETTY_PRINT);
-                        header('Content-Type: application/json');
-                        echo $response;
-                        exit;
-                    }
-                }
 
-                // En caso de error
-                $error_response = json_encode(["mensaje" => "error"]);
-                header('Content-Type: application/json');
-                echo $error_response;
-                exit;
+                include(dirname(__FILE__) . "/cursosDisponibles.php");
+                break;
+
+            case "form_matricula":
+                $central = "/form_mat_cursos.php";
                 break;
 
             case "matriculaCursos":

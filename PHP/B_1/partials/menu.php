@@ -22,7 +22,7 @@ include('../login.php');
 		<?php if (autentificado() && $_SESSION["user_role"] == "admin") {    ?>
 
 		<li>
-				<a href="?action=registrar">Registro</a>
+			<a href="?action=registrar">Registro</a>
 		</li>
 		<?php } ?>
 
@@ -41,6 +41,9 @@ include('../login.php');
 
 		<li>
             <a href="?action=form_matricula&pet=partial">Matrícula de Cursos</a>
+        </li>
+		<li>
+            <a href="?action=cursosDisponibles&pet=partial">Cursos Disponibles</a>
         </li>
 
 		<li>
