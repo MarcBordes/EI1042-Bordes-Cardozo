@@ -112,8 +112,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $cursos[$nombre_actividad] = $nuevoCurso;
 
             $matriculados[$nombre_actividad] = [];
-            //$jsonMatriculados = json_encode($matriculados, JSON_PRETTY_PRINT); no se si estan lineas son necesarias
-            //file_put_contents($jsonFileMatriculados, $jsonMatriculados);
+            $jsonMatriculados = json_encode($matriculados, JSON_PRETTY_PRINT); 
+            file_put_contents($jsonFileMatriculados, $jsonMatriculados);
 
             $jsonCursos = json_encode($cursos, JSON_PRETTY_PRINT);
             file_put_contents($jsonFile, $jsonCursos);
