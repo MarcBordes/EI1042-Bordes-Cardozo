@@ -1,9 +1,10 @@
 {
     "Matematicas": [
-
+        {"user_name": "Lola", "user_id": "user1"},
+        {"nom": "Pepe", "email": "user2"}
     ],
     "AI": [
-        
+        {"user_name": "Lola", "user_id": "user1"}
     ],
     "BBDD": [
 

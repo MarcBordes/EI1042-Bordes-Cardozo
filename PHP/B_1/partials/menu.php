@@ -45,6 +45,13 @@ include('../login.php');
 		<li>
             <a href="?action=cursosDisponibles&pet=partial">Cursos Disponibles</a>
         </li>
+		
+		<?php if (autentificado() && $_SESSION["user_role"] == "admin") {    ?>
+		<li>
+            <a href="?action=listadoMatriculados">Listado de alumnos matriculados</a>
+        </li>
+		<?php } ?>
+
 
 		<li>
 			<a href="?action=juego">Jugar Juego</a>

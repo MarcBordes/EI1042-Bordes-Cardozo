@@ -47,7 +47,10 @@ if (isset($_REQUEST["action"])) {
                     $central = "/partials/form_register.php";
                 }
                 break;
-
+            
+            case "listadoMatriculados":
+                $central = "/partials/listadoMatriculados.php";
+                break;
 
             case "cursosDisponibles":
 
