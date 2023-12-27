@@ -38,10 +38,13 @@ include('/login.php');
 		<li>
 			<a href="?action=foto_upload">Foto Upload</a>
 		</li>
+		<?php if (autentificado()) {    ?>
 
 		<li>
             <a href="?action=form_matricula&pet=partial">Matrícula de Cursos</a>
         </li>
+		<?php } ?>
+
 		<li>
             <a href="?action=cursosDisponibles&pet=partial">Cursos Disponibles</a>
         </li>
