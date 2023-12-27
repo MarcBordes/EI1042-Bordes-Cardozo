@@ -17,13 +17,19 @@ if (file_exists($jsonFile)) {
                 $matriculados = json_decode($matriculadosContent, true);
             }
 
-            $matriculados[$cursoId][] = $userId;
-            guarda_dades($matriculados, $matriculadosFile);
+            if (isset($matriculados[$cursoId]) && in_array($userId, $matriculados[$cursoId])) {
+                $response = json_encode(['matricula' => 'error', 'message' => 'El usuario ya está matriculado en este curso']);
+            } else {      
+                $matriculados[$cursoId][] = $userId;
+                guarda_dades($matriculados, $matriculadosFile);
 
-            $cursos[$cursoId]["PlazasVacantes"] -= 1;
-            guarda_dades($cursos, $jsonFile);
+                $cursos[$cursoId]["PlazasVacantes"] -= 1;
+                guarda_dades($cursos, $jsonFile);
 
-            $response = json_encode(["matricula" => "correcta"]);
+                $response = json_encode(["matricula" => "correcta"]);
+
+            }
+
             header('Content-Type: application/json');
             echo $response;
             exit;
