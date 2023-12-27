@@ -28,8 +28,10 @@
 			<img src="./media/imagen2.png" id="logo" alt="future mind school logo" />
 		</a>
 		<div id="papa"></div>
-
-
+		<?php 
+		if (autentificado())
+   		 	echo  "<div id='saludo_user'>Registrado como {$_SESSION['user_name']} </div>";
+		?>
 	</header>
 </body>
 

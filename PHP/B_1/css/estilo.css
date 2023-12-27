@@ -465,6 +465,13 @@ aside>div>img:hover {
     padding: 10px;
     margin-right: 150px;
 }
+#saludo_user {
+    display: flex; 
+    position: absolute;
+    left: 0;
+    top:150;
+    padding: 10px;
+}
 
 /*AQUI ES DONDE PONDREMOS LOS MEDIA-QUERIES*/
 
