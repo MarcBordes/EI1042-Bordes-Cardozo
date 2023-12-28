@@ -30,7 +30,7 @@
 		<div id="papa"></div>
 		<?php 
 		if (autentificado())
-   		 	echo  "<div id='saludo_user'>Registrado como {$_SESSION['user_name']} </div>";
+   		 	echo  "<div style='color= 'light-gray';' id='saludo_user'>Registrado como {$_SESSION['user_name']} </div>";
 		?>
 	</header>
 </body>

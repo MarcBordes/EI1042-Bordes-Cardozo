@@ -13,13 +13,13 @@
 
 
 require_once(dirname(__FILE__) . "/login.php");
-if (!autentificado()) {                                 /* Si el usuario no esta autentificado mostramos el boton de login y en caso contrario el de logout */
+if (!autentificado()) {              /* Si el usuario no esta autentificado mostramos el boton de login y en caso contrario el de logout */
     echo '<div class="loguear">';
     echo '<a class="button-login" href="?action=login">Login</a>';
     echo '</div>';
 } else {
     echo '<div class="loguear">';
-    echo '<a class="button-login" href="?action=logout">Logout</a>';
+    echo '<a class="button-login" href="logout.php">Logout</a>';
     echo '</div>';
 }
 
@@ -47,11 +47,11 @@ if (isset($_REQUEST["action"])) {
                     $central = "/partials/form_register.php";
                 }
                 break;
-            
+
+
             case "listadoMatriculados":
                 $central = "/partials/listadoMatriculados.php";
                 break;
-
             case "cursosDisponibles":
 
                 include(dirname(__FILE__) . "/cursosDisponibles.php");
@@ -63,7 +63,7 @@ if (isset($_REQUEST["action"])) {
 
             case "matriculaCursos":
                 $central = "/partials/matricula_curso.php";
-                
+
                 break;
             case "qui_som":
                 $central = "/partials/qui_som.php";

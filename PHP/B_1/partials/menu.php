@@ -15,49 +15,60 @@ include('/login.php');
  ?>
 
 <nav>
-	<ul>
-		<li>
-			<a href="?action=home">Home</a>
-		</li>
-		<?php if (autentificado() && $_SESSION["user_role"] == "admin") {    ?>
+<ul>
+    <li>
+        <a href="?action=home">Home</a>
+    </li>
 
-		<li>
-			<a href="?action=registrar">Registro</a>
-		</li>
-		<?php } ?>
-
-		<li>
-			<a href="?action=qui_som">Quiénes somos</a>
-		</li>
-		<li>
-			<a href="?action=galeria">Galería</a>
-		</li>
-		<li>
-			<a href="?action=listar">Listado de cursos</a>
-		</li>
-		<li>
-			<a href="?action=foto_upload">Foto Upload</a>
-		</li>
-		<?php if (autentificado()) {    ?>
-
-		<li>
-            <a href="?action=form_matricula&pet=partial">Matrícula de Cursos</a>
+    <?php if (autentificado()) { ?>
+        <?php if ($_SESSION["user_role"] == "admin") { ?>
+            <li>
+                <a href="?action=listar">Listado de cursos</a>
+            </li>
+            <li>
+                <a href="?action=foto_upload">Subir una imagen</a>
+            </li>
+            <li>
+                <a href="?action=form_matricula&pet=partial">Matrícula de Cursos</a>
+            </li>
+            <li>
+                <a href="?action=listadoMatriculados">Listado de alumnos matriculados</a>
+            </li>
+        <?php } else { ?>
+            <li>
+                <a href="?action=qui_som">Quiénes somos</a>
+            </li>
+            <li>
+                <a href="?action=galeria">Galería</a>
+            </li>
+            <li>
+                <a href="?action=listar">Listado de cursos</a>
+            </li>
+            <li>
+                <a href="?action=foto_upload">Subir una imagen</a>
+            </li>
+            <li>
+                <a href="?action=form_matricula&pet=partial">Matrícula de Cursos</a>
+            </li>
+            <li>
+                <a href="?action=juego">Jugar Juego</a>
+            </li>
+        <?php } ?>
+    <?php } else { ?>
+        <li>
+            <a href="?action=qui_som">Quiénes somos</a>
         </li>
-		<?php } ?>
-
-		<li>
-            <a href="?action=cursosDisponibles&pet=partial">Cursos Disponibles</a>
+        <li>
+            <a href="?action=galeria">Galería</a>
         </li>
-		
-		<?php if (autentificado() && $_SESSION["user_role"] == "admin") {    ?>
-		<li>
-            <a href="?action=listadoMatriculados">Listado de alumnos matriculados</a>
+        <li>
+            <a href="?action=listar">Listado de cursos</a>
         </li>
-		<?php } ?>
+        <li>
+            <a href="?action=juego">Jugar Juego</a>
+        </li>
+    <?php } ?>
+</ul>
 
 
-		<li>
-			<a href="?action=juego">Jugar Juego</a>
-		</li>
-	</ul>
 </nav>

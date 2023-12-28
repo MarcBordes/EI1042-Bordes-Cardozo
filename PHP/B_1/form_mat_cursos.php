@@ -1,21 +1,21 @@
 <main>
 
-    <body>
+    <body onload="cargarDatosCurso()">
 
-        <h2>Formulario de Matrícula</h2>
+        <h2 style="margin-bottom:50px;">Formulario de Matrícula</h2>
 
         <form id="matriculaForm">
-            <label for="curs">Selecciona un curs:</label>
-            <select id="curs" name="curs" onchange="cargarDatosCurso()">
+            <label for="curs">Selecciona un curso:</label>
+            <select id="curs" name="curs" onchange="cargarDatosCurso()"">
             </select>
 
-            <label for="preu">Preu:</label>
-            <input type="text" id="preu" name="preu" readonly>
+            <label for=" preu">Precio:</label>
+                <input type="text" id="preu" name="preu" readonly>
 
-            <label for="vacants">Vacants disponibles:</label>
-            <input type="text" id="vacants" name="vacants" readonly>
+                <label for="vacants">Vacantes disponibles:</label>
+                <input type="text" id="vacants" name="vacants" readonly>
 
-            <button type="button" onclick="realizarMatricula()">Matricular-se</button>
+                <button type="button" onclick="realizarMatricula()">Matricularme</button>
         </form>
 
         <!-- Este scrip tenemos que crear los archivos y luego moverlo porque sino no le gusta a lola @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@-->
@@ -50,31 +50,47 @@
                 const selectedCurso = data[selectedCursoKey];
 
                 // Actualizar los campos del formulario con los datos del curso seleccionado
-                document.getElementById('preu').value = selectedCurso.Precio;
+                document.getElementById('preu').value = selectedCurso.Precio + "€";
                 document.getElementById('vacants').value = selectedCurso.PlazasVacantes;
             }
 
-            // Función para realizar la matrícula
             function realizarMatricula() {
                 const cursosSelect = document.getElementById("curs");
                 const cursoSeleccionado = cursosSelect.value;
 
-                // Realizar una solicitud Fetch para matricular al usuario
-                fetch(`portal0.php?action=matriculaCursos&pet=partial&curso=${cursoSeleccionado}`)
-                    .then(response => response.json())
-                    .then(data => {
-                        console.log('Datos recibidos:', data);
-                        if (data.matricula === "correcta") {
-                            // Eliminar el formulario y mostrar mensaje de éxito
-                            document.getElementById("matriculaForm").reset();
-                            alert("Usuario matriculado correctamente en el curso " + cursoSeleccionado);
-                        } else {
-                            // Mostrar mensaje de error en caso de falla
-                            alert("Error al realizar la matrícula: " + data.mensaje);
-                        }
-                    })
-                    .catch(error => console.error("Error al realizar la matrícula:", error));
+                // Obtener confirmación del usuario
+                const confirmacion = window.confirm(`¿Estás seguro de matricularte en el curso ${cursoSeleccionado}?`);
+
+                if (confirmacion) {
+                    // Usuario confirmó, realizar la solicitud Fetch para matricular al usuario
+                    fetch(`matricula_curso.php?curso=${cursoSeleccionado}`)
+                        .then(response => {
+                            if (!response.ok) {
+                                throw new Error("La solicitud no pudo ser completada correctamente.");
+                            }
+                            return response.json();
+                        })
+                        .then(data => {
+                            console.log('Datos recibidos:', data);
+                            if (data.matricula === "correcta") {
+                                // Eliminar el formulario y mostrar mensaje de éxito
+                                document.getElementById("matriculaForm").reset();
+                                alert("Usuario matriculado correctamente en el curso " + cursoSeleccionado);
+                            } else {
+                                // Mostrar mensaje de error en caso de falla
+                                alert("Error al realizar la matrícula: " + data.message);
+                            }
+                        })
+                        .catch(error => {
+                            // Aquí manejamos el error
+                            console.error("Error al realizar la matrícula");
+                        });
+                } else {
+                    // Usuario canceló la matriculación
+                    alert("Matriculación cancelada");
+                }
             }
+
 
         </script>
 

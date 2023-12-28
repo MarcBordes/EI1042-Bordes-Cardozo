@@ -1,6 +1,5 @@
 <?php
 session_start();
-
 /**
  * * Descripción: Utilidades para portal.php y el login
  * *
@@ -12,9 +11,6 @@ session_start();
  * * @version 2
 
  **/
-
-
-
 /**
  * Summary of importar_dades_csv
  * @param mixed $nomFitxer
@@ -25,7 +21,7 @@ session_start();
  * 
  */
 
- 
+
 function importar_dades_csv($nomFitxer)
 {
    $fichero = fopen($nomFitxer, 'r');
@@ -106,14 +102,15 @@ function carregar_dades($nomFitxer)
  */
 function autentificacion_ok($nomFitxer, $user, $passwd)
 { /* que carga el fitxer users.csv  y  comprueba  que existe una fila con
-   $_REQUEST[“user”=user_id  y $_REQUEST[ “passwd”]
-  */
+ $_REQUEST[“user”=user_id  y $_REQUEST[ “passwd”]
+*/
 
    $dic = importar_dades_csv($nomFitxer);
    if (isset($dic[$user]) and $dic[$user]["user_passwd"] == $passwd) {
       $_SESSION["user"] = $user;
       $_SESSION["user_name"] = $dic[$user]["user_name"];
       $_SESSION["user_role"] = $dic[$user]["user_role"];
+      $_SESSION["user_id"] = $user;
       return true;
    }
    return False;
@@ -131,11 +128,27 @@ function autentificado()
    return False;
 }
 
+function pasaCapcha($id, $codigo)
+{
+   $captchaFile = './media/captcha/capcha.json';
+   $captchaData = carregar_dades($captchaFile);
+
+   if (isset($captchaData[$id]) && $captchaData[$id] == $codigo) {
+      return true;
+   } else {
+      $Login_error = "Usuario o contraseña incorrectos";
+      $_SESSION['Login_error'] = $Login_error;
+      header("Location: ./portal0.php?action=login");
+      return false;
+
+   }
+}
+
 
 $nomFitxer = './recursos/seguro/users.csv';
 
 
-if ($_REQUEST['action'] == 'login') {              
+if ($_REQUEST['action'] == 'login') {
    if (autentificado()) {
       session_unset();
       session_destroy();
@@ -143,12 +156,18 @@ if ($_REQUEST['action'] == 'login') {
 } else if ($_REQUEST['action'] == 'auten') {
    $user = $_POST['user'];
    $password = $_POST['passwd'];
-   if (autentificacion_ok($nomFitxer, $user, $password)) {     
+   $id = $_POST['idTypeInput'];
+   $codigo = $_POST['captchaInput'];
+   unset($_SESSION['Login_error']);
+   if ( pasaCapcha($id, $codigo) && autentificacion_ok($nomFitxer, $user, $password)) {
+      header("Location: ./portal0.php?action=home");
    } else {
-      $Login_error = "Usuario o contraseña incorrectos";
+      $Login_error = "Error en el captcha o usuario y contraseña incorrectos";
       $_SESSION['Login_error'] = $Login_error;
       header("Location: ./portal0.php?action=login");
    }
-}  
+}
+
+
 
 ?>
