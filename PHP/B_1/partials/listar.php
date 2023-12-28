@@ -9,10 +9,28 @@
  **/
 
  -->
+ <?php
+// Obtén la página actual desde la consulta, por ejemplo, ?page=2
+$page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
+
+// Ejemplo de datos de cursos
+$json_data = file_get_contents('recursos/cursos.json');
+$cursos = json_decode($json_data, true);
+
+// Número de cursos por página
+$cursosPorPagina = 3;
+
+// Calcula el índice de inicio para la paginación
+$inicio = ($page - 1) * $cursosPorPagina;
+
+// Obtén los cursos para la página actual
+$cursosPagina = array_slice($cursos, $inicio, $cursosPorPagina);
+
+// Resto de tu código HTML
+?>
 
 <main>
   <h1>Cursos Disponibles</h1>
-  
 
   <!-- Tabla de Cursos -->
   <table>
@@ -23,28 +41,37 @@
         <th>Alumnos Máximos</th>
         <th>Plazas Vacantes</th>
         <th>Precio</th>
-        <!-- <th>Nombre de la imagen</th> -->
         <th>Imagen</th>
       </tr>
+    </thead>
     <tbody>
       <?php
-      // Ejemplo de datos de cursos
-      $json_data = file_get_contents('recursos/cursos.json');
-      $cursos = json_decode($json_data, true);
-
-      foreach ($cursos as $curso) {
+      foreach ($cursosPagina as $curso) {
         echo "<tr>";
         echo "<td>{$curso["nombre_actividad"]}</td>";
         echo "<td>{$curso["Descripcion"]}</td>";
         echo "<td>{$curso["AlumnosMaximos"]}</td>";
-        echo "<td><span" . ($curso["PlazasVacantes"] < 10 ? ' style="color: red;"' : '') . ">" . $curso["PlazasVacantes"] . "</span></td>"; /* si las vacantes son menor de 10 se pone el texto en rojo  */
+        echo "<td><span" . ($curso["PlazasVacantes"] < 10 ? ' style="color: red;"' : '') . ">" . $curso["PlazasVacantes"] . "</span></td>";
         echo "<td>{$curso["Precio"]}€</td>";
-        // echo "<td>{$curso["NombreImagen"]}</td>";
         echo "<td><img style= 'max-width: 500px; max-height: 200px;' alt='imagen listar' src='{$curso["fotoCliente"]}'/></td>";
         echo "</tr>";
       }
       ?>
-
     </tbody>
   </table>
+
+  <!-- Paginación -->
+  <div class="pagination">
+    <?php
+    // Calcula el número total de páginas
+    $totalPaginas = ceil(count($cursos) / $cursosPorPagina);
+
+    // Muestra enlaces de paginación
+    for ($i = 1; $i <= $totalPaginas; $i++) {
+      $class = ($i == $page) ? 'current' : '';
+      echo "<button class='$class' onclick='window.location.href=\"?action=listar&page=$i\"'>$i</button>";
+  }
+  
+    ?>
+  </div>
 </main>

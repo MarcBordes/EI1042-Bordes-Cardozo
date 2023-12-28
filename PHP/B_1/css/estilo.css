@@ -139,7 +139,8 @@ header>img {
     margin: 40px;
 }
 
-.loguear {                  /* Boton arriba a la derecha */
+.loguear {
+    /* Boton arriba a la derecha */
     position: absolute;
     top: 0;
     right: 0;
@@ -422,7 +423,8 @@ aside>div>img {
     width: 10%;
     height: 120px;
     transition: transform 0.05s ease-in-out;
-    border: 3px solid transparent; /*Est lo tuve que hacer así porque sino hacía cosas muy raras y me cambiaba todo el div.*/
+    border: 3px solid transparent;
+    /*Est lo tuve que hacer así porque sino hacía cosas muy raras y me cambiaba todo el div.*/
 }
 
 aside>div>img:hover {
@@ -442,6 +444,7 @@ aside>div>img:hover {
     margin: auto;
     text-align: center;
 }
+
 /*Esto es para centrar el formulario de subir imagen*/
 .form-centrado input {
     width: 100%;
@@ -452,22 +455,63 @@ aside>div>img:hover {
     display: none;
 }
 
+
+/* Estilo para la sección de paginación */
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+/* Estilo para la sección de paginación */
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+  }
+  
+  /* Estilo para cada enlace de paginación y botón */
+  .pagination a, .pagination button {
+    color: #333;
+    padding: 8px 12px;
+    margin: 0 4px;
+    text-decoration: none;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #fff;
+    transition: background-color 0.3s;
+    cursor: pointer; /* Agregamos este estilo para que aparezca la mano */
+  }
+  
+  /* Estilo para el enlace o botón de la página actual */
+  .pagination a.current, .pagination button.current {
+    background-color: #007bff;
+    color: #fff;
+  }
+  
+  /* Estilo para el enlace o botón al pasar el ratón */
+  .pagination a:hover, .pagination button:hover {
+    background-color: #ddd;
+  }
+  
+
+
 #papa {
 
-    display: flex; 
-    flex-direction: row;  
-    align-items: center; 
-    border: 2px solid var(--color-6); 
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border: 2px solid var(--color-6);
     position: absolute;
     right: 0;
     padding: 10px;
     margin-right: 150px;
 }
+
 #saludo_user {
-    display: flex; 
+    display: flex;
     position: absolute;
     left: 0;
-    top:150;
+    top: 150;
     padding: 10px;
 }
 

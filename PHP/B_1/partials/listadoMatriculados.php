@@ -17,6 +17,7 @@
             display: block;
             margin-bottom: 5px;
         }
+
         .curso img:hover {
             border-color: #999;
             size: 1.4;
@@ -27,18 +28,43 @@
             margin: 0;
         }
     </style>
-
-    <body>
-
-        <h2>Listado de Alumnos Matriculados</h2>
-
-        <!-- Contenedor para mostrar la lista de cursos -->
-        <div id="listaCursos"></div>
-
-        <!-- Contenedor para mostrar la lista de alumnos matriculados -->
-        <div id="listaAlumnos"></div>
+    <h2>Buscador de Alumnos</h2>
+    <form style="margin:20px;" action="/partials/buscador.php" method="post">
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" name="nombre" />
+        <label for="asignatura">Asignatura:</label>
+        <input type="text" id="asignatura" name="asignatura" />
+        <input type="submit" value="Buscar" />
+    </form>
+    <?php if (isset($_SESSION['busqueda'])): ?>
+        <div id="resultadoBusqueda">
+            <h3>Resultados de la búsqueda:</h3>
+            <p style="color:red;">
+                <?php echo $_SESSION['busqueda']; ?>
+            </p>
+        </div>
 
         <script>
+            // Esperar 3 segundos y luego ocultar el resultado de la búsqueda
+            setTimeout(function () {
+                var resultadoBusqueda = document.getElementById('resultadoBusqueda');
+                if (resultadoBusqueda) {
+                    resultadoBusqueda.style.display = 'none';
+                }
+            }, 5000);
+        </script>
+    <?php endif; ?>
+
+
+    <h2>Listado de Alumnos Matriculados</h2>
+
+    <!-- Contenedor para mostrar la lista de cursos -->
+    <div id="listaCursos"></div>
+
+    <!-- Contenedor para mostrar la lista de alumnos matriculados -->
+    <div id="listaAlumnos"></div>
+
+    <script>
         // Función para cargar asincrónicamente la lista de cursos
         function cargarCursos() {
             fetch('/recursos/cursos.json')
@@ -117,5 +143,4 @@
         };
     </script>
 
-    </body>
 </main>

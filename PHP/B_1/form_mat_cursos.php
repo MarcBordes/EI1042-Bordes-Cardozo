@@ -1,6 +1,7 @@
+<body onload="cargarDatosCurso()">
 <main>
 
-    <body onload="cargarDatosCurso()">
+  
 
         <h2 style="margin-bottom:50px;">Formulario de Matrícula</h2>
 
@@ -94,5 +95,5 @@
 
         </script>
 
-    </body>
 </main>
+</body>
