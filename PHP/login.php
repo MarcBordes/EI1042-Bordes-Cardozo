@@ -166,7 +166,4 @@ if ($_REQUEST['action'] == 'login') {
       header("Location: ./portal0.php?action=login");
    }
 }
-
-
-
 ?>

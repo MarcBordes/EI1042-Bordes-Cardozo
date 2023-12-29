@@ -14,13 +14,13 @@
 		<h1>Login </h1>
 		<form class="form_usuario" method="post" action="?action=auten">
 			<label for="user">Usuario</label>
-			<input type="text" size="10" id="user" name="user" /><br>
+			<input type="text" size="10" id="user" name="user" maxlength="15" /><br>
 			<label for="pass">Contraseña:</label>
-			<input type="password" size="10" id="pass" name="passwd" /><br>
+			<input type="password" size="10" id="pass" name="passwd" maxlength="20" /><br>
 			<input type="hidden" id="idTypeInput" name="idTypeInput">
 			<div id="captchaContainer">
 				<img style= "margin:10px;" id="captchaImage" alt="Captcha Image">
-				<input type="text" id="captchaInput" name="captchaInput" placeholder="Introduce el captcha" required>
+				<input type="text" id="captchaInput" name="captchaInput" placeholder="Introduce el captcha" maxlength="10" required>
 			</div>
 
 			<input type="submit" value="Enviar">
