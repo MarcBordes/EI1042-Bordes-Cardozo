@@ -11,7 +11,7 @@
  -->
 
 
- <script type="text/javascript" src="canvas_File.js" defer></script>
+ <script type="text/javascript" src="../js/canvas_File.js" defer></script>
 
 <main>
 

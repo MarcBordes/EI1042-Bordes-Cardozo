@@ -462,15 +462,17 @@ aside>div>img:hover {
     justify-content: center;
     margin-top: 20px;
 }
+
 /* Estilo para la sección de paginación */
 .pagination {
     display: flex;
     justify-content: center;
     margin-top: 20px;
-  }
-  
-  /* Estilo para cada enlace de paginación y botón */
-  .pagination a, .pagination button {
+}
+
+/* Estilo para cada enlace de paginación y botón */
+.pagination a,
+.pagination button {
     color: #333;
     padding: 8px 12px;
     margin: 0 4px;
@@ -479,20 +481,54 @@ aside>div>img:hover {
     border-radius: 4px;
     background-color: #fff;
     transition: background-color 0.3s;
-    cursor: pointer; /* Agregamos este estilo para que aparezca la mano */
-  }
-  
-  /* Estilo para el enlace o botón de la página actual */
-  .pagination a.current, .pagination button.current {
+    cursor: pointer;
+    /* Agregamos este estilo para que aparezca la mano */
+}
+
+/* Estilo para el enlace o botón de la página actual */
+.pagination a.current,
+.pagination button.current {
     background-color: #007bff;
     color: #fff;
-  }
-  
-  /* Estilo para el enlace o botón al pasar el ratón */
-  .pagination a:hover, .pagination button:hover {
+}
+
+/* Estilo para el enlace o botón al pasar el ratón */
+.pagination a:hover,
+.pagination button:hover {
     background-color: #ddd;
-  }
-  
+}
+
+
+/*Esto es para listaMatriculados.php*/
+.curso {
+    display: inline-block;
+    gap: 10px;
+    margin-left: 30px;
+    text-align: center;
+}
+
+.curso img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    display: block;
+    margin-bottom: 5px;
+    transition: transform 0.1s ease-in-out;
+    /* Agrega una transición suave al cambio de tamaño */
+}
+
+.curso img:hover {
+    border-color: #999;
+    transform: scale(1.1);
+    /* Hace que la imagen sea 1.1 veces más grande al pasar el ratón */
+    cursor: pointer;
+}
+
+.curso p {
+    margin: 0;
+}
 
 
 #papa {

@@ -10,7 +10,7 @@
 
  -->
 
-<script type="text/javascript" src="canvas_File_admin.js" defer></script>
+<script type="text/javascript" src="../js/canvas_File_admin.js" defer></script>
 
 <main>
 

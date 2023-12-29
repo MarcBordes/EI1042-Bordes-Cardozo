@@ -1,7 +1,8 @@
 <?php
 session_start(); // Iniciar la sesión al principio del archivo
 
-function checkIfExists($name, $class) {
+function checkIfExists($name, $class)
+{
     $data = file_get_contents('../recursos/matriculados.json');
     $json = json_decode($data, true);
 
@@ -16,7 +17,7 @@ function checkIfExists($name, $class) {
     return false;
 }
 
-// Limpiar la variable de sesión 'busqueda' al principio
+// Limpiar la variable de sesión 'busqueda' al principio por si no se ha borrado
 unset($_SESSION['busqueda']);
 
 // Comprobar si se ha enviado el formulario
@@ -33,13 +34,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $_SESSION['busqueda'] = 'No está en la asignatura.';
         }
 
-        // Mostrar mensajes sin redirigir
+        // Redirigir al listado de matriculados con la variable de sesion ya creada y ahí se mostraŕa el mensaje
         header('Location: http://localhost:8080/portal0.php?action=listadoMatriculados');
     } else {
         // Manejar el caso en que los campos estén vacíos
         $_SESSION['busqueda'] = 'Por favor, completa ambos campos.';
-
-        // Mostrar mensajes sin redirigir
     }
 }
 ?>
