@@ -13,6 +13,7 @@
 
 
 // Función para cargar asincrónicamente la lista de cursos
+// Función para cargar de manera asíncrona la lista de cursos desde un archivo JSON
 function cargarCursos() {
     fetch('/recursos/cursos.json')
         .then(response => response.json())
@@ -23,18 +24,22 @@ function cargarCursos() {
                 const cursoDiv = document.createElement('div');
                 cursoDiv.classList.add('curso');
 
+                // Crear una imagen y asignar la URL desde el archivo JSON
                 const imagen = document.createElement('img');
                 imagen.src = data[key].fotoCliente;
                 cursoDiv.appendChild(imagen);
 
+                // Crear un párrafo y asignar el nombre de la actividad desde el archivo JSON
                 const nombre = document.createElement('p');
                 nombre.textContent = data[key].nombre_actividad;
                 cursoDiv.appendChild(nombre);
 
+                // Asignar un evento de clic para cargar los alumnos matriculados al hacer clic en el curso
                 cursoDiv.onclick = function () {
                     cargarAlumnosMatriculados(key);
                 };
 
+                // Agregar el contenedor del curso al contenedor principal de la lista de cursos
                 listaCursos.appendChild(cursoDiv);
             });
         })
@@ -61,10 +66,12 @@ function cargarAlumnosMatriculados(curso) {
             listaAlumnos.innerHTML = ''; // Limpiar la lista antes de agregar nuevos elementos
 
             if (matriculadosUsuarios && matriculadosUsuarios.length > 0) {
+                // Crear un título para la lista de alumnos matriculados
                 const titulo = document.createElement('h3');
                 titulo.textContent = 'Alumnos Matriculados en ' + curso;
                 listaAlumnos.appendChild(titulo);
 
+                // Crear una lista ordenada y agregar elementos de lista para cada alumno matriculado
                 const lista = document.createElement('ul');
                 matriculadosUsuarios.forEach(usuario => {
                     const item = document.createElement('li');
@@ -72,8 +79,10 @@ function cargarAlumnosMatriculados(curso) {
                     lista.appendChild(item);
                 });
 
+                // Agregar la lista de alumnos al contenedor principal de la lista de alumnos
                 listaAlumnos.appendChild(lista);
             } else {
+                // Mostrar un mensaje si no hay alumnos matriculados en el curso
                 const mensaje = document.createElement('p');
                 mensaje.textContent = 'No hay alumnos matriculados en este curso.';
                 listaAlumnos.appendChild(mensaje);
@@ -83,6 +92,7 @@ function cargarAlumnosMatriculados(curso) {
             console.error('Error al cargar alumnos matriculados:', error);
         });
 }
+
 // Esperar 3 segundos y luego ocultar el resultado de la búsqueda
 setTimeout(function () {
     var resultadoBusqueda = document.getElementById('resultadoBusqueda');

@@ -69,7 +69,6 @@ function importar_dades0($nomFitxer)
  * @param mixed $diccionario
  * @param mixed $filename
  * Guarda un fichero Json en un directorio, devuelve false si no se ha podido escribir.
- * @return void
  */
 function guarda_dades($diccionario, $filename)
 {

@@ -14,25 +14,31 @@
  */
 
  $imageDir = __DIR__ . '/../media/captcha';
+ 
+ // Obtener la lista de archivos de imagen en formato jpg, png, o jpeg
  $files = glob($imageDir . '/{*.jpg,*.png,*.jpeg}', GLOB_BRACE);
-if (count($files) > 0) {
-    $randomFile = $files[array_rand($files)];
-    $idType = pathinfo($randomFile, PATHINFO_FILENAME);
-    $imageData = base64_encode(file_get_contents($randomFile));
-    
-    $response = [
-        'success' => true,
-        'idType' => $idType,
-        'image' => $imageData
-    ];
-        
-} else {
-    $response = [
-        'success' => false,
-        'message' => 'No captcha images found'
-    ];
-}
-
-header('Content-Type: application/json');
-echo json_encode($response);
-?>
+ 
+ // Verificar si hay imágenes disponibles
+ if (count($files) > 0) {
+     $randomFile = $files[array_rand($files)];
+     // Extraer el tipo de identificación de la imagen (nombre de archivo sin extensión)
+     $idType = pathinfo($randomFile, PATHINFO_FILENAME);
+ 
+     // Convertir el contenido de la imagen a base64
+     $imageData = base64_encode(file_get_contents($randomFile));
+      $response = [
+         'success' => true,
+         'idType' => $idType,
+         'image' => $imageData
+     ];
+ } else {
+     $response = [
+         'success' => false,
+         'message' => 'No captcha images found'
+     ];
+ }
+ 
+ header('Content-Type: application/json');
+ echo json_encode($response);
+ ?>
+ 

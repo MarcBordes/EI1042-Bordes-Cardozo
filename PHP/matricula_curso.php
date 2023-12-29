@@ -30,8 +30,9 @@ $jsonFile = "./recursos/cursos.json";
 if (file_exists($jsonFile)) {
     $jsonContent = file_get_contents($jsonFile);
     $cursos = json_decode($jsonContent, true);
-
+    //comprobamos que el curso exista y que el usuario esté logueado
     if ($cursoId && array_key_exists($cursoId, $cursos) && $userName) {
+        //comprobamos si hay plazas disponibles
         if ($cursos[$cursoId]["PlazasVacantes"] > 0) {
             $matriculadosFile = "./recursos/matriculados.json";
             $matriculados = [];
@@ -50,10 +51,10 @@ if (file_exists($jsonFile)) {
                     "user_name" => $userName
                 ];
                 guarda_dades($matriculados, $matriculadosFile);
-
+                // Restar una plaza vacante al curso
                 $cursos[$cursoId]["PlazasVacantes"] -= 1;
                 guarda_dades($cursos, $jsonFile);
-
+                // Devolver una respuesta correcta
                 $response = json_encode(["matricula" => "correcta"]);
 
             }

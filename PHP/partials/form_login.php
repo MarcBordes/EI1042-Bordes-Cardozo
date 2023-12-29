@@ -36,25 +36,6 @@
 		}
 		?>
 	</div>
-
-	<!-- Script JavaScript para obtener y mostrar el captcha -->
-	<script>
-		function obtenerCaptcha() {
-			fetch("/partials/captchagenerator.php")
-				.then(response => response.json())
-				 .then(data => {
-				 	if (data.success) {
-				 		console.log(data.success);
-				 		document.getElementById("captchaImage").src = "data:image/jpg;base64," + data.image;
-						 document.getElementById("idTypeInput").value = data.idType;
-				 	} else {
-				 		console.error("Error al obtener la imagen captcha:", data.message);
-					}
-				})
-				.catch(error => {
-					console.error("Error en la solicitud a la API:", error);
-				});
-		}
-	</script>
+	<script src="../js/form_login.js"></script>
 </main>
 </body>
