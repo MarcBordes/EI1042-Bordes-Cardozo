@@ -1,3 +1,17 @@
+/**
+ * Realiza una solicitud Fetch para cargar asincrónicamente la lista de cursos desde el archivo JSON.
+ * Llena el contenedor de cursos con imágenes y nombres de cursos.
+ *
+ * @function
+ * @async
+ * @throws {Error} Si hay un error en la solicitud Fetch o al cargar cursos desde el archivo JSON.
+ * @return {void}
+ * @global {Object} data - Debe estar previamente cargado con los datos de cursos disponibles.
+ * @license http://www.fsf.org/licensing/licenses/gpl.txt GPL 2 or later
+ *  */
+
+
+
 // Función para cargar asincrónicamente la lista de cursos
 function cargarCursos() {
     fetch('/recursos/cursos.json')

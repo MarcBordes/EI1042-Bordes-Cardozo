@@ -1,3 +1,16 @@
+<!--
+Página principal que incluye un buscador de alumnos y un listado de matriculados.
+El buscador permite buscar alumnos por nombre y asignatura, mostrando el resultado.
+A continuación, se presenta un listado de alumnos matriculados en diversos cursos, con la posibilidad
+de cargar la información de manera asíncrona desde archivos JSON.
+
+Autores:
+- Elias Cardozo <al405647@uji.es>
+- Marc Bordes <al405682@uji.es>
+Versión: 1.0
+license http://www.fsf.org/licensing/licenses/gpl.txt GPL 2 or later
+-->
+
 <main>
     <h2>Buscador de Alumnos</h2>
     <form style="margin:20px;" action="/partials/buscador.php" method="post">

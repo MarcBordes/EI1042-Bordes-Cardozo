@@ -2,7 +2,8 @@
  * * Descripción: Mostrar imagen antes de subirla en el listado admin
  * *
  * *
- * * @author Marc Bordes Gómez <al405682@uji.es> Elías Martín Cardozo <al405647@uji.es>
+ * * @author Marc Bordes Gómez <al405682@uji.es> 
+ * * @author Elías Martín Cardozo <al405647@uji.es>
  * * @copyright 2023 Bordes-Cardozo
  * * @license http://www.fsf.org/licensing/licenses/gpl.txt GPL 2 or later
  * * @version 2

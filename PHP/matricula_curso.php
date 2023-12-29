@@ -1,4 +1,17 @@
 <?php
+/**
+ * Procesar la matrícula de un usuario en un curso específico.
+ *
+ * Este script PHP recibe la solicitud de matrícula del usuario, valida la disponibilidad
+ * de plazas en el curso, verifica si el usuario ya está matriculado y realiza la matrícula.
+ * Luego actualiza los archivos JSON que contienen la información de cursos y matriculados.
+ *
+ * @return void
+ * @author  Elias Cardozo <al405647@uji.es>
+ * @author  Marc Bordes <al405682@uji.es>
+ * @version 1.0
+ */
+
 include(dirname(__FILE__) . "/lib_utilidades.php");
 
 session_start();

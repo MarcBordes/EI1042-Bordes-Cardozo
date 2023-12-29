@@ -1,3 +1,23 @@
+/**
+ * Realiza una solicitud Fetch para obtener datos de cursos disponibles así como los datos de estos
+ * También nos registra en un curso.
+ * Filtra los cursos con plazas disponibles y llena un elemento select con las opciones.
+ *
+ * @global {Object} data - Almacena los datos de cursos disponibles para su uso posterior.
+ * @function
+ * @async
+ * @throws {Error} Si hay un error en la solicitud Fetch.
+ * @return {void}
+ * @see cargarDatosCurso
+ * @see realizarMatricula
+ * @see init
+ * @author Elias Cardozo <al405647@uji.es>
+ * @author Marc Bordes <al405682@uji.es>
+ * @version 1.0
+ */
+
+
+
 let data;
 
 async function fetchData() {

@@ -1,3 +1,19 @@
+/**
+ * Obtener datos meteorológicos y mostrarlos en la página así como hacer uso de la API DE CHUCK NORRIS.
+ *
+ * Esta función asincrónica utiliza la API de el-tiempo.net para obtener datos meteorológicos
+ * de una ubicación específica y muestra la información en la página web. También maneja errores
+ * en caso de que la obtención de datos no sea exitosa.
+ *
+ * @return {void}
+ * @throws {Error} Si no se pueden obtener las datos meteorológicos.
+ * @author Elias Cardozo <al405647@uji.es>
+ * @author Marc Bordes <al405682@uji.es>
+ * @license http://www.fsf.org/licensing/licenses/gpl.txt GPL 2 or later
+ * @version 1.0
+ */
+
+
 async function obtenirDadesMeteorologiques() {
     const apiUrl = 'https://www.el-tiempo.net/api/json/v2/provincias/48/municipios/48020';
 
