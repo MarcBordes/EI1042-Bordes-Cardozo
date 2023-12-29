@@ -28,9 +28,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Validar que los campos no estén vacíos
     if (!empty($name) && !empty($class)) {
         if (checkIfExists($name, $class)) {
-            $_SESSION['busqueda'] = 'Estudiante encontrado en la asignatura.';
+            $_SESSION['busqueda'] = 'Sí está en la asignatura.';
         } else {
-            $_SESSION['busqueda'] = 'Estudiante no encontrado en la asignatura.';
+            $_SESSION['busqueda'] = 'No está en la asignatura.';
         }
 
         // Mostrar mensajes sin redirigir

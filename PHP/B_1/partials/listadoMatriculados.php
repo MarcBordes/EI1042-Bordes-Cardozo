@@ -16,11 +16,14 @@
             border-radius: 8px;
             display: block;
             margin-bottom: 5px;
+            transition: transform 0.1s ease-in-out;
+            /* Agrega una transición suave al cambio de tamaño */
         }
 
         .curso img:hover {
             border-color: #999;
-            size: 1.4;
+            transform: scale(1.1);
+            /* Hace que la imagen sea 1.5 veces más grande al pasar el ratón */
             cursor: pointer;
         }
 
@@ -57,6 +60,7 @@
 
 
     <h2>Listado de Alumnos Matriculados</h2>
+    <p>Pulsa en un curso para ver los alumnos matriculados:</p>
 
     <!-- Contenedor para mostrar la lista de cursos -->
     <div id="listaCursos"></div>
