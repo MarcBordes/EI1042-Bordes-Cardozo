@@ -1,1 +1,0 @@
-<?php header("Location: ./partials/portal0.php?action=home"); ?>

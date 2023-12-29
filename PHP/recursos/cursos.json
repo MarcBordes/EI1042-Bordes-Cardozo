@@ -3,10 +3,10 @@
         "nombre_actividad": "Matematicas",
         "Descripcion": "Curso de matematicas",
         "AlumnosMaximos": "50",
-        "PlazasVacantes": "17",
+        "PlazasVacantes": "20",
         "Precio": "202",
         "NombreImagen": "mates",
-        "fotoCliente": ".\/media\/fotos\/Screenshot from 2023-12-23 22-45-54.png"
+        "fotoCliente": ".\/media\/fotos\/Screenshot from 2023-12-27 18-21-33.png"
     },
     "AI": {
         "nombre_actividad": "AI",
@@ -30,7 +30,7 @@
         "nombre_actividad": "Filosofia",
         "Descripcion": "Filosofia moderna",
         "AlumnosMaximos": "100",
-        "PlazasVacantes": 86,
+        "PlazasVacantes": 85,
         "Precio": "50",
         "NombreImagen": "filosofia",
         "fotoCliente": "\/media\/fotos\/filosofia.jpeg"
@@ -73,9 +73,9 @@
     },
     "Quimica": {
         "nombre_actividad": "Quimica",
-        "Descripcion": "Curso de quimica",
+        "Descripcion": "Curso de quimica pura",
         "AlumnosMaximos": "100",
-        "PlazasVacantes": 78,
+        "PlazasVacantes": "78",
         "Precio": "400",
         "NombreImagen": "quimica",
         "fotoCliente": "\/media\/fotos\/quimica.jpeg"
