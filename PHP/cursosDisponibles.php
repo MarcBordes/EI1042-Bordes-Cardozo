@@ -14,10 +14,11 @@
  */
 
 // Ruta del archivo JSON que contiene la información de cursos
-$jsonFile = '/recursos/cursos.json';
+$jsonFile = 'recursos/cursos.json';
 
 // Verificar si el archivo JSON existe
 if (file_exists($jsonFile)) {
+    // Leer el contenido del archivo JSON
     $jsonContent = file_get_contents($jsonFile);
 
     // Decodificar el contenido JSON en un array asociativo
@@ -25,14 +26,23 @@ if (file_exists($jsonFile)) {
 
     // Verificar si la decodificación fue exitosa
     if ($cursos !== null) {
+        // Configurar la cabecera de respuesta como JSON
         header('Content-Type: application/json');
+
+        // Devolver el contenido del archivo JSON como JSON, con formato legible
         echo json_encode($cursos, JSON_PRETTY_PRINT);
+
+        // Finalizar la ejecución del script
         exit;
     }
 }
-// En caso de error
+
+// En caso de error (si el archivo no existe o hay un problema con la decodificación JSON)
 header('Content-Type: application/json');
+
 // Devolver un mensaje de error como JSON
 echo json_encode(["mensaje" => "error"]);
+
+// Finalizar la ejecución del script
 exit;
 ?>

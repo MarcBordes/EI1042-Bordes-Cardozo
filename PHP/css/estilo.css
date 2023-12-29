@@ -499,7 +499,7 @@ aside>div>img:hover {
 }
 
 
-/*Esto es para listaMatriculados.php*/
+/*Esto es para listaMatriculados.php, es decir ver las imagenes de los cursos*/
 .curso {
     display: inline-block;
     gap: 10px;
@@ -518,7 +518,7 @@ aside>div>img:hover {
     transition: transform 0.1s ease-in-out;
     /* Agrega una transición suave al cambio de tamaño */
 }
-
+/*Si paasmos encima de las imagenes de los cursos se haga más grande*/
 .curso img:hover {
     border-color: #999;
     transform: scale(1.1);
@@ -530,7 +530,7 @@ aside>div>img:hover {
     margin: 0;
 }
 
-
+/*Esto es para mostrar el cuadrado con la metereología */
 #papa {
 
     display: flex;
@@ -538,11 +538,11 @@ aside>div>img:hover {
     align-items: center;
     border: 2px solid var(--color-6);
     position: absolute;
-    right: 0;
+    right: 0; /*para que se quede a la derecha*/
     padding: 10px;
     margin-right: 150px;
 }
-
+/*Esto es para mostar el nombre del usuario a la izquierda*/
 #saludo_user {
     display: flex;
     position: absolute;

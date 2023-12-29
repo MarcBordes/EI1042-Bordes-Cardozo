@@ -60,7 +60,7 @@ function dameLink(codigoIcono) {
 let aside = document.createElement("aside");
 document.body.appendChild(aside);
 
-// Hacer una petición fetch a la API de Chuck Norris
+// Hacer una petición fetch a la API de Chuck Norris esta no es asíncrona por decisión del equipo
 fetch("https://api.chucknorris.io/jokes/random")
     .then(response => response.json()) // Convertir la respuesta a JSON
     .then(data => {

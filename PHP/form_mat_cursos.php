@@ -28,6 +28,6 @@
                 <input type="text" id="vacants" name="vacants" readonly>
                 <button type="button" onclick="realizarMatricula()">Matricularme</button>
         </form>
-        <script src="../js/form_mat_cursos.js"></script>
+        <script src="js/form_mat_cursos.js"></script>
     </main>
 </body>
